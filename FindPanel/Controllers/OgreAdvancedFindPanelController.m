@@ -134,6 +134,16 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[self setCloseWhenDoneOption:YES];
 	
 	[toggleStyleOptionsButton setState:NSOffState];
+    
+    // disable Smart Quote/Dash on Mavericks and later
+    if ([findTextView respondsToSelector:@selector(setAutomaticQuoteSubstitutionEnabled:)]) {
+        [findTextView setAutomaticQuoteSubstitutionEnabled:NO];
+        [replaceTextView setAutomaticQuoteSubstitutionEnabled:NO];
+    }
+    if ([findTextView respondsToSelector:@selector(setAutomaticDashSubstitutionEnabled:)]) {
+        [findTextView setAutomaticDashSubstitutionEnabled:NO];
+        [replaceTextView setAutomaticDashSubstitutionEnabled:NO];
+    }
 	
 	// restore history
 	[self restoreHistory:[textFinder history]];

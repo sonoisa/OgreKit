@@ -134,6 +134,17 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	[self setCloseWhenDoneOption:YES];
 	
 	[toggleStyleOptionsButton setState:NSOffState];
+    
+	// 自動置換機能を停止
+	[@[findTextView, replaceTextView] enumerateObjectsUsingBlock:^(id textView, NSUInteger idx, BOOL *stop) {
+		[textView setSmartInsertDeleteEnabled:NO];
+		[textView setAutomaticDashSubstitutionEnabled:NO];
+		[textView setAutomaticDataDetectionEnabled:NO];
+		[textView setAutomaticLinkDetectionEnabled:NO];
+		[textView setAutomaticQuoteSubstitutionEnabled:NO];
+		[textView setAutomaticSpellingCorrectionEnabled:NO];
+		[textView setAutomaticTextReplacementEnabled:NO];
+	}];
 	
 	// restore history
 	[self restoreHistory:[textFinder history]];

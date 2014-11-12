@@ -1,0 +1,31 @@
+﻿/*
+ * Name: OgreAPFCLocalizable.strings
+ * Project: OgreKit
+ *
+ * Creation Date: Jan 22 2004
+ * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
+ * Copyright: Copyright (c) 2004 Isao Sonobe, All rights reserved.
+ * License: OgreKit License
+ *
+ * Encoding: UTF16
+ * Tabsize: 4
+ */
+
+/* the title of OK button */
+"OK"	= "승인";
+
+/* the title of the "More/Less Options" Button */
+"More Options"  = "자세한 설정";
+"Less Options"	= "간편한 설정";
+
+/* clear the find/replace histories */
+// title
+"Clear" = "지우기";
+// message
+"Do you really want to clear find/replace histories?"   = "찾기/바꾸기 이력을 정말로 지우시겠습니까?";
+// buttons
+"Yes"   = "예";
+"No"	= "아니오";
+
+/* error messages */
+"Invalid Regular Expression"   = "정규식 표현이 잘못되었습니다";

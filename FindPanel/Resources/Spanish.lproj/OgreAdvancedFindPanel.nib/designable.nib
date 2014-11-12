@@ -57,7 +57,7 @@
                                         <binding destination="476" name="enabled" keyPath="selection.replaceWithStylesOption" id="671"/>
                                     </connections>
                                 </button>
-                                <button toolTip="スタイル付き文字列に置換する" id="676" customClass="OgreAFPCOptionButton">
+                                <button id="676" customClass="OgreAFPCOptionButton">
                                     <rect key="frame" x="6" y="57" width="80" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" title="With Styles" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="724">
@@ -277,7 +277,7 @@
                                     </buttonCell>
                                     <cells>
                                         <column>
-                                            <buttonCell type="check" title="Ignorar mayúsculas" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" toolTip="大／小文字の違いを無視する" tag="2" inset="2" id="30">
+                                            <buttonCell type="check" title="Ignorar mayúsculas" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="2" inset="2" id="30">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <connections>
@@ -294,7 +294,7 @@
                                         </column>
                                     </cells>
                                 </matrix>
-                                <button toolTip="単純一致構文の使用時に、空白で単語を区切る" id="560" customClass="OgreAFPCOptionButton">
+                                <button toolTip="delimit keywords to find by white-spaces in use the Simple Matching syntax" id="560" customClass="OgreAFPCOptionButton">
                                     <rect key="frame" x="10" y="4" width="137" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <buttonCell key="cell" type="check" title="Delimitar con espacio" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" enabled="NO" inset="2" id="710">
@@ -310,7 +310,7 @@
                                         </binding>
                                     </connections>
                                 </button>
-                                <button toolTip="正規表現を使用する" id="561">
+                                <button id="561">
                                     <rect key="frame" x="10" y="24" width="138" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <buttonCell key="cell" type="check" title="Expresiones regulares" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="711">
@@ -395,21 +395,6 @@
                                 <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="448">
                                     <rect key="frame" x="91" y="2" width="305" height="70"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <string key="toolTip">検索文字列では次のエスケープ・シーケンスが使用できる。
-
-\0, \&amp;: マッチした文字列
-\1, \2, ... \9: n番目に捕獲されたグループにマッチした部分文字列
-\`: マッチした文字列より前の文字列
-\': マッチした文字列より後の文字列
-\-: 前回にマッチした文字列との間の文字列
-\+: 最も番号が大きいマッチしたグループの部分文字列
-\g&lt;name&gt;: 名前が name の名前付きグループにマッチした部分文字列
-\g&lt;number&gt;: n番目に捕獲されたグループにマッチした部分文字列
-\\: エスケープ文字 "\"
-\t: 水平タブ (0x09)
-\n: 改行文字 (0x0A)
-\r: 復帰文字 (0x0D)
-\x{HHHH}: 16-bit Unicode文字 U+HHHH</string>
                                     <clipView key="contentView" id="Yh5-FG-ob3">
                                         <rect key="frame" x="1" y="1" width="303" height="68"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -726,7 +711,7 @@
                         <rect key="frame" x="2" y="2" width="160" height="253"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button toolTip="拡張式を使用する" id="619">
+                            <button toolTip="extended pattern form" id="619">
                                 <rect key="frame" x="5" y="176" width="76" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Extendido" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="730">
@@ -737,7 +722,7 @@
                                     <binding destination="476" name="value" keyPath="selection.extendOption" id="648"/>
                                 </connections>
                             </button>
-                            <button toolTip="POSIXxxxxやPerl、Java構文の使用時にデフォルトで指定される &quot;一行マッチ&quot; オプションを無効にする" id="620">
+                            <button toolTip="clear &quot;Single Line&quot; option which is default on in POSIXxxxx, Perl and Java." id="620">
                                 <rect key="frame" x="5" y="100" width="108" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Negar línea sola" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="731">
@@ -748,7 +733,7 @@
                                     <binding destination="476" name="value" keyPath="selection.negateSingleLineOption" id="652"/>
                                 </connections>
                             </button>
-                            <button toolTip="最長マッチを探す" id="621">
+                            <button toolTip="find longest match" id="621">
                                 <rect key="frame" x="5" y="157" width="126" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Buscar el más largo" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="732">
@@ -770,7 +755,7 @@
                                     <binding destination="476" name="value" keyPath="selection.singleLineOption" id="645"/>
                                 </connections>
                             </button>
-                            <button toolTip="単純一致構文の使用時に、空白で単語を区切る" id="623" customClass="OgreAFPCOptionButton">
+                            <button toolTip="delimit keywords to find by white-spaces in use the Simple Matching syntax" id="623" customClass="OgreAFPCOptionButton">
                                 <rect key="frame" x="5" y="43" width="140" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Delimitar con espacio" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" enabled="NO" inset="2" id="734">
@@ -786,7 +771,7 @@
                                     </binding>
                                 </connections>
                             </button>
-                            <button toolTip="'.' を改行文字にもマッチさせる" id="624">
+                            <button toolTip="'.' match with newline" id="624">
                                 <rect key="frame" x="5" y="214" width="88" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Varias líneas" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="735">
@@ -797,7 +782,7 @@
                                     <binding destination="476" name="value" keyPath="selection.multilineOption" id="646"/>
                                 </connections>
                             </button>
-                            <button toolTip="名前付きグループ、名前なしグループを捕獲する" id="625">
+                            <button toolTip="named and no-named group captured." id="625">
                                 <rect key="frame" x="5" y="81" width="104" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Capturar grupo" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="736">
@@ -808,7 +793,7 @@
                                     <binding destination="476" name="value" keyPath="selection.captureGroupOption" id="653"/>
                                 </connections>
                             </button>
-                            <button toolTip="空マッチを無視する" id="626">
+                            <button toolTip="ignore empty match" id="626">
                                 <rect key="frame" x="5" y="138" width="105" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Buscar no vacío" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="737">
@@ -819,7 +804,7 @@
                                     <binding destination="476" name="value" keyPath="selection.findNotEmptyOption" id="650"/>
                                 </connections>
                             </button>
-                            <button toolTip="先頭を行頭とみなさない" id="627">
+                            <button toolTip="string head isn't considered as begin of line" id="627">
                                 <rect key="frame" x="5" y="24" width="138" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="No comienzo de línea" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="738">
@@ -830,7 +815,7 @@
                                     <binding destination="476" name="value" keyPath="selection.notBeginOfLineOption" id="656"/>
                                 </connections>
                             </button>
-                            <button toolTip="大／小文字の違いを無視する" id="628">
+                            <button toolTip="ignore case (case-insensitive)" id="628">
                                 <rect key="frame" x="5" y="195" width="125" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Ignorar mayúsculas" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="739">
@@ -841,7 +826,7 @@
                                     <binding destination="476" name="value" keyPath="selection.ignoreCaseOption" id="647"/>
                                 </connections>
                             </button>
-                            <button toolTip="末尾を行末とみなさない" id="629">
+                            <button toolTip="string end isn't considered as end of line" id="629">
                                 <rect key="frame" x="5" y="5" width="100" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="No fin de línea" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="740">
@@ -852,7 +837,7 @@
                                     <binding destination="476" name="value" keyPath="selection.notEndOfLineOption" id="657"/>
                                 </connections>
                             </button>
-                            <button toolTip="空でないマッチに接する空マッチを許す" id="630">
+                            <button toolTip="allow empty match being next to not empty matchs" id="630">
                                 <rect key="frame" x="5" y="119" width="88" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Buscar vacío" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="741">
@@ -863,7 +848,7 @@
                                     <binding destination="476" name="value" keyPath="selection.findEmptyOption" id="651"/>
                                 </connections>
                             </button>
-                            <button toolTip="名前付きグループのみ捕獲する" id="631">
+                            <button toolTip="named group only captured." id="631">
                                 <rect key="frame" x="5" y="62" width="121" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="No capturar grupo" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="742">

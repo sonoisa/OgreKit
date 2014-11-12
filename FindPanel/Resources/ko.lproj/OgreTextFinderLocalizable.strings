@@ -1,0 +1,78 @@
+﻿/*
+ * Name: OgreTextFinderLocalizable.strings
+ * Project: OgreKit
+ *
+ * Creation Date: Jan 22 2004
+ * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
+ * Copyright: Copyright (c) 2004 Isao Sonobe, All rights reserved.
+ * License: OgreKit License
+ *
+ * Encoding: UTF16
+ * Tabsize: 4
+ */
+
+"Find"			= "찾기";	/* the title of the "Find" menu */
+"Replace"		= "바꾸기";
+"Find All"		= "모두 찾기";
+"Replace All"   = "모두 바꾸기";
+"Highlight"		= "하일라이트";
+
+/* the titles of buttons */
+"OK"		= "승인";
+"Cancel"	= "취소";
+
+/* progrss messages */
+" (%dsec remaining)"        = " (%d초 남음)";    // sec: second
+// Find All
+"%d string found."          = "%d개의 문자열 찾음";
+"%d strings found."         = "%d개의 문자열 찾음";
+// Replace All
+"%d string replaced."       = "%d개의 문자열 바꿈";
+"%d strings replaced."      = "%d개의 문자열 바꿈";
+// Highlight
+"%d string highlighted."    = "%d개의 문자열 하일라이트";
+"%d strings highlighted."   = "%d개의 문자열 하일라이트";
+
+/* finish messages */
+// not found
+"Not found. (%.3fsec)"							= "찾지 못했습니다 (%.3f초)";
+"Not found. (canceled, %.3fsec)"				= "찾지 못했습니다 (취소됨, %.3f초)";
+// Find All
+"%d string found. (%.3fsec)"					= "%d개의 문자열 찾음 (%.3f초)";
+"%d strings found. (%.3fsec)"					= "%d개의 문자열 찾음 (%.3f초)";
+"%d string found. (canceled, %.3fsec)"			= "%d개의 문자열 찾음 (취소됨, %.3f초)";
+"%d strings found. (canceled, %.3fsec)"			= "%d개의 문자열 찾음 (취소됨, %.3f초)";
+// Replace All
+"%d string replaced. (%.3fsec)"					= "%d개의 문자열 바꿈 (%.3f초)";
+"%d strings replaced. (%.3fsec)"				= "%d개의 문자열 바꿈 (%.3f초)";
+"%d string replaced. (canceled, %.3fsec)"		= "%d개의 문자열 바꿈 (취소됨, %.3f초)";
+"%d strings replaced. (canceled, %.3fsec)"		= "%d개의 문자열 바꿈 (취소됨, %.3f초)";
+// Highlight
+"%d string highlighted. (%.3fsec)"				= "%d개의 문자열 하일라이트 (%.3f초)";
+"%d strings highlighted. (%.3fsec)"				= "%d개의 문자열 하일라이트 (%.3f초)";
+"%d string highlighted. (canceled, %.3fsec)"	= "%d개의 문자열 하일라이트 (취소됨, %.3f초)";
+"%d strings highlighted. (canceled, %.3fsec)"   = "%d개의 문자열 하일라이트 (취소됨, %.3f초)";
+
+/* error messages */
+"Error! Uneditable."	= "에러! 편집 불가능"; /* a target TextView is not editable */
+"Missing."				= "찾은 문자열 없어짐";			/* a found string became missing */
+
+/* Find Result Window*/
+"Find Result for \"%@\""        = "\"%@\" 검색 결과";
+"%d string found."				= "%d개의 문자열 찾음";
+"%d strings found."				= "%d개의 문자열 찾음";
+"Found in %d item."				= "%d개 항목 찾음";
+"Found in %d items."            = "%d개 항목 찾음";
+"Find String: %@"               = "찾을 문자열: %@";
+"Line"                          = "행";
+"Found String"                  = "문자열";
+"Live Update"                   = "자동 갱신";
+"Selected string not found."	= "선택한 문자열이 없습니다."; /* error message */
+
+/* preparation */
+"Favorites"					= "선호 목록";
+"Custom Find/Replace"		= "사용자 정의 찾기/바꾸기";
+"Definition"				= "정의";
+"Serial (Pipe)"				= "Serial (Pipe)";
+"Parallel (Join)"			= "Parallel (Join)";
+"Multifile Find/Replace"	= "다중 찾기/바꾸기";

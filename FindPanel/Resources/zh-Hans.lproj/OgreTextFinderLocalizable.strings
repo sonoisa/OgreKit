@@ -1,0 +1,78 @@
+﻿/*
+ * Name: OgreTextFinderLocalizable.strings
+ * Project: OgreKit
+ *
+ * Creation Date: Jan 22 2004
+ * Author: Isao Sonobe <sonoisa (AT) muse (DOT) ocn (DOT) ne (DOT) jp>
+ * Copyright: Copyright (c) 2004 Isao Sonobe, All rights reserved.
+ * License: OgreKit License
+ *
+ * Encoding: UTF16
+ * Tabsize: 4
+ */
+
+"Find"			= "查找";	/* the title of the "Find" menu */
+"Replace"		= "替换";
+"Find All"		= "查找全部";
+"Replace All"   = "替换全部";
+"Highlight"		= "高亮";
+
+/* the titles of buttons */
+"OK"		= "好";
+"Cancel"	= "取消";
+
+/* progrss messages */
+" (%dsec remaining)"        = " (剩余 %d 秒)";    // sec: second
+// Find All
+"%d string found."          = "找到 %d 个匹配";
+"%d strings found."         = "找到 %d 个匹配";
+// Replace All
+"%d string replaced."       = "已替换 %d 个匹配";
+"%d strings replaced."      = "已替换 %d 个匹配";
+// Highlight
+"%d string highlighted."    = "已高亮 %d 个匹配";
+"%d strings highlighted."   = "已高亮 %d 个匹配";
+
+/* finish messages */
+// not found
+"Not found. (%.3fsec)"							= "没有找到 (%.3f秒)";
+"Not found. (canceled, %.3fsec)"				= "没有找到 (已取消, %.3f秒)";
+// Find All
+"%d string found. (%.3fsec)"					= "找到 %d 个匹配 (%.3f秒)";
+"%d strings found. (%.3fsec)"					= "找到 %d 个匹配 (%.3f秒)";
+"%d string found. (canceled, %.3fsec)"			= "找到 %d 个匹配 (已取消, %.3f秒)";
+"%d strings found. (canceled, %.3fsec)"			= "找到 %d 个匹配 (已取消, %.3f秒)";
+// Replace All
+"%d string replaced. (%.3fsec)"					= "已替换 %d 个匹配 (%.3f秒)";
+"%d strings replaced. (%.3fsec)"				= "已替换 %d 个匹配 (%.3f秒)";
+"%d string replaced. (canceled, %.3fsec)"		= "已替换 %d 个匹配 (已取消, %.3f秒)";
+"%d strings replaced. (canceled, %.3fsec)"		= "已替换 %d 个匹配 (已取消, %.3f秒)";
+// Highlight
+"%d string highlighted. (%.3fsec)"				= "已高亮 %d 个匹配 (%.3f秒)";
+"%d strings highlighted. (%.3fsec)"				= "已高亮 %d 个匹配 (%.3f秒)";
+"%d string highlighted. (canceled, %.3fsec)"	= "已高亮 %d 个匹配 (已取消, %.3f秒)";
+"%d strings highlighted. (canceled, %.3fsec)"   = "已高亮 %d 个匹配 (已取消, %.3f秒)";
+
+/* error messages */
+"Error! Uneditable."	= "错误! 无法编辑"; /* a target TextView is not editable */
+"Missing."				= "缺失";			/* a found string became missing */
+
+/* Find Result Window*/
+"Find Result for \"%@\""        = "查找结果 \"%@\"";
+"%d string found."				= "找到 %d 个匹配";
+"%d strings found."				= "找到 %d 个匹配";
+"Found in %d item."				= "在 %d 项中找到";
+"Found in %d items."            = "在 %d 项中找到";
+"Find String: %@"               = "查找字符串: %@";
+"Line"                          = "行";
+"Found String"                  = "找到字符串";
+"Live Update"                   = "实时更新";
+"Selected string not found."	= "选中字符串没有找到"; /* error message */
+
+/* preparation */
+"Favorites"					= "喜好";
+"Custom Find/Replace"		= "自定义查找/替换";
+"Definition"				= "定义";
+"Serial (Pipe)"				= "串行 (管道)";
+"Parallel (Join)"			= "并行 (连接)";
+"Multifile Find/Replace"	= "多文件查找/替换";

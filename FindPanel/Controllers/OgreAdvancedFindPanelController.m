@@ -910,6 +910,8 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			[self toggleStyleOptions:self];
 		}
 		[toggleStyleOptionsButton setHidden:YES];
+        [findTextView setRichText:NO];
+        [replaceTextView setRichText:NO];
 	} else {
 		[toggleStyleOptionsButton setHidden:NO];
 	}

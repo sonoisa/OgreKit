@@ -21,9 +21,6 @@
 	/* 前回のFind Panelの位置を再現 */
     [[self findPanel] setFrameAutosaveName: @"Find Panel"];
     [[self findPanel] setFrameUsingName: @"Find Panel"];
-    
-    // 検索パネルらしい振る舞いをさせる
-    [[self findPanel] setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorTransient | NSWindowCollectionBehaviorIgnoresCycle | NSWindowCollectionBehaviorFullScreenAuxiliary];
 }
 
 - (OgreTextFinder*)textFinder

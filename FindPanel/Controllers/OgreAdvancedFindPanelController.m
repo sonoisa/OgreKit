@@ -156,6 +156,9 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		selector: @selector(updateMaxNumOfReplaceHistory:) 
 		name: NSControlTextDidEndEditingNotification
 		object: maxNumOfReplaceHistoryTextField];
+    
+    // 検索パネルらしい振る舞いをさせる
+    [[self findPanel] setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorTransient | NSWindowCollectionBehaviorIgnoresCycle | NSWindowCollectionBehaviorFullScreenAuxiliary];
 }
 
 

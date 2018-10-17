@@ -47,14 +47,6 @@
     return self;
 }
 
-#ifdef MAC_OS_X_VERSION_10_6
-- (void)finalize
-{
-    if (_indexes != NULL) NSZoneFree([self zone], _indexes);
-    [super finalize];
-}
-#endif
-
 - (void)dealloc
 {
     if (_indexes != NULL) NSZoneFree([self zone], _indexes);

@@ -2840,7 +2840,6 @@
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
-				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -2873,7 +2872,6 @@
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
-				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -2905,7 +2903,6 @@
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
-				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",

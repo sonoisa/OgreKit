@@ -24,6 +24,14 @@
 #import <OgreKit/OGString.h>
 #import <OgreKit/OGMutableString.h>
 
+OnigSyntaxType  OgrePrivatePOSIXBasicSyntax;
+OnigSyntaxType  OgrePrivatePOSIXExtendedSyntax;
+OnigSyntaxType  OgrePrivateEmacsSyntax;
+OnigSyntaxType  OgrePrivateGrepSyntax;
+OnigSyntaxType  OgrePrivateGNURegexSyntax;
+OnigSyntaxType  OgrePrivateJavaSyntax;
+OnigSyntaxType  OgrePrivatePerlSyntax;
+OnigSyntaxType  OgrePrivateRubySyntax;
 
 @implementation OGRegularExpression (Private)
 

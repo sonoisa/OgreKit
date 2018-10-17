@@ -25,16 +25,14 @@ typedef enum OgreKindOfCharacters {
 	OgreKindOfNormal
 } OgreKindOfCharacter;
 
-// 正規表現構文
-OnigSyntaxType  OgrePrivatePOSIXBasicSyntax;
-OnigSyntaxType  OgrePrivatePOSIXExtendedSyntax;
-OnigSyntaxType  OgrePrivateEmacsSyntax;
-OnigSyntaxType  OgrePrivateGrepSyntax;
-OnigSyntaxType  OgrePrivateGNURegexSyntax;
-OnigSyntaxType  OgrePrivateJavaSyntax;
-OnigSyntaxType  OgrePrivatePerlSyntax;
-OnigSyntaxType  OgrePrivateRubySyntax;
-
+extern OnigSyntaxType  OgrePrivatePOSIXBasicSyntax;
+extern OnigSyntaxType  OgrePrivatePOSIXExtendedSyntax;
+extern OnigSyntaxType  OgrePrivateEmacsSyntax;
+extern OnigSyntaxType  OgrePrivateGrepSyntax;
+extern OnigSyntaxType  OgrePrivateGNURegexSyntax;
+extern OnigSyntaxType  OgrePrivateJavaSyntax;
+extern OnigSyntaxType  OgrePrivatePerlSyntax;
+extern OnigSyntaxType  OgrePrivateRubySyntax;
 
 @interface OGRegularExpression (Private)
 

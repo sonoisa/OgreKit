@@ -2407,6 +2407,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -2432,6 +2433,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -2456,6 +2458,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 			};
 			name = Default;
 		};
@@ -2493,6 +2496,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2535,6 +2539,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2576,6 +2581,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2726,6 +2732,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2768,6 +2775,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2809,6 +2817,7 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2841,6 +2850,7 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2872,6 +2882,7 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2902,6 +2913,7 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2934,6 +2946,7 @@
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Debug;
@@ -2962,6 +2975,7 @@
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Release;
@@ -2989,6 +3003,7 @@
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Default;
@@ -3017,6 +3032,7 @@
 				PRODUCT_NAME = MyFindPanelExample;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Debug;
@@ -3045,6 +3061,7 @@
 				PRODUCT_NAME = MyFindPanelExample;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Release;
@@ -3072,6 +3089,7 @@
 				PRODUCT_NAME = MyFindPanelExample;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Default;
@@ -3100,6 +3118,7 @@
 				PRODUCT_NAME = ReplaceWithAttributesTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -3132,6 +3151,7 @@
 				PRODUCT_NAME = ReplaceWithAttributesTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -3163,6 +3183,7 @@
 				PRODUCT_NAME = ReplaceWithAttributesTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
+				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -3179,7 +3200,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -3202,7 +3223,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -3223,7 +3244,7 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";

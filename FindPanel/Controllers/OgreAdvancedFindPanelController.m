@@ -1429,7 +1429,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 /* delegate method of OgreAdvancedFindPanel */
 - (void)findPanelFlagsChanged:(unsigned)modifierFlags  
 {
-    if ((modifierFlags & NSAlternateKeyMask) != 0) {
+    if ((modifierFlags & NSEventModifierFlagOption) != 0) {
         // alt key pressed
         if (!_altKeyDown) {
             _altKeyDown = YES;

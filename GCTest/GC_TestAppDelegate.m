@@ -22,6 +22,7 @@
     
     OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:@"a"];
     
+    NSAutoreleasePool    *pool = [[NSAutoreleasePool alloc] init];
     int count = 0;
     int i;
     for (i = 0; i < 1000000000; i++) {
@@ -30,9 +31,13 @@
         while ((match = [matcher nextObject]) != nil) {
             count++;
         }
-//        NSGarbageCollector *collector = [NSGarbageCollector defaultCollector];
-//        [collector collectExhaustively];
+        
+        if (i % 1000 == 0) {
+            [pool release];
+            pool = [[NSAutoreleasePool alloc] init];
+        }
     }
+    [pool release];
     
 	NSLog(@"GC Test - end");
 }

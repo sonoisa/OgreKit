@@ -241,7 +241,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		// Findメニューの初期化
 		[findMenu setTitle:titleOfFindMenu];
-        NSMenuItem  *newFindMenuItem = [[[NSMenuItem allocWithZone:[NSMenu menuZone]] init] autorelease];
+        NSMenuItem  *newFindMenuItem = [[[NSMenuItem alloc] init] autorelease];
 		[newFindMenuItem setTitle:titleOfFindMenu];
 		[newFindMenuItem setSubmenu:findMenu];
 		

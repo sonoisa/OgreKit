@@ -25,7 +25,9 @@
         _okSelector = OKSelector;
         _cancelSelector = CancelSelector;
         _target = aTarget;
-        [NSBundle loadNibNamed:@"MyTableColumnSheet" owner:self];
+        
+        NSArray*    topLevelObjects = [NSArray new];
+        [[NSBundle mainBundle] loadNibNamed:@"MyTableColumnSheet" owner:self topLevelObjects:&topLevelObjects];
     }
     
     return self;

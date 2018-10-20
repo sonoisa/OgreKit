@@ -43,16 +43,16 @@
 	[[self retain] retain]; // close:とsheetDidEnd:のときに一度ずつreleaseされる
 	[titleTextField setStringValue:_title];
 	[button setTitle:OgreTextFinderLocalizedString(@"Cancel")];
-	[NSApp beginSheet: progressWindow 
-		modalForWindow: _parentWindow 
-		modalDelegate: self
-		didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) 
-		contextInfo: nil];
+    
+    [_parentWindow beginSheet:progressWindow completionHandler:^(NSModalResponse returnCode) {
+        [self sheetDidEnd:progressWindow returnCode:returnCode contextInfo:nil];
+    }];
+    
 	[progressBar setUsesThreadedAnimation:YES];
 	[progressBar startAnimation:self];
 }
 
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void*)contextInfo
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-sheetDidEnd: of %@", [self className]);

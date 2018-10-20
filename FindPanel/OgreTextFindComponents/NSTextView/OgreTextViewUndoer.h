@@ -18,9 +18,9 @@
 {
     NSRange             *_rangeArray;
     NSMutableArray      *_attributedStringArray;
-    unsigned            _count, _tail;
+    NSUInteger          _count, _tail;
 }
-- (id)initWithCapacity:(unsigned)aCapacity;
+- (id)initWithCapacity:(NSUInteger)aCapacity;
 - (void)addRange:(NSRange)aRange attributedString:(NSAttributedString*)anAttributedString;
 - (void)undoTextView:(id)aTarget jumpToSelection:(BOOL)jumpToSelection invocationTarget:(id)myself;
 @end

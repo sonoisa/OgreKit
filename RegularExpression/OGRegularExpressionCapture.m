@@ -35,7 +35,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
  * 諸情報 *
  *********/
 // グループ番号
-- (unsigned)groupIndex
+- (NSUInteger)groupIndex
 {
     return _captureNode->group;
 }
@@ -47,19 +47,19 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 }
 
 // 何番目の子要素であるか 0,1,2,...
-- (unsigned)index
+- (NSUInteger)index
 {
     return _index;
 }
 
 // 深さ
-- (unsigned)level
+- (NSUInteger)level
 {
     return _level;
 }
 
 // 子要素の数
-- (unsigned)numberOfChildren
+- (NSUInteger)numberOfChildren
 {
     return _captureNode->num_childs;
 }
@@ -80,7 +80,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 
 
 // index番目の子要素
-- (OGRegularExpressionCapture*)childAtIndex:(unsigned)index
+- (OGRegularExpressionCapture*)childAtIndex:(NSUInteger)index
 {
     if (index >= _captureNode->num_childs) {
         return nil;
@@ -106,11 +106,11 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	NSDictionary	*dictionary = [NSDictionary 
 		dictionaryWithObjects: [NSArray arrayWithObjects: 
 			[NSNumber numberWithUnsignedInt: _captureNode->group], 
-			[NSNumber numberWithUnsignedInt: _index], 
-			[NSNumber numberWithUnsignedInt: _level], 
+			[NSNumber numberWithUnsignedLong: _index],
+			[NSNumber numberWithUnsignedLong: _level],
 			[NSArray arrayWithObjects:
-                [NSNumber numberWithUnsignedInt: _captureNode->beg], 
-                [NSNumber numberWithUnsignedInt: _captureNode->end - _captureNode->beg], 
+                [NSNumber numberWithUnsignedLong: _captureNode->beg],
+                [NSNumber numberWithUnsignedLong: _captureNode->end - _captureNode->beg],
                 nil], 
 			[NSNumber numberWithUnsignedInt: _captureNode->num_childs], 
 			nil]
@@ -199,13 +199,13 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	//[super encodeWithCoder:encoder]; NSObject does ont respond to method encodeWithCoder:
 	
    if ([encoder allowsKeyedCoding]) {
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt:_index] forKey: OgreIndexKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt:_level] forKey: OgreLevelKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedLong:_index] forKey: OgreIndexKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedLong:_level] forKey: OgreLevelKey];
 		[encoder encodeObject: _match forKey: OgreMatchKey];
 		[encoder encodeObject: _parent forKey: OgreParentKey];
 	} else {
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt:_index]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedInt:_level]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedLong:_index]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedLong:_level]];
 		[encoder encodeObject: _match];
 		[encoder encodeObject: _parent];
 	}

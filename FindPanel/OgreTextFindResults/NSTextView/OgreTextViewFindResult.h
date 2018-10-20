@@ -24,9 +24,9 @@ extern NSString	*OgreTextViewFindResultException;
 	NSTextView			*_textView;		// 検索対象
 	
 	NSString			*_text;					// 検索対象の文字列
-	unsigned			_textLength;			// その長さ
-	unsigned			_searchLineRangeLocation;	// 行の範囲を調べる起点
-	unsigned			_line;					// 調べている行
+	NSUInteger			_textLength;			// その長さ
+	NSUInteger			_searchLineRangeLocation;	// 行の範囲を調べる起点
+	NSUInteger			_line;					// 調べている行
 	NSRange				_lineRange;				// _line行目の範囲
 	
 	NSMutableArray		*_lineOfMatchedStrings, // マッチした文字列のある行番号 (0番目はダミー。常に0。)
@@ -37,13 +37,13 @@ extern NSString	*OgreTextViewFindResultException;
 												//  1番目以降の部分文字列は0番目の部分文字列との相対位置
                         *_childArray;           // マッチした文字列のresult leaf array
 
-	unsigned			_count;					// マッチした文字列の数
+	NSUInteger			_count;					// マッチした文字列の数
 	
-	int					_cacheIndex;			// 表示用キャッシュ
-	unsigned			_cacheAbsoluteLocation;	// _cacheIndex番目のマッチの絶対位置
+	NSInteger			_cacheIndex;			// 表示用キャッシュ
+	NSUInteger			_cacheAbsoluteLocation;	// _cacheIndex番目のマッチの絶対位置
 	
-	int					_updateCacheIndex;				// 更新用キャッシュ
-	unsigned			_updateCacheAbsoluteLocation;	// _updateCacheIndex番目のマッチの絶対位置
+	NSInteger			_updateCacheIndex;				// 更新用キャッシュ
+	NSUInteger			_updateCacheAbsoluteLocation;	// _updateCacheIndex番目のマッチの絶対位置
 }
 
 // 初期化
@@ -56,18 +56,18 @@ extern NSString	*OgreTextViewFindResultException;
 //- (void)endAddition;
 
 // index番目にマッチした文字列のある行番号
-- (NSNumber*)lineOfMatchedStringAtIndex:(unsigned)index;
+- (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index;
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index;
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index;
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index;
 // マッチ数
-- (unsigned)count;
+- (NSUInteger)count;
 
 // 結果の更新
 - (void)updateOldRange:(NSRange)oldRange newRange:(NSRange)newRange;
-- (void)updateSubranges:(NSMutableArray*)target count:(unsigned)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(unsigned)origin leftAlign:(BOOL)leftAlign;
+- (void)updateSubranges:(NSMutableArray*)target count:(NSUInteger)numberOfSubranges oldRange:(NSRange)oldRange newRange:(NSRange)newRange origin:(NSUInteger)origin leftAlign:(BOOL)leftAlign;
 
 @end

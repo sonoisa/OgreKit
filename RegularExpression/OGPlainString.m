@@ -87,7 +87,7 @@ static NSString * const	OgrePlainStringKey = @"OgrePlainString";
 	return [[[NSAttributedString alloc] initWithString:(NSString*)_string] autorelease];
 }
 
-- (unsigned)length
+- (NSUInteger)length
 {
 	return [_string length];
 }

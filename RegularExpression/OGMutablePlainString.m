@@ -80,7 +80,7 @@
 }
 
 
-- (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string atIndex:(unsigned)index
+- (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string atIndex:(NSUInteger)index
 {
 	/* do nothing */
 }

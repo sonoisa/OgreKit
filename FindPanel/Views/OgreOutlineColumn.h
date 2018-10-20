@@ -18,9 +18,9 @@
 {
 }
 
-- (int)ogreNumberOfChildrenOfItem:(id)item;
+- (NSInteger)ogreNumberOfChildrenOfItem:(id)item;
 - (BOOL)ogreIsItemExpandable:(id)item;
-- (id)ogreChild:(int)index ofItem:(id)item;
+- (id)ogreChild:(NSInteger)index ofItem:(id)item;
 - (id)ogreObjectValueForItem:(id)item;
 - (void)ogreSetObjectValue:(id)anObject forItem:(id)item;
 

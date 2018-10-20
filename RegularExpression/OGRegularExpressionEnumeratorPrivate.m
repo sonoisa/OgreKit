@@ -99,7 +99,7 @@
 
 /* accessors */
 // private
-- (void)_setTerminalOfLastMatch:(int)location
+- (void)_setTerminalOfLastMatch:(NSInteger)location
 {
 	_terminalOfLastMatch = location;
 }
@@ -109,12 +109,12 @@
 	_isLastMatchEmpty = yesOrNo;
 }
 
-- (void)_setStartLocation:(unsigned)location
+- (void)_setStartLocation:(NSUInteger)location
 {
 	_startLocation = location;
 }
 
-- (void)_setNumberOfMatches:(unsigned)aNumber
+- (void)_setNumberOfMatches:(NSUInteger)aNumber
 {
 	_numberOfMatches = aNumber;
 }

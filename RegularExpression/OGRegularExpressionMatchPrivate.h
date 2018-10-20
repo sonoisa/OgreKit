@@ -21,9 +21,9 @@
  * 初期化 *
  *********/
 - (id)initWithRegion:(OnigRegion*)region 
-	index:(unsigned)anIndex
+	index:(NSUInteger)anIndex
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
-	terminalOfLastMatch:(unsigned)terminalOfLastMatch;
+	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch;
 
 - (NSObject<OGStringProtocol>*)_targetString;
 - (NSRange)_searchRange;

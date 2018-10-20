@@ -77,7 +77,7 @@
 
 - (void)appendOGStringLeaveImprint:(NSObject<OGStringProtocol>*)string
 {
-	unsigned	length = [string length];
+	NSUInteger	length = [string length];
 	if (length == 0) {
 		return;
 	}
@@ -121,7 +121,7 @@
 	NSMutableAttributedString	*attrString = (NSMutableAttributedString*)[self _attributedString];
 	
 	NSMutableAttributedString	*aString = [[[NSMutableAttributedString alloc] initWithAttributedString:appendant] autorelease];
-	unsigned		length = [appendant length];
+	NSUInteger		length = [appendant length];
 	NSRange			effectiveRange = NSMakeRange(0, 0);
 	NSFont			*srcFont, *font;
 	NSString		*appendantFontFamilyName = nil, *srcFontFamilyName;
@@ -253,7 +253,7 @@
 	
 	NSMutableAttributedString	*aString = [[[NSMutableAttributedString alloc] initWithAttributedString:appendant] autorelease];
 	NSRange			effectiveRange;
-	unsigned		length = [appendant length];
+	NSUInteger		length = [appendant length];
 	NSFont			*font;
 	NSString		*appendantFontFamilyName = nil;
 	NSFontTraitMask	appendantFontTraits, newFontTraits = 0;
@@ -355,9 +355,9 @@
 	[pool release];
 }
 
-- (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string atIndex:(unsigned)index
+- (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string atIndex:(NSUInteger)index
 {
-	unsigned	attrIndex;
+	NSUInteger	attrIndex;
 	if (index > 0) {
 		attrIndex = index -1;
 	} else {

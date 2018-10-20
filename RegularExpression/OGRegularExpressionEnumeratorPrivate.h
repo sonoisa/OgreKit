@@ -51,17 +51,17 @@ static inline unsigned Ogre_UTF16prevcharlen(unichar *const aUTF16String)
  * 初期化 *
  *********/
 - (id)initWithOGString:(NSObject<OGStringProtocol>*)targetString 
-	options:(unsigned)searchOptions 
+	options:(OnigOptionType)searchOptions 
 	range:(NSRange)searchRange 
 	regularExpression:(OGRegularExpression*)regex;
 
 /*********************
  * private accessors *
  *********************/
-- (void)_setTerminalOfLastMatch:(int)location;
+- (void)_setTerminalOfLastMatch:(NSInteger)location;
 - (void)_setIsLastMatchEmpty:(BOOL)yesOrNo;
-- (void)_setStartLocation:(unsigned)location;
-- (void)_setNumberOfMatches:(unsigned)aNumber;
+- (void)_setStartLocation:(NSUInteger)location;
+- (void)_setNumberOfMatches:(NSUInteger)aNumber;
 
 - (NSObject<OGStringProtocol>*)targetString;
 - (unichar*)UTF16TargetString;

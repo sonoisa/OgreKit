@@ -38,7 +38,7 @@ typedef enum {
 {
 	OgreTextFindResultType		_resultType;
 	id							_target;
-    unsigned                    _numberOfMatches;           // number of the matches
+    NSUInteger                  _numberOfMatches;           // number of the matches
     OGRegularExpression         *_regex;
     
     OgreFindResultBranch        *_resultTree, *_branch;
@@ -50,8 +50,8 @@ typedef enum {
     
     /* display */
 	NSString					*_title;					// target window title
-	int                         _maxMatchedStringLength;	// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
-	int                         _maxLeftMargin;				// マッチした文字列の左側の最大文字数 (-1: 無制限)
+	NSInteger                   _maxMatchedStringLength;	// -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
+	NSInteger                   _maxLeftMargin;				// マッチした文字列の左側の最大文字数 (-1: 無制限)
 	id                          _delegate;                  // 更新連絡先
     
     /* highlight color */
@@ -73,24 +73,24 @@ typedef enum {
 - (void)endGrafting;
 - (void)addLeaf:(id)aLeaf;
 
-- (unsigned)numberOfMatches;
-- (void)setNumberOfMatches:(unsigned)aNumber;
+- (NSUInteger)numberOfMatches;
+- (void)setNumberOfMatches:(NSUInteger)aNumber;
 
 - (NSString*)title;
 - (void)setTitle:(NSString*)title;
 
 // マッチした文字列の左側の最大文字数 (-1: 無制限)
-- (int)maximumLeftMargin;
-- (void)setMaximumLeftMargin:(int)leftMargin;
+- (NSInteger)maximumLeftMargin;
+- (void)setMaximumLeftMargin:(NSInteger)leftMargin;
 // 最大文字数 (-1: 無制限) ただし、省略記号@"..."はカウントに入れない。
-- (int)maximumMatchedStringLength;
-- (void)setMaximumMatchedStringLength:(int)aLength;
+- (NSInteger)maximumMatchedStringLength;
+- (void)setMaximumMatchedStringLength:(NSInteger)aLength;
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 // aString中のaRangeArrayの範囲を強調する。
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString;
 - (NSAttributedString*)missingString;
-- (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches;
-- (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches;
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches;
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches;
 
 // delegate
 - (id)delegate;

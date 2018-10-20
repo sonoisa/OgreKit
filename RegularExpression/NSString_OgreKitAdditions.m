@@ -76,14 +76,14 @@
 /***********
  * Replace *
  ***********/
-- (unsigned)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString 
+- (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString
 	withString:(NSString*)replaceString 
 	options:(unsigned)options 
 	range:(NSRange)searchRange
 {
 	OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:expressionString
 		options:options];
-	unsigned	numberOfReplacement = 0;
+	NSUInteger	numberOfReplacement = 0;
 	NSString	*replacedString = [regex replaceString:self 
 		withString:replaceString 
 		options:options 

@@ -21,7 +21,7 @@
     OGRegularExpressionMatch        *match, *lastMatch;
     NSEnumerator                    *matchEnumerator;
     OgreFindResultBranch <OgreFindResultCorrespondingToTextFindLeaf>    *result;
-    unsigned                        searchLength;
+    NSUInteger                      searchLength;
     
     NSString                        *progressMessage, *progressMessagePlural, *remainingTimeMesssage;
 }

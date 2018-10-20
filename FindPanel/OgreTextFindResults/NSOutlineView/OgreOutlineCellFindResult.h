@@ -27,13 +27,13 @@
 - (id)initWithOutlineColumn:(OgreOutlineColumn*)outlineColumn item:(id)item;
 
 // index番目にマッチした文字列のある項目名
-- (id)nameOfMatchedStringAtIndex:(unsigned)index;
+- (id)nameOfMatchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index;
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index;
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index;
 // index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index;
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index;
 
 - (void)targetIsMissing;
 - (NSArray*)children;

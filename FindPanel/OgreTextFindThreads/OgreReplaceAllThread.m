@@ -54,7 +54,7 @@
         return;
     }
     
-    unsigned    stringLength = [string length];
+    NSUInteger    stringLength = [string length];
     
     NSRange     selectedRange = [aLeaf selectedRange];
 	if (![self inSelection]) {

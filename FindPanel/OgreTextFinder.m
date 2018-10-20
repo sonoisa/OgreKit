@@ -271,7 +271,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
-	int i, n;
+	NSInteger i, n;
 	NSMutableArray	*menuArray = [NSMutableArray arrayWithObject:current];
 	while ([menuArray count] > 0) {
 		NSMenu      *aMenu = [menuArray objectAtIndex:0];
@@ -283,7 +283,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		}
 		
 		// 見つからなかった場合
-		n = [aMenu numberOfItems];
+        n = [aMenu numberOfItems];
 		for (i=0; i<n; i++) {
 			aMenuItem = [aMenu itemAtIndex:i];
 			//NSLog(@"%@", [aMenuItem title]);
@@ -309,7 +309,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	// 検索履歴等の保存
 	NSDictionary	*fullHistory = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: 
 			[findPanelController history],
-			[NSNumber numberWithInt:[OGRegularExpression intValueForSyntax:_syntax]], 
+			[NSNumber numberWithLong:[OGRegularExpression intValueForSyntax:_syntax]],
 			_escapeCharacter, 
 			nil]
 		forKeys:[NSArray arrayWithObjects: 
@@ -1015,7 +1015,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	if (anAdapterClass == Nil) {
 		/* Searching in the adapter-target array */
-		int	index, count = [_adapterClassArray count];
+		NSInteger   index, count = [_adapterClassArray count];
 		for (index = count - 1; index >= 0; index--) {
 			if ([aTargetToFindIn isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
 				anAdapterClass = [_adapterClassArray objectAtIndex:index];
@@ -1049,7 +1049,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	if ([anObject respondsToSelector:@selector(ogreAdapter)]) return YES;
 	
-	int	index, count = [_targetClassArray count];
+	NSInteger	index, count = [_targetClassArray count];
 	for (index = count - 1; index >= 0; index--) {
 		if ([anObject isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
 			return YES;

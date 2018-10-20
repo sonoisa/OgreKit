@@ -35,27 +35,37 @@
 /* 新規ドキュメント */
 - (IBAction)newTextDocument:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTextDocumentType" display:YES];
+    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyTextDocumentType" error:nil];
+    [document makeWindowControllers];
+    [document showWindows];
 }
 
 - (IBAction)newRTFDocument:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyRTFDocumentType" display:YES];
+    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyRTFDocumentType" error:nil];
+    [document makeWindowControllers];
+    [document showWindows];
 }
 
 - (IBAction)newTableDocument:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTableDocumentType" display:YES];
+    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyTableDocumentType" error:nil];
+    [document makeWindowControllers];
+    [document showWindows];
 }
 
 - (IBAction)newOutlineDocument:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyOutlineDocumentType" display:YES];
+    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyOutlineDocumentType" error:nil];
+    [document makeWindowControllers];
+    [document showWindows];
 }
 
 - (IBAction)newTableDocumentWithCocoaBinding:(id)sender
 {
-    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTableDocumentWithCocoaBindingType" display:YES];
+    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyTableDocumentWithCocoaBindingType" error:nil];
+    [document makeWindowControllers];
+    [document showWindows];
 }
 
 

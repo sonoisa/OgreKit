@@ -30,7 +30,7 @@
 - (id)nextObject
 {
     if (_nextIndex < _terminalIndex) return nil;
-    unsigned    concreteIndex;
+    NSUInteger    concreteIndex;
     
     if (_inSelection) {
         concreteIndex = *(_indexes + _nextIndex);

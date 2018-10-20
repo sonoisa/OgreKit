@@ -46,7 +46,7 @@
 
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch 
 {
-    int     i, n = [aMatch count];
+    int     i, n = (int)[aMatch count];
     
     NSMutableArray  *rangeArray = [NSMutableArray arrayWithCapacity:n];
     for (i = 0; i < n; i++) [rangeArray addObject:[NSValue valueWithRange:[aMatch rangeOfSubstringAtIndex:i]]];
@@ -84,12 +84,12 @@
     return [[self textFindResult] messageOfStringsFound:[_matchRangeArray count]];
 }
 
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection 
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
     return [_matchComponents count];
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
 {
     return [_matchComponents objectAtIndex:index];
 }
@@ -100,13 +100,13 @@
 }
 
 // index番目にマッチした文字列のある行番号
-- (id)nameOfMatchedStringAtIndex:(unsigned)index
+- (id)nameOfMatchedStringAtIndex:(NSUInteger)index
 {
     return [self name];
 }
 
 // index番目にマッチした文字列
-- (NSAttributedString*)matchedStringAtIndex:(unsigned)index
+- (NSAttributedString*)matchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return [[self textFindResult] missingString];
     
@@ -124,7 +124,7 @@
 }
 
 // index番目にマッチした文字列を選択・表示する
-- (BOOL)showMatchedStringAtIndex:(unsigned)index
+- (BOOL)showMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;
     OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
@@ -134,13 +134,13 @@
 }
 
 // index番目にマッチした文字列を選択する
-- (BOOL)selectMatchedStringAtIndex:(unsigned)index
+- (BOOL)selectMatchedStringAtIndex:(NSUInteger)index
 {
     if (_outlineColumn == nil || _item == nil) return NO;
     OgreOutlineView *outlineView = (OgreOutlineView*)[_outlineColumn tableView];
     
     if ([outlineView allowsColumnSelection]) {
-        int columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
+        NSInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
         if (columnIndex != -1) {
             [outlineView scrollColumnToVisible:columnIndex];
         } else {
@@ -150,7 +150,7 @@
     }
     
     [(OgreOutlineItemFindResult*)[self parent] expandItemEnclosingItem:_item];
-    int rowIndex = [outlineView rowForItem:_item];
+    NSInteger rowIndex = [outlineView rowForItem:_item];
     if (rowIndex != -1) {
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
         [outlineView scrollRowToVisible:rowIndex];

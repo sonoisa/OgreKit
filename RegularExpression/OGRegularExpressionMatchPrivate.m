@@ -23,9 +23,9 @@
 
 /* 非公開メソッド */
 - (id)initWithRegion:(OnigRegion*)region 
-	index:(unsigned)anIndex
+	index:(NSUInteger)anIndex
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
-	terminalOfLastMatch:(unsigned)terminalOfLastMatch 
+	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch 
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithRegion: of %@", [self className]);

@@ -22,22 +22,22 @@
     return [[[OgreTableViewAdapter alloc] initWithTarget:self] autorelease];
 }
 
-- (int)ogreSelectedColumn
+- (NSInteger)ogreSelectedColumn
 {
     return (_ogreSelectedColumn == -1? 0 : _ogreSelectedColumn);
 }
 
-- (void)ogreSetSelectedColumn:(int)column
+- (void)ogreSetSelectedColumn:(NSInteger)column
 {
     _ogreSelectedColumn = column;
 }
 
-- (int)ogreSelectedRow
+- (NSInteger)ogreSelectedRow
 {
     return (_ogreSelectedRow == -1? 0 : _ogreSelectedRow);
 }
 
-- (void)ogreSetSelectedRow:(int)row
+- (void)ogreSetSelectedRow:(NSInteger)row
 {
     _ogreSelectedRow = row;
 }

@@ -75,12 +75,12 @@
     return [[self textFindResult] messageOfItemsFound:[self numberOfChildrenInSelection:NO]]; 
 }
 
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection 
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
     return [_components count];
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
 {
     return [_components objectAtIndex:index];
 }
@@ -106,7 +106,7 @@
     
     if (![outlineView allowsColumnSelection]) return YES;
     
-    int columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
+    NSInteger columnIndex = [outlineView columnWithIdentifier:[_outlineColumn identifier]];
     if (columnIndex != -1) {
         [outlineView selectColumnIndexes:[NSIndexSet indexSetWithIndex:columnIndex] byExtendingSelection:NO];
         [outlineView scrollColumnToVisible:columnIndex];

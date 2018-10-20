@@ -32,8 +32,8 @@
 - (NSImage*)icon;
 - (BOOL)isDirectory;
 - (NSArray*)components;
-- (id)componentAtIndex:(unsigned)index;
-- (unsigned)numberOfComponents;
+- (id)componentAtIndex:(NSUInteger)index;
+- (NSUInteger)numberOfComponents;
 - (void)removeComponent:(id)aComponent;
 - (void)remove;
 

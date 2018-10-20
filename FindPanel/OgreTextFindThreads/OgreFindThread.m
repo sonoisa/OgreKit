@@ -93,7 +93,7 @@
     }
     
     NSRange     searchRange = [aLeaf selectedRange];
-    unsigned    maxRange;
+    NSUInteger  maxRange;
     
     if (([aLeaf isFirstLeaf] && ![aLeaf isReversed]) || ([aLeaf isTerminal] && [aLeaf isReversed])) {
         maxRange = NSMaxRange(searchRange);

@@ -50,15 +50,16 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return @"MyTableDocument";
 }
 
-- (NSData*)dataRepresentationOfType:(NSString*)type 
+- (NSData *)dataOfType:(NSString *)type
+                 error:(NSError * _Nullable *)outError
 {
     OGRegularExpression *escRegex = [OGRegularExpression regularExpressionWithString:@"\""];
     
 	NSMutableString *aString = [NSMutableString string];
     NSArray         *columnArray = [tableView tableColumns];
-    OgreTableColumn   *column;
-    int             columnIndex, numberOfColumns = [columnArray count];
-    int             rowIndex, numberOfRows = [self numberOfRows];
+    OgreTableColumn *column;
+    NSUInteger      columnIndex, numberOfColumns = [columnArray count];
+    NSUInteger      rowIndex, numberOfRows = [self numberOfRows];
     NSArray         *array;
     NSMutableArray  *identifierArray = [NSMutableArray arrayWithCapacity:numberOfColumns];
     
@@ -88,7 +89,9 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return [aString dataUsingEncoding:NSShiftJISStringEncoding];
 }
 
-- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
+- (BOOL)readFromData:(NSData *)data
+              ofType:(NSString *)type
+               error:(NSError * _Nullable *)outError
 {
 	// ファイルから読み込む。(UTF8決めうち。)
 	NSMutableString *aString = [[[NSMutableString alloc] initWithData:data encoding:NSShiftJISStringEncoding] autorelease];
@@ -112,7 +115,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     OGRegularExpressionMatch    *match;
     OGRegularExpressionCapture  *capture;
     NSEnumerator                *matchEnumerator = [regex matchEnumeratorInString:aString];
-    unsigned                    numberOfCaptures = 0, colIndex;
+    NSUInteger                  numberOfCaptures = 0, colIndex;
     NSMutableArray              *array;
     NSString                    *identifier;
     
@@ -127,7 +130,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
         dictArray = [NSMutableArray arrayWithCapacity:numberOfCaptures];
         for (colIndex = 0; colIndex < numberOfCaptures; colIndex++) {
             array = [NSMutableArray arrayWithCapacity:50];
-            identifier = [NSString stringWithFormat:@"%d", colIndex + 1];
+            identifier = [NSString stringWithFormat:@"%ld", colIndex + 1];
             [_dict setObject:array forKey:identifier];
             [dictArray addObject:array];
         }
@@ -154,11 +157,11 @@ static NSString *gMyTableRowPropertyType = @"rows";
 {
 	if (_dict != nil) {
         //NSLog(@"%@", [_dict description]);
-        unsigned    numberOfColumns = [_dict count], i;
+        NSUInteger  numberOfColumns = [_dict count], i;
         NSString    *identifier;
         for (i = 0; i < numberOfColumns; i++) {
             // add columns
-            identifier = [NSString stringWithFormat:@"%d", i + 1];
+            identifier = [NSString stringWithFormat:@"%ld", i + 1];
             OgreTableColumn   *aColumn = [[[OgreTableColumn alloc] initWithIdentifier:identifier] autorelease];
             NSTableHeaderCell   *headerCell=[[[NSTableHeaderCell alloc] initTextCell:[_titleArray objectAtIndex:i]] autorelease];
             NSTextFieldCell *dataCell=[[[NSTextFieldCell alloc] initTextCell:@""] autorelease];
@@ -186,7 +189,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 	_newlineCharacter = aNewlineCharacter;
 }
 
-- (unsigned)numberOfRows
+- (NSUInteger)numberOfRows
 {
     NSEnumerator *enumerator = [_dict objectEnumerator];
     id value;
@@ -199,12 +202,12 @@ static NSString *gMyTableRowPropertyType = @"rows";
 }
 
 /* NSTableDataSource */
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
     return [self numberOfRows];
 }
 
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
     NSString    *identifier = [aTableColumn identifier];
     NSArray     *array = [_dict objectForKey:identifier];
@@ -212,7 +215,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return [array objectAtIndex:rowIndex];
 }
 
-- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex
+- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
     NSString        *identifier = [aTableColumn identifier];
     NSMutableArray  *array = [_dict objectForKey:identifier];
@@ -225,7 +228,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 }
 
 /* drag&drop rows */
-- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(int)row dropOperation:(NSTableViewDropOperation)operation
+- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
 {
     NSPasteboard    *pboard = [info draggingPasteboard];
     NSEnumerator    *pEnumerator;
@@ -239,7 +242,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     NSEnumerator    *arrayEnumerator;
    
     id              anObject;
-    int             overwrapCount = 0, anIndex;
+    NSInteger       overwrapCount = 0, anIndex;
     
     if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:[NSArray arrayWithObject:gMyTableRowPboardType]] != nil) {
         
@@ -281,19 +284,21 @@ static NSString *gMyTableRowPropertyType = @"rows";
     }
 }
 
-- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(int)row proposedDropOperation:(NSTableViewDropOperation)operation
+- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation
 {
-    NSPasteboard *pboard=[info draggingPasteboard];
-    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:[NSArray arrayWithObject:gMyTableRowPboardType]] != nil) return NSTableViewDropAbove;
+    [tableView setDropRow:row dropOperation:NSTableViewDropAbove];
     
-    return NSDragOperationNone;
+    if ([info draggingSource] == tableView) {
+        return NSDragOperationMove;
+    }
+    return NSDragOperationEvery;
 }
 
-- (BOOL)tableView:(NSTableView *)tableView writeRows:(NSArray *)rows toPasteboard:(NSPasteboard *)pboard
+- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard
 {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
     [pboard declareTypes:[NSArray arrayWithObject:gMyTableRowPboardType] owner:self];
-    [pboard setPropertyList:rows forType:gMyTableRowPropertyType];
-    
+    [pboard setData:data forType:gMyTableRowPboardType];
     return YES;
 }
 
@@ -305,7 +310,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     NSMutableArray  *columnArray;
     NSEnumerator    *columnEnumerator = [_dict objectEnumerator];
     
-    int selectedRow = [tableView selectedRow], newRowIndex;
+    NSInteger selectedRow = [tableView selectedRow], newRowIndex;
     if (selectedRow >= 0) {
         newRowIndex = selectedRow + 1;
     } else {
@@ -323,26 +328,11 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (IBAction)removeRow:(id)sender
 {
     NSIndexSet  *selectedIndexes = [tableView selectedRowIndexes];
-#ifdef MAC_OS_X_VERSION_10_6
     NSUInteger  numberOfIndexes = [selectedIndexes count];
     if (numberOfIndexes == 0) return;
     NSMutableArray  *columnArray;
     NSEnumerator    *columnEnumerator = [_dict objectEnumerator];
     while ((columnArray = [columnEnumerator nextObject]) != nil) [columnArray removeObjectsAtIndexes:selectedIndexes];
-#else
-    unsigned    numberOfIndexes = [selectedIndexes count];
-    if (numberOfIndexes == 0) return;
-    unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], numberOfIndexes * sizeof(unsigned));
-    if (indexes == NULL) {
-        return;
-    }
-    [selectedIndexes getIndexes:indexes maxCount:numberOfIndexes inIndexRange:NULL];
-    
-    NSMutableArray  *columnArray;
-    NSEnumerator    *columnEnumerator = [_dict objectEnumerator];
-    while ((columnArray = [columnEnumerator nextObject]) != nil) [columnArray removeObjectsFromIndices:indexes numIndices:numberOfIndexes];
-    NSZoneFree([self zone], indexes);
-#endif
     [tableView deselectAll:nil];
     [tableView reloadData];
     [self updateChangeCount:NSChangeDone];
@@ -350,10 +340,10 @@ static NSString *gMyTableRowPropertyType = @"rows";
 
 - (IBAction)addColumn:(id)sender
 {
-    NSString    *identifier = [NSString stringWithFormat:@"%d", ++_numberOfColumns];
+    NSString    *identifier = [NSString stringWithFormat:@"%ld", ++_numberOfColumns];
     
     // create the data source corresponding to new column
-    unsigned    i, numberOfRows = [self numberOfRows];
+    NSUInteger    i, numberOfRows = [self numberOfRows];
     NSMutableArray  *array = [NSMutableArray arrayWithCapacity:numberOfRows];
     for (i = 0; i < numberOfRows; i++) [array addObject:[NSString string]];
     [_dict setObject:array forKey:identifier];
@@ -369,8 +359,8 @@ static NSString *gMyTableRowPropertyType = @"rows";
     [tableView addTableColumn:aColumn];
     
     // move and select
-    int selectIndex;
-    int selectedColumn = [tableView selectedColumn];
+    NSInteger selectIndex;
+    NSInteger selectedColumn = [tableView selectedColumn];
     if (selectedColumn >= 0) {
         [tableView moveColumn:(_numberOfColumns - 1) toColumn:(selectedColumn + 1)];
         selectIndex = selectedColumn + 1;
@@ -387,7 +377,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 
 - (IBAction)removeColumn:(id)sender
 {
-    int selectedColumn = [tableView selectedColumn];
+    NSInteger selectedColumn = [tableView selectedColumn];
     if (selectedColumn == -1) {
         // no column is selected
         NSBeep();
@@ -416,8 +406,8 @@ static NSString *gMyTableRowPropertyType = @"rows";
 // 
 - (void)tableViewDoubleClicked
 {
-	int	clickedRowIndex = [tableView clickedRow];
-    int selectedColumn = [tableView selectedColumn];
+	NSInteger   clickedRowIndex = [tableView clickedRow];
+    NSInteger   selectedColumn = [tableView selectedColumn];
 	if ((clickedRowIndex != -1) || (selectedColumn == -1)) return;
     
     NSArray         *columnArray = [tableView tableColumns];

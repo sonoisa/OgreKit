@@ -32,5 +32,5 @@
 	ofOGString:(NSObject<OGStringProtocol>*)srcString;
 
 - (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string 
-	atIndex:(unsigned)index;
+	atIndex:(NSUInteger)index;
 @end

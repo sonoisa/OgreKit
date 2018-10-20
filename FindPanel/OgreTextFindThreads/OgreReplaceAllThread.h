@@ -20,7 +20,7 @@
 {
     NSArray					*matchArray;
     OGReplaceExpression		*repex;
-    unsigned				aNumberOfReplaces, aNumberOfMatches;
+    NSUInteger				aNumberOfReplaces, aNumberOfMatches;
     NSString				*progressMessage, *progressMessagePlural, *remainingTimeMesssage;
 	NSObject<OGStringProtocol>				*replacedString;
 }

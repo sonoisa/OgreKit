@@ -37,7 +37,7 @@
         
         _ogreModelKeyPathOfValueBinding = [[NSMutableString alloc] init];
         
-        int i, count = [keyPathComponents count];
+        NSUInteger i, count = [keyPathComponents count];
         for (i = 1; i < count; i++) {
             if (i > 1) [_ogreModelKeyPathOfValueBinding appendString:@"."];
             [_ogreModelKeyPathOfValueBinding appendString:[keyPathComponents objectAtIndex:i]];
@@ -68,7 +68,7 @@
     [super dealloc];
 }
 
-- (int)ogreNumberOfRows
+- (NSInteger)ogreNumberOfRows
 {
     id  dataSource;
     
@@ -81,7 +81,7 @@
     return 0;
 }
 
-- (id)ogreObjectValueForRow:(int)row
+- (id)ogreObjectValueForRow:(NSInteger)row
 {
     if (row < 0) return nil;
     
@@ -98,7 +98,7 @@
     return anObject;
 }
 
-- (void)ogreSetObjectValue:(id)anObject forRow:(int)row
+- (void)ogreSetObjectValue:(id)anObject forRow:(NSInteger)row
 {
     if (row < 0) return;
     

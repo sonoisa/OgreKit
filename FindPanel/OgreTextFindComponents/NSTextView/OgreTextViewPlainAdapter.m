@@ -140,7 +140,7 @@
     }
 }
 
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity
 {
     // Undo操作の登録開始
     _allowsUndo = [_textView allowsUndo];
@@ -196,7 +196,7 @@
 - (BOOL)isHighlightable { return YES; }
 
 - (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread {
-    return [[[OgreTextViewFindResult alloc] initWithTextView:_textView] autorelease]; 
+    return (OgreFindResultLeaf*)[[[OgreTextViewFindResult alloc] initWithTextView:_textView] autorelease]; 
 }
 
 - (BOOL)isSelected

@@ -48,8 +48,8 @@
     /* planarization */
     _flattenedComponents = [[NSMutableArray alloc] initWithCapacity:[_components count]];
     
-    int rowIndex = 0;
-    int i, matchCount;
+    NSInteger rowIndex = 0;
+    NSInteger i, matchCount;
     OgreTableCellFindResult  *rowFindResult;
     
     while (rowIndex < [_components count]) {
@@ -76,12 +76,12 @@
     return [[self textFindResult] messageOfStringsFound:[_flattenedComponents count]]; 
 }
 
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection 
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
     return [_flattenedComponents count];
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
     return [_flattenedComponents objectAtIndex:index];
 }
@@ -107,7 +107,7 @@
     
     if (![tableView allowsColumnSelection]) return YES;
     
-    int columnIndex = [tableView columnWithIdentifier:[_tableColumn identifier]];
+    NSInteger columnIndex = [tableView columnWithIdentifier:[_tableColumn identifier]];
     if (columnIndex != -1) {
         [tableView selectColumnIndexes:[NSIndexSet indexSetWithIndex:columnIndex] byExtendingSelection:NO];
         [tableView scrollColumnToVisible:columnIndex];

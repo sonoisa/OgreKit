@@ -24,7 +24,7 @@
 
 /* constants */
 // version string
-#define OgreVersionString	@"2.1.4"
+#define OgreVersionString	@"3.0.0"
 
 // compile time options:
 extern const unsigned	OgreNoneOption;
@@ -183,9 +183,9 @@ extern NSString	* const OgreException;
 - (NSString*)escapeCharacter;
 
 // capture groupの数
-- (unsigned)numberOfGroups;
+- (NSUInteger)numberOfGroups;
 // named groupの数
-- (unsigned)numberOfNames;
+- (NSUInteger)numberOfNames;
 // nameの配列
 // named groupを使用していない場合はnilを返す。
 - (NSArray*)names;
@@ -393,7 +393,7 @@ extern NSString	* const OgreException;
 	options:(unsigned)searchOptions 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
 - (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
 	withAttributedString:(NSAttributedString*)replaceString 
@@ -406,14 +406,14 @@ extern NSString	* const OgreException;
 	options:(unsigned)searchOptions 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
 - (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString 
 	options:(unsigned)searchOptions 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(unsigned*)numberOfReplacement;
+	numberOfReplacement:(NSUInteger*)numberOfReplacement;
 
 // デリゲートに処理を委ねた置換
 /*
@@ -589,13 +589,13 @@ extern NSString	* const OgreException;
 /*************
  * Utilities *
  *************/
-// OgreSyntaxとintの相互変換
-+ (int)intValueForSyntax:(OgreSyntax)syntax;
-+ (OgreSyntax)syntaxForIntValue:(int)intValue;
+// OgreSyntaxとNSIntegerの相互変換
++ (NSInteger)intValueForSyntax:(OgreSyntax)syntax;
++ (OgreSyntax)syntaxForIntValue:(NSInteger)intValue;
 // OgreSyntaxを表す文字列
 + (NSString*)stringForSyntax:(OgreSyntax)syntax;
 // Optionsを表す文字列配列
-+ (NSArray*)stringsForOptions:(unsigned)options;
++ (NSArray*)stringsForOptions:(OnigOptionType)options;
 
 // 文字列を正規表現で安全な文字列に変換する。(@"|().?*+{}^$[]-&#:=!<>@\\"を退避する)
 + (NSString*)regularizeString:(NSString*)string;

@@ -28,13 +28,13 @@
     [super release];
 	NSTextView	*textView = (NSTextView*)aTextView;
     if (![textView isRichText]) {
-		return [[OgreTextViewPlainAdapter alloc] initWithTarget:textView];
+		return (OgreTextViewAdapter*)[[OgreTextViewPlainAdapter alloc] initWithTarget:textView];
 	}
     if (![textView importsGraphics]) {
-		return [[OgreTextViewRichAdapter alloc] initWithTarget:textView];
+		return (OgreTextViewAdapter*)[[OgreTextViewRichAdapter alloc] initWithTarget:textView];
 	}
 	
-    return [[OgreTextViewGraphicAllowedAdapter alloc] initWithTarget:textView];
+    return (OgreTextViewAdapter*)[[OgreTextViewGraphicAllowedAdapter alloc] initWithTarget:textView];
 }
 
 - (OgreTextFindLeaf*)buildStackForSelectedLeafInThread:(OgreTextFindThread*)aThread

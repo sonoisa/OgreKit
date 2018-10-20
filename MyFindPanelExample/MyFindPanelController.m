@@ -199,7 +199,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 			_findHistory, 
 			_replaceHistory, 
 			[NSNumber numberWithUnsignedInt:[self options]], 
-			[NSNumber numberWithInt:[OGRegularExpression intValueForSyntax:[self syntax]]], 
+			[NSNumber numberWithLong:[OGRegularExpression intValueForSyntax:[self syntax]]],
 			[NSNumber numberWithBool:[self isEntire]], 
 			nil]
 		forKeys: [NSArray arrayWithObjects:
@@ -238,7 +238,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	
 	anObject = [history objectForKey:MySyntaxKey];
 	if (anObject != nil) {
-		int	syntax = [anObject intValue];
+		NSInteger	syntax = [anObject longValue];
 		[optionRegex setState:((syntax != [OGRegularExpression intValueForSyntax:OgreSimpleMatchingSyntax])? NSOnState : NSOffState)];
 	}
 	

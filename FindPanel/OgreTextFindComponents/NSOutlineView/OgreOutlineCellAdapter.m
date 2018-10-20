@@ -101,7 +101,7 @@
 #endif
 }
 
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity
 {
 }
 
@@ -158,7 +158,7 @@
 
 - (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread
 {
-    return [[[OgreOutlineCellFindResult alloc] initWithOutlineColumn:[self outlineColumn] item:[self target]] autorelease]; 
+    return (OgreFindResultLeaf*)[[[OgreOutlineCellFindResult alloc] initWithOutlineColumn:[self outlineColumn] item:[self target]] autorelease]; 
 }
 
 - (BOOL)isSelected
@@ -195,12 +195,12 @@
     id              item = [self target];
 
     if ([outlineView allowsColumnSelection]) {
-        int columnIndex = [outlineView columnWithIdentifier:[outlineColumn identifier]];
+        NSInteger columnIndex = [outlineView columnWithIdentifier:[outlineColumn identifier]];
         if (columnIndex != -1) [outlineView scrollColumnToVisible:columnIndex];
     }
     
     [(OgreOutlineItemAdapter*)[self parent] expandItemEnclosingItem:item];
-    int rowIndex = [outlineView rowForItem:item];
+    NSInteger rowIndex = [outlineView rowForItem:item];
     if (rowIndex != -1) {
         [outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
         [outlineView scrollRowToVisible:rowIndex];
@@ -218,11 +218,11 @@
     OgreOutlineView     *outlineView = (OgreOutlineView*)[outlineColumn tableView];
 
     if ([outlineView allowsColumnSelection]) {
-        int selectedColumnIndex = [outlineView selectedColumn];
+        NSInteger selectedColumnIndex = [outlineView selectedColumn];
         if (selectedColumnIndex != -1) [outlineView scrollColumnToVisible:selectedColumnIndex];
     }
     
-    int selectedRowIndex = [outlineView selectedRow];
+    NSInteger selectedRowIndex = [outlineView selectedRow];
     if (selectedRowIndex != -1) [outlineView scrollRowToVisible:selectedRowIndex];
 }
 

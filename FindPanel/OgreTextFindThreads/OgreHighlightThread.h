@@ -20,8 +20,8 @@
 {
     OGRegularExpressionMatch    *match, *lastMatch;
     NSEnumerator                *matchEnumerator;
-    unsigned                    numberOfGroups;
-    unsigned                    searchLength;
+    NSUInteger                  numberOfGroups;
+    NSUInteger                  searchLength;
 
     /* highlight color */
     NSMutableArray              *highlightColorArray;   // variations

@@ -30,12 +30,13 @@
     return @"MyOutlineDocument";
 }
 
-- (NSData*)dataRepresentationOfType:(NSString*)type 
+- (NSData *)dataOfType:(NSString *)typeName
+                 error:(NSError * _Nullable *)outError
 {
     return nil;
 }
 
-- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError * _Nullable *)outError
 {
     return YES;
 }
@@ -47,14 +48,14 @@
 	} else {
 		//_newlineCharacter = OgreUnixNewlineCharacter;	// デフォルトの改行コード
         
-        int         result;
-        NSOpenPanel *openPanel;
+        NSModalResponse result;
+        NSOpenPanel     *openPanel;
         
         openPanel = [NSOpenPanel openPanel];
         [openPanel setCanChooseDirectories:YES];
         [openPanel setDirectoryURL:[NSURL fileURLWithPath:NSHomeDirectory() isDirectory:YES]];
         result = [openPanel runModal];
-        if(result == NSOKButton) {
+        if(result == NSModalResponseOK) {
             NSURL    *url = [openPanel URL];
             //NSLog(@"%@", path);
             _fileWrapper = [[MyFileWrapper alloc] initWithName:[url lastPathComponent] path:[url absoluteString] parent:self];
@@ -100,7 +101,7 @@
     return [item isDirectory];
 }
 
-- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (size_t)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
 	if (_fileWrapper == nil) return 0;
     //NSLog(@"numberOfChildrenOfItem:%@", [item name]);
@@ -135,7 +136,7 @@
 - (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
 	id	identifier = [tableColumn identifier];
-    [item takeValue:object forKey:identifier];
+    [item setValue:object forKey:identifier];
 }
 
 /* displaying cell */
@@ -179,14 +180,10 @@
 - (void)deleteKeyDownInOutlineView:(NSOutlineView*)outlineView
 {
     NSIndexSet  *selectedRowIndexes = [myOutlineView selectedRowIndexes];
-    unsigned    count = [selectedRowIndexes count], i;
+    NSUInteger  count = [selectedRowIndexes count], i;
     if (count == 0) return;
     
-#ifdef MAC_OS_X_VERSION_10_6
     NSUInteger  *rowIndexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * count);
-#else
-    unsigned    *rowIndexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * count);
-#endif
     if (rowIndexes == NULL) {
         // Error
         return;

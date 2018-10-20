@@ -143,34 +143,30 @@
 
 
 // -matchedStringAtIndex:にて、マッチした文字列の左側の最大文字数 (-1: 無制限)
-- (int)maximumLeftMargin
+- (NSInteger)maximumLeftMargin
 {
     return _maxLeftMargin;
 }
 
-- (void)setMaximumLeftMargin:(int)leftMargin
+- (void)setMaximumLeftMargin:(NSInteger)leftMargin
 {
 	_maxLeftMargin = leftMargin;
 }
 
 // -matchedStringAtIndex:の返す最大文字数 (-1: 無制限)
-- (int)maximumMatchedStringLength
+- (NSInteger)maximumMatchedStringLength
 {
     return _maxMatchedStringLength;
 }
 
-- (void)setMaximumMatchedStringLength:(int)aLength
+- (void)setMaximumMatchedStringLength:(NSInteger)aLength
 {
 	_maxMatchedStringLength = aLength;
 }
 
 - (void)setHighlightColor:(NSColor*)aColor regularExpression:(OGRegularExpression*)regex;
 {
-#ifdef MAC_OS_X_VERSION_10_6
     CGFloat hue, saturation, brightness, alpha;
-#else
-    float   hue, saturation, brightness, alpha;
-#endif
     double  dummy;
     
     [[aColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace] 
@@ -181,7 +177,7 @@
         
     BOOL    isSimple = ([regex syntax] == OgreSimpleMatchingSyntax && ([regex options] & OgreDelimitByWhitespaceOption) != 0);
     
-    unsigned    numberOfGroups = [_regex numberOfGroups], i;
+    NSUInteger    numberOfGroups = [_regex numberOfGroups], i;
     
     _highlightColorArray = [[NSMutableArray alloc] initWithCapacity:numberOfGroups];
     for (i = 0; i <= numberOfGroups; i++) {
@@ -196,7 +192,7 @@
 // aString中のaRangeArrayの範囲を強調する。
 - (NSAttributedString*)highlightedStringInRange:(NSArray*)aRangeArray ofString:(NSString*)aString
 {
-	int							i, n = [aRangeArray count], delta = 0;
+	NSInteger					i, n = [aRangeArray count], delta = 0;
 	NSRange						lineRange, intersectionRange, matchRange;
 	NSMutableAttributedString	*highlightedString;
     
@@ -270,17 +266,17 @@
     [(id <OgreTextFindResultDelegateProtocol>)_delegate didUpdateTextFindResult:self];
 }
 
-- (unsigned)numberOfMatches
+- (NSUInteger)numberOfMatches
 {
     return _numberOfMatches;
 }
 
-- (void)setNumberOfMatches:(unsigned)aNumber
+- (void)setNumberOfMatches:(NSUInteger)aNumber
 {
     _numberOfMatches = aNumber;
 }
 
-- (NSAttributedString*)messageOfStringsFound:(unsigned)numberOfMatches
+- (NSAttributedString*)messageOfStringsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {
@@ -291,7 +287,7 @@
     return [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:message, numberOfMatches] attributes:[NSDictionary dictionaryWithObject:[NSColor darkGrayColor] forKey:NSForegroundColorAttributeName]] autorelease];
 }
 
-- (NSAttributedString*)messageOfItemsFound:(unsigned)numberOfMatches
+- (NSAttributedString*)messageOfItemsFound:(NSUInteger)numberOfMatches
 {
     NSString        *message;
     if (numberOfMatches > 1) {

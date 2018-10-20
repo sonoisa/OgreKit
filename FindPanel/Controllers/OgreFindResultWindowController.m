@@ -156,7 +156,7 @@
 	return [aItem isBranch];
 }
 
-- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
 	if (_textFindResult == nil) return 0;
 	
@@ -171,7 +171,7 @@
 	return [aItem numberOfChildrenInSelection:NO];
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
 	if (_textFindResult == nil) return nil;
 	
@@ -201,7 +201,7 @@
 
 - (void)grepOutlineViewDoubleClicked
 {
-	int	clickedRowIndex = [grepOutlineView clickedRow];
+	NSInteger	clickedRowIndex = [grepOutlineView clickedRow];
 	if (clickedRowIndex < 0) return;
 	
 	OgreFindResultLeaf  *item = [grepOutlineView itemAtRow:clickedRowIndex];
@@ -212,7 +212,7 @@
 
 - (void)outlineViewSelectionDidChange:(NSNotification*)aNotification
 {
-	int	clickedRowIndex = [grepOutlineView selectedRow];
+	NSInteger	clickedRowIndex = [grepOutlineView selectedRow];
 	if (clickedRowIndex < 0) return;
 	
 	OgreFindResultLeaf  *item = [grepOutlineView itemAtRow:clickedRowIndex];

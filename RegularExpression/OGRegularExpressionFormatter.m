@@ -102,7 +102,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	// unsigned			_options;
 	// OnigSyntaxType	*_syntax;
 
-	int	syntaxType = [OGRegularExpression intValueForSyntax:[self syntax]];
+	NSInteger	syntaxType = [OGRegularExpression intValueForSyntax:[self syntax]];
 	if (syntaxType == -1) {
 		// エラー。独自のsyntaxはencodeできない。
 		// 例外を発生させる。要改善
@@ -113,11 +113,11 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
     if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: [self escapeCharacter] forKey: OgreEscapeCharacterKey];
 		[encoder encodeObject: [NSNumber numberWithUnsignedInt: [self options]] forKey: OgreOptionsKey];
-		[encoder encodeObject: [NSNumber numberWithInt: syntaxType] forKey: OgreSyntaxKey];
+		[encoder encodeObject: [NSNumber numberWithLong: syntaxType] forKey: OgreSyntaxKey];
 	} else {
 		[encoder encodeObject: [self escapeCharacter]];
 		[encoder encodeObject: [NSNumber numberWithUnsignedInt: [self options]]];
-		[encoder encodeObject: [NSNumber numberWithInt: syntaxType]];
+		[encoder encodeObject: [NSNumber numberWithLong: syntaxType]];
 	}
 }
 

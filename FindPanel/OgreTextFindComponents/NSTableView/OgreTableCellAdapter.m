@@ -23,7 +23,7 @@
 
 @implementation OgreTableCellAdapter
 
-- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(int)rowIndex
+- (id)initWithTableColumn:(OgreTableColumn*)tableColumn row:(NSInteger)rowIndex
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@" -initWithTextView: of %@", [self className]);
@@ -116,7 +116,7 @@
 #endif
 }
 
-- (void)beginRegisteringUndoWithCapacity:(unsigned)aCapacity
+- (void)beginRegisteringUndoWithCapacity:(NSUInteger)aCapacity
 {
 }
 
@@ -147,7 +147,7 @@
 
 - (OgreFindResultLeaf*)findResultLeafWithThread:(OgreTextFindThread*)aThread
 {
-    return [[[OgreTableCellFindResult alloc] initWithTableColumn:_tableColumn row:_rowIndex] autorelease]; 
+    return (OgreFindResultLeaf*)[[[OgreTableCellFindResult alloc] initWithTableColumn:_tableColumn row:_rowIndex] autorelease];
 }
 
 - (BOOL)isSelected
@@ -190,11 +190,11 @@
     OgreTableView   *tableView = (OgreTableView*)[_tableColumn tableView];
     
     if ([tableView allowsColumnSelection]) {
-        int selectedColumnIndex = [tableView selectedColumn];
+        NSInteger selectedColumnIndex = [tableView selectedColumn];
         if (selectedColumnIndex != -1) [tableView scrollColumnToVisible:selectedColumnIndex];
     }
     
-    int selectedRowIndex = [tableView selectedRow];
+    NSInteger selectedRowIndex = [tableView selectedRow];
     if (selectedRowIndex != -1) [tableView scrollRowToVisible:selectedRowIndex];
 }
 

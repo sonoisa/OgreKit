@@ -84,12 +84,12 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	
     NSString    *escCharacter = [NSString stringWithString:character];
 	int			specialKey = 0;
-	unsigned	matchIndex = 0;
+	NSUInteger	matchIndex = 0;
 	NSString	*controlCharacter = nil;
 	NSObject<OGStringProtocol>	*compileTimeString;
-	unsigned	numberOfMatches = 0;
+	NSUInteger	numberOfMatches = 0;
 	unichar		unic[ONIG_MAX_CAPTURE_HISTORY_GROUP + 1];
-	unsigned	numberOfHistory, indexOfHistory;
+	NSUInteger	numberOfHistory, indexOfHistory;
 	
 	NSEnumerator				*matchEnumerator;
 	OGRegularExpressionMatch	*match;
@@ -401,15 +401,15 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	NSNumber		*type;
 	
 	NSString	*name;
-	unsigned	numOfNames = 0;
-	int			specialKey;
+	NSUInteger	numOfNames = 0;
+	NSInteger	specialKey;
 	
 	BOOL		attributedReplace = ((_options & OgreReplaceWithAttributesOption) != 0);
 	BOOL		replaceFonts = ((_options & OgreReplaceFontsOption) != 0);
 	BOOL		mergeAttributes = ((_options & OgreMergeAttributesOption) != 0);
 	
 	//[resultString setAttributesOfOGString:[match targetOGString] atIndex:[match rangeOfMatchedString].location];
-	unsigned	headIndex = [match rangeOfMatchedString].location - [match _searchRange].location;
+	NSUInteger	headIndex = [match rangeOfMatchedString].location - [match _searchRange].location;
 	[resultString setAttributesOfOGString:[match targetOGString] atIndex:headIndex];
 	
 	while ( (string = [strEnumerator nextObject]) != nil && (type = [typeEnumerator nextObject]) != nil ) {

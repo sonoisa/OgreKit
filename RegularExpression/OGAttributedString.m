@@ -102,7 +102,7 @@ static NSString * const	OgreAttributedStringKey = @"OgreAttributedString";
 	return _attrString;
 }
 
-- (unsigned)length
+- (NSUInteger)length
 {
 	return [_attrString length];
 }

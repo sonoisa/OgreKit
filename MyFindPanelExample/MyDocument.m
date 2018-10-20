@@ -30,7 +30,9 @@
     return @"MyDocument";
 }
 
-- (NSData*)dataRepresentationOfType:(NSString*)type {
+- (NSData *)dataOfType:(NSString *)typeName
+                 error:(NSError * _Nullable *)outError
+{
 	// 改行コードを(置換すべきなら)置換し、保存する。
 	_tmpString = [textView string];
 	if ([OGRegularExpression newlineCharacterInString:_tmpString] != _newlineCharacter) {
@@ -41,7 +43,8 @@
     return [_tmpString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type {
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError * _Nullable *)outError
+{
 	// ファイルから読み込む。(UTF8決めうち。)
 	id	aString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	

@@ -95,7 +95,7 @@ OnigSyntaxType  OgrePrivateRubySyntax;
 	}
 	
 	NSString	*plainString = [string string];
-	unsigned	strLength = [plainString length];
+	NSUInteger	strLength = [plainString length];
 	NSRange		scanRange = NSMakeRange(0, strLength);	// スキャンする範囲
 	NSRange		matchRange;					// escapeの発見された範囲(lengthは常に1)
 	
@@ -109,9 +109,9 @@ OnigSyntaxType  OgrePrivateRubySyntax;
 	unsigned			counterOfAutorelease = 0;
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
-	while ( matchRange = [plainString rangeOfCharacterFromSet:swapCharSet options:0 range:scanRange], 
+    while ( (void)(matchRange = [plainString rangeOfCharacterFromSet:swapCharSet options:0 range:scanRange]),
 			matchRange.length > 0 ) {
-		unsigned	lastMatchLocation = scanRange.location;
+		NSUInteger  lastMatchLocation = scanRange.location;
 		[resultString appendOGString:[string substringWithRange:NSMakeRange(lastMatchLocation, matchRange.location - lastMatchLocation)]];
 		
 		if ([[plainString substringWithRange:matchRange] isEqualToString:OgreBackslashCharacter]) {
@@ -238,7 +238,7 @@ OnigSyntaxType  OgrePrivateRubySyntax;
 
 // index番目の部分文字列の名前
 // 存在しない名前の場合は nil を返す。
-- (NSString*)nameForGroupIndex:(unsigned)index
+- (NSString*)nameForGroupIndex:(NSUInteger)index
 {
 	if ( (_nameForGroupIndexArray == nil) || (index < 1) || (index > [_nameForGroupIndexArray count])) {
 		return nil;

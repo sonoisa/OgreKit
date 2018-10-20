@@ -38,7 +38,7 @@
 - (void)show;
 - (void)close;
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item;
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item;
 
 // protected method
 - (void)setupFindResultView;

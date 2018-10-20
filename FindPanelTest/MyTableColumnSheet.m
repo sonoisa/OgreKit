@@ -39,14 +39,12 @@
     NSString    *oldTitle = [[_column headerCell] stringValue];
     [oldTitleField setStringValue:oldTitle];
     [newTitleField setStringValue:oldTitle];
-	[NSApp beginSheet:columnSheet 
-		modalForWindow:_parentWindow 
-		modalDelegate:self
-		didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) 
-		contextInfo:nil];
+    [_parentWindow beginSheet:columnSheet completionHandler:^(NSModalResponse returnCode) {
+        [self sheetDidEnd:columnSheet returnCode:returnCode contextInfo:nil];
+    }];
 }
 
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void*)contextInfo
 {
 	[self release];
 }

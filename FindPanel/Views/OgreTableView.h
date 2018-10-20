@@ -17,18 +17,18 @@
 
 @interface OgreTableView : NSTableView <OgreView>
 {
-    int     _ogreSelectedColumn;
-    int     _ogreSelectedRow;
-    NSRange _ogreSelectedRange;
+    NSInteger   _ogreSelectedColumn;
+    NSInteger   _ogreSelectedRow;
+    NSRange     _ogreSelectedRange;
 }
 
 - (NSObject <OgreTextFindComponent>*)ogreAdapter;
 
-- (int)ogreSelectedColumn;
-- (void)ogreSetSelectedColumn:(int)column;
+- (NSInteger)ogreSelectedColumn;
+- (void)ogreSetSelectedColumn:(NSInteger)column;
 
-- (int)ogreSelectedRow;
-- (void)ogreSetSelectedRow:(int)row;
+- (NSInteger)ogreSelectedRow;
+- (void)ogreSetSelectedRow:(NSInteger)row;
 
 - (NSRange)ogreSelectedRange;
 - (void)ogreSetSelectedRange:(NSRange)aRange;

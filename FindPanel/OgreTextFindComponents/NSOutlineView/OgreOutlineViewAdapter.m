@@ -158,25 +158,25 @@
 - (BOOL)isHighlightable { return NO; }
 
 /* Getting structural detail */
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    int count = [_outlineView numberOfSelectedColumns];
+    NSInteger count = [_outlineView numberOfSelectedColumns];
     if (inSelection && (count > 0)) return count;
     
     return [_outlineView numberOfColumns];
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -childAtIndex: of %@", [self className]);
 #endif
     OgreOutlineColumnAdapter    *outlineColumnAdapter;
     OgreOutlineColumn           *column;
-    unsigned                    concreteIndex;
+    NSUInteger                  concreteIndex;
     
     if (!inSelection) {
         concreteIndex = index;
@@ -186,12 +186,7 @@
             concreteIndex = index;
         } else {
             if (index >= [selectedColumnIndexes count]) return nil;
-            
-#ifdef MAC_OS_X_VERSION_10_6
             NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * [selectedColumnIndexes count]);
-#else
-            unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedColumnIndexes count]);
-#endif
             if (indexes == NULL) {
                 // エラー
                 return nil;
@@ -202,7 +197,7 @@
         }
     }
     
-    column = [[_outlineView tableColumns] objectAtIndex:concreteIndex];
+    column = (OgreOutlineColumn*)[[_outlineView tableColumns] objectAtIndex:concreteIndex];
     outlineColumnAdapter = [[[OgreOutlineColumnAdapter alloc] initWithOutlineColumn:column] autorelease];
     [outlineColumnAdapter setParent:self];
     [outlineColumnAdapter setIndex:index];
@@ -220,7 +215,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    int count = [_outlineView numberOfSelectedColumns];
+    NSInteger count = [_outlineView numberOfSelectedColumns];
     
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {
@@ -297,7 +292,7 @@
     return [_outlineView window];
 }
 
-- (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection
 {
     return -1;  // indeterminate
 }

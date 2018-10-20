@@ -19,7 +19,7 @@ extern NSString	* const OgreStringException;
 @protocol OGStringProtocol
 - (NSString*)string;
 - (NSAttributedString*)attributedString;
-- (unsigned)length;
+- (NSUInteger)length;
 
 - (NSObject<OGStringProtocol>*)substringWithRange:(NSRange)aRange;
 

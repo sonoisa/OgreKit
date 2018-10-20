@@ -37,15 +37,15 @@
 /* Getting and setting structural detail */
 - (BOOL)isLeaf;
 - (BOOL)isBranch;
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection;
-- (unsigned)numberOfDescendantsInSelection:(BOOL)inSelection;
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection;
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection;
+- (NSUInteger)numberOfDescendantsInSelection:(BOOL)inSelection;
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection;
 
 - (OgreTextFindBranch*)parent;
 - (void)setParent:(OgreTextFindBranch*)parent;
 - (void)setParentNoRetain:(OgreTextFindBranch*)parent;
-- (int)index;
-- (void)setIndex:(int)index;
+- (NSInteger)index;
+- (void)setIndex:(NSInteger)index;
 - (OgreTextFindLeaf*)selectedLeaf;
 
 - (BOOL)isTerminal;

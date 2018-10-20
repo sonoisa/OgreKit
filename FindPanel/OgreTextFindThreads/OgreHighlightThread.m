@@ -57,11 +57,7 @@
     OGRegularExpression *regex = [self regularExpression];
     
     /* blending highlight colors */
-#ifdef MAC_OS_X_VERSION_10_6
     CGFloat hue, saturation, brightness, alpha;
-#else
-    float   hue, saturation, brightness, alpha;
-#endif
     [[[self highlightColor] colorUsingColorSpaceName:NSCalibratedRGBColorSpace] 
         getHue: &hue 
         saturation: &saturation 
@@ -69,7 +65,7 @@
         alpha: &alpha];
     
     numberOfGroups = [regex numberOfGroups];
-    unsigned    i;
+    NSUInteger  i;
     BOOL        simple = ([regex syntax] == OgreSimpleMatchingSyntax);
     double      dummy;
     

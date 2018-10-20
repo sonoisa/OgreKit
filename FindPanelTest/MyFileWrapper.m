@@ -33,11 +33,7 @@
         _info = [[NSMutableString alloc] init];
         NSNumber        *fsize;
         NSDate          *moddate;
-#ifdef MAC_OS_X_VERSION_10_6
         NSDictionary    *fattrs = [manager attributesOfItemAtPath:_path error:NULL];
-#else
-        NSDictionary    *fattrs = [manager fileAttributesAtPath:_path traverseLink:YES];
-#endif
         
         if (fattrs != nil) {
             if ((moddate = [fattrs objectForKey:NSFileModificationDate]) != nil)
@@ -54,11 +50,7 @@
 {
     NSFileManager *manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:_path isDirectory:&_isDirectory] && _isDirectory) {
-#ifdef MAC_OS_X_VERSION_10_6
         NSArray *subpaths = [manager contentsOfDirectoryAtPath:_path error:NULL];
-#else
-        NSArray *subpaths = [manager directoryContentsAtPath:_path];
-#endif
         _components = [[NSMutableArray alloc] initWithCapacity:[subpaths count]];
         NSString        *subpath;
         NSEnumerator    *subpathE = [subpaths objectEnumerator];
@@ -109,13 +101,13 @@
     return _components;
 }
 
-- (id)componentAtIndex:(unsigned)index
+- (id)componentAtIndex:(NSUInteger)index
 {
     if (_isDirectory && (_components == nil)) [self initComponents];
     return [_components objectAtIndex:index];
 }
 
-- (unsigned)numberOfComponents
+- (NSUInteger)numberOfComponents
 {
     if (_isDirectory && (_components == nil)) [self initComponents];
     return [_components count];

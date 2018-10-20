@@ -57,14 +57,17 @@
     _RTFData = [newRTFData retain];
 }
 
-- (NSData*)dataRepresentationOfType:(NSString*)type {
+- (NSData *)dataOfType:(NSString *)typeName
+                 error:(NSError * _Nullable *)outError
+{
 	// 改行コードを(置換すべきなら)置換し、保存する。
     if ([myController isEditing]) [myController commitEditing];
     
     return [self rtfData];
 }
 
-- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type {
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError * _Nullable *)outError
+{
     [self setRtfData:data];
     
     return YES;

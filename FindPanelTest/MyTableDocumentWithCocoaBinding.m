@@ -42,12 +42,13 @@
     return @"MyTableDocumentWithCocoaBinding";
 }
 
-- (NSData*)dataRepresentationOfType:(NSString*)type 
+- (NSData *)dataOfType:(NSString *)typeName
+                 error:(NSError * _Nullable *)outError
 {
     return [NSKeyedArchiver archivedDataWithRootObject:_modelArray];
 }
 
-- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError * _Nullable *)outError
 {
     _modelArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     

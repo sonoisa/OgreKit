@@ -33,12 +33,12 @@
 - (id)name { return @"Root"; }
 - (id)outline { return @""; }
 
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection 
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
     return ((_component != nil)? 1 : 0);
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
 {
     return _component;
 }

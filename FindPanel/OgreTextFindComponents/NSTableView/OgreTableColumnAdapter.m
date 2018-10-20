@@ -89,13 +89,13 @@
 - (BOOL)isHighlightable { return NO; }
 
 /* Getting structural detail */
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
     if ([_tableColumn isKindOfClass:[OgreTableColumn class]]) {
-        int count = [[_tableColumn tableView] numberOfSelectedRows];
+        NSInteger count = [[_tableColumn tableView] numberOfSelectedRows];
         if (inSelection && (count > 0)) return count;
         
         return [[_tableColumn tableView] numberOfRows];
@@ -104,13 +104,13 @@
     return 0;
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -childAtIndex: of %@", [self className]);
 #endif
     OgreTableCellAdapter *tableCellAdapter;
-    unsigned            rowIndex;
+    NSUInteger           rowIndex;
     
     if (!inSelection) {
         rowIndex = index;
@@ -120,12 +120,7 @@
             rowIndex = index;
         } else {
             if (index >= [selectedRowIndexes count]) return nil;
-            
-#ifdef MAC_OS_X_VERSION_10_6
             NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * [selectedRowIndexes count]);
-#else
-            unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedRowIndexes count]);
-#endif
             if (indexes == NULL) {
                 // エラー
                 return nil;
@@ -153,7 +148,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    int count = [[_tableColumn tableView] numberOfSelectedRows];
+    NSInteger count = [[_tableColumn tableView] numberOfSelectedRows];
     
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {

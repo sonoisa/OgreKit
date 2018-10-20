@@ -18,7 +18,7 @@
 @interface OgreTextFindBranch : NSObject <OgreTextFindComponent>
 {
     OgreTextFindBranch      *_parent;
-    int                     _index;
+    NSInteger               _index;
     BOOL                    _isParentRetained;
     BOOL                    _isTerminal;
     BOOL                    _isReversed;

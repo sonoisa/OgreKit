@@ -137,25 +137,25 @@
 - (BOOL)isHighlightable { return NO; }
 
 /* Getting structural detail */
-- (unsigned)numberOfChildrenInSelection:(BOOL)inSelection
+- (NSUInteger)numberOfChildrenInSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    int count = [_tableView numberOfSelectedColumns];
+    NSInteger count = [_tableView numberOfSelectedColumns];
     if (inSelection && (count > 0)) return count;
     
     return [_tableView numberOfColumns];
 }
 
-- (id)childAtIndex:(unsigned)index inSelection:(BOOL)inSelection
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -childAtIndex: of %@", [self className]);
 #endif
     OgreTableColumnAdapter  *tableColumnAdapter;
     OgreTableColumn         *column;
-    unsigned                concreteIndex;
+    NSUInteger              concreteIndex;
     
     if (!inSelection) {
         concreteIndex = index;
@@ -165,12 +165,7 @@
             concreteIndex = index;
         } else {
             if (index >= [selectedColumnIndexes count]) return nil;
-            
-#ifdef MAC_OS_X_VERSION_10_6
             NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * [selectedColumnIndexes count]);
-#else
-            unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * [selectedColumnIndexes count]);
-#endif
             if (indexes == NULL) {
                 // エラー
                 return nil;
@@ -181,7 +176,7 @@
         }
     }
     
-    column = [[_tableView tableColumns] objectAtIndex:concreteIndex];
+    column = (OgreTableColumn*)[[_tableView tableColumns] objectAtIndex:concreteIndex];
     tableColumnAdapter = [[[OgreTableColumnAdapter alloc] initWithTableColumn:column] autorelease];
     [tableColumnAdapter setParent:self];
     [tableColumnAdapter setIndex:index];
@@ -199,7 +194,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    int count = [_tableView numberOfSelectedColumns];
+    NSInteger   count = [_tableView numberOfSelectedColumns];
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {
         enumerator = [OgreTextFindReverseComponentEnumerator alloc];

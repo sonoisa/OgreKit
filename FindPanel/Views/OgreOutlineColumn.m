@@ -37,7 +37,7 @@
     }
 }
 
-- (int)ogreNumberOfChildrenOfItem:(id)item
+- (NSInteger)ogreNumberOfChildrenOfItem:(id)item
 {
     id  dataSource;
     
@@ -48,7 +48,7 @@
     return 0;
 }
 
-- (id)ogreChild:(int)index ofItem:(id)item
+- (id)ogreChild:(NSInteger)index ofItem:(id)item
 {
     id  dataSource;
     

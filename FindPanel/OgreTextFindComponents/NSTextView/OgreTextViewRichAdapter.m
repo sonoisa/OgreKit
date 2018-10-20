@@ -38,7 +38,7 @@
 - (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
 {
 	NSTextStorage	*textStorage = [self textStorage];
-	unsigned	appendantLength = [aString length];
+	NSUInteger	appendantLength = [aString length];
 	
     // Undo操作の登録
     if (_allowsUndo) {

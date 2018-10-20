@@ -28,11 +28,7 @@
         _terminalIndex = _count - 1;
         
         if (inSelection) {
-#ifdef MAC_OS_X_VERSION_10_6
             _indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * _count);
-#else
-            _indexes = (unsigned*)NSZoneMalloc([self zone], sizeof(unsigned) * _count);
-#endif
             if (_indexes == NULL) {
                 // Error
                 [self release];
@@ -54,12 +50,12 @@
     [super dealloc];
 }
 
-- (void)setTerminalIndex:(int)index
+- (void)setTerminalIndex:(NSInteger)index
 {
     _terminalIndex = index;
 }
 
-- (void)setStartIndex:(int)index
+- (void)setStartIndex:(NSInteger)index
 {
     _nextIndex = index;
 }
@@ -67,7 +63,7 @@
 - (id)nextObject
 {
     if (_nextIndex > _terminalIndex) return nil;
-    unsigned    concreteIndex;
+    NSUInteger    concreteIndex;
     
     if (_inSelection) {
         concreteIndex = *(_indexes + _nextIndex);

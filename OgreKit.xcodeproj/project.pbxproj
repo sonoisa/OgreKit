@@ -1782,6 +1782,7 @@
 				Portuguese,
 				Dutch,
 				Base,
+				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* OgreKit */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;

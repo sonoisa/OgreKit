@@ -654,43 +654,46 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (IBAction)clearFindReplaceHistories:(id)sender
 {
 	[findPanel makeKeyAndOrderFront:self];
-	NSBeginAlertSheet(OgreAPFCLocalizedString(@"Clear"), 
-		OgreAPFCLocalizedString(@"Yes"), 
-		OgreAPFCLocalizedString(@"No"), 
-		nil, findPanel, self, 
-		@selector(clearFindPeplaceHistoriesSheetDidEnd:returnCode:contextInfo:), 
-		@selector(sheetDidDismiss:returnCode:contextInfo:), nil, 
-		OgreAPFCLocalizedString(@"Do you really want to clear find/replace histories?"));
+    NSAlert* alert = [[NSAlert alloc] init];
+    [alert setMessageText:OgreAPFCLocalizedString(@"Clear")];
+    [alert setInformativeText:OgreAPFCLocalizedString(@"Do you really want to clear find/replace histories?")];
+    [alert addButtonWithTitle:OgreAPFCLocalizedString(@"Yes")];
+    [alert addButtonWithTitle:OgreAPFCLocalizedString(@"No")];
+    [alert setAlertStyle:NSAlertStyleInformational];
+    [alert beginSheetModalForWindow:findPanel completionHandler:^(NSModalResponse returnCode) {
+        if (returnCode == NSAlertFirstButtonReturn) {
+            [self clearFindPeplaceHistoriesSheetDidEnd];
+        }
+        [self sheetDidDismiss:findPanel returnCode:returnCode contextInfo:nil];
+    }];
 	_isAlertSheetOpen = YES;
 }
 
-- (void)clearFindPeplaceHistoriesSheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo{
-	if (returnCode == NSAlertDefaultReturn) {
-		[_findHistory release];
-		[_replaceHistory release];
-		_findHistory = [[NSMutableArray alloc] initWithCapacity:0];
-		_replaceHistory = [[NSMutableArray alloc] initWithCapacity:0];
-		[findTextView setString:@""];
-		[replaceTextView setString:@""];
-		
-		NSMenu		*menu;
-		NSMenuItem	*menuItem;
-		menu = [[NSMenu alloc] initWithTitle:@""];
-		menuItem = [[NSMenuItem alloc] init];
-		[menuItem setTitle:@""];
-		[menu addItem:menuItem];
-		[findPopUpButton setMenu:menu];
-		[menuItem release];
-		[menu release];
-		
-		menu = [[NSMenu alloc] initWithTitle:@""];
-		menuItem = [[NSMenuItem alloc] init];
-		[menuItem setTitle:@""];
-		[menu addItem:menuItem];
-		[replacePopUpButton setMenu:menu];
-		[menuItem release];
-		[menu release];
-	}
+- (void)clearFindPeplaceHistoriesSheetDidEnd {
+    [_findHistory release];
+    [_replaceHistory release];
+    _findHistory = [[NSMutableArray alloc] initWithCapacity:0];
+    _replaceHistory = [[NSMutableArray alloc] initWithCapacity:0];
+    [findTextView setString:@""];
+    [replaceTextView setString:@""];
+    
+    NSMenu		*menu;
+    NSMenuItem	*menuItem;
+    menu = [[NSMenu alloc] initWithTitle:@""];
+    menuItem = [[NSMenuItem alloc] init];
+    [menuItem setTitle:@""];
+    [menu addItem:menuItem];
+    [findPopUpButton setMenu:menu];
+    [menuItem release];
+    [menu release];
+    
+    menu = [[NSMenu alloc] initWithTitle:@""];
+    menuItem = [[NSMenuItem alloc] init];
+    [menuItem setTitle:@""];
+    [menu addItem:menuItem];
+    [replacePopUpButton setMenu:menu];
+    [menuItem release];
+    [menu release];
 }
 
 - (IBAction)selectFindHistory:(id)sender
@@ -1006,11 +1009,18 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 {
 	NSBeep();
 	[findPanel makeKeyAndOrderFront:self];
-	NSBeginAlertSheet(title, OgreAPFCLocalizedString(@"OK"), nil, nil, findPanel, self, nil, @selector(sheetDidDismiss:returnCode:contextInfo:), nil, message);
+    NSAlert* alert = [[NSAlert alloc] init];
+    [alert setMessageText:title];
+    [alert setInformativeText:message];
+    [alert addButtonWithTitle:OgreAPFCLocalizedString(@"OK")];
+    [alert setAlertStyle:NSAlertStyleInformational];
+    [alert beginSheetModalForWindow:findPanel completionHandler:^(NSModalResponse returnCode) {
+        [self sheetDidDismiss:findPanel returnCode:returnCode contextInfo:nil];
+    }];
 	_isAlertSheetOpen = YES;
 }
 
-- (void)sheetDidDismiss:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidDismiss:(NSWindow*)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void*)contextInfo
 {
 	//NSLog(@"sheetDidDismiss");
 	[findPanel makeKeyAndOrderFront:self];

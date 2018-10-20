@@ -493,7 +493,7 @@
                 <outlet property="delegate" destination="911" id="915"/>
                 <outlet property="initialFirstResponder" destination="797" id="916"/>
             </connections>
-            <point key="canvasLocation" x="147" y="283"/>
+            <point key="canvasLocation" x="438" y="144"/>
         </window>
         <drawer preferredEdge="minX" leadingOffset="5" trailingOffset="5" id="820">
             <size key="contentSize" width="322" height="271"/>
@@ -845,6 +845,7 @@
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
             </subviews>
+            <point key="canvasLocation" x="-30" y="257"/>
         </customView>
         <menu title="Menu" id="889">
             <items>

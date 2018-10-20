@@ -492,6 +492,7 @@
                 <outlet property="delegate" destination="242" id="445"/>
                 <outlet property="initialFirstResponder" destination="446" id="470"/>
             </connections>
+            <point key="canvasLocation" x="-5" y="437"/>
         </window>
         <drawer preferredEdge="minX" leadingOffset="5" trailingOffset="5" id="39" userLabel="MoreOptionsDrawer">
             <size key="contentSize" width="322" height="271"/>
@@ -843,6 +844,7 @@
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
             </subviews>
+            <point key="canvasLocation" x="249" y="843"/>
         </customView>
         <menu title="Menu" id="79">
             <items>
@@ -945,6 +947,7 @@
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="418" y="444"/>
         </menu>
         <customObject id="242" userLabel="OgreAdvancedFindPanelController" customClass="OgreAdvancedFindPanelController">
             <connections>

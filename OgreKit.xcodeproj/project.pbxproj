@@ -2397,7 +2397,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "GCTest/GC Test-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2423,7 +2422,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "GCTest/GC Test-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2448,7 +2446,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "GCTest/GC Test-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2591,6 +2588,7 @@
 		4DC40BA4091509DC0029A2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2627,6 +2625,7 @@
 		4DC40BA5091509DC0029A2A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2661,6 +2660,7 @@
 		4DC40BA6091509DC0029A2A6 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2830,7 +2830,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpressionTest/OgreTest_Prefix.h;
 				INFOPLIST_FILE = "RegularExpressionTest/OgreTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -2862,7 +2861,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpressionTest/OgreTest_Prefix.h;
 				INFOPLIST_FILE = "RegularExpressionTest/OgreTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -2893,7 +2891,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpressionTest/OgreTest_Prefix.h;
 				INFOPLIST_FILE = "RegularExpressionTest/OgreTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -2925,7 +2922,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FindPanelTest/OgreFindPanelTest_Prefix.h;
 				INFOPLIST_FILE = "FindPanelTest/FindPanelTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -2954,7 +2950,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FindPanelTest/OgreFindPanelTest_Prefix.h;
 				INFOPLIST_FILE = "FindPanelTest/FindPanelTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -2982,7 +2977,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FindPanelTest/OgreFindPanelTest_Prefix.h;
 				INFOPLIST_FILE = "FindPanelTest/FindPanelTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -3011,7 +3005,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyFindPanelExample/MyFindPanelExample_Prefix.h;
 				INFOPLIST_FILE = "MyFindPanelExample/MyFindPanelExample-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -3040,7 +3033,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyFindPanelExample/MyFindPanelExample_Prefix.h;
 				INFOPLIST_FILE = "MyFindPanelExample/MyFindPanelExample-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -3068,7 +3060,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyFindPanelExample/MyFindPanelExample_Prefix.h;
 				INFOPLIST_FILE = "MyFindPanelExample/MyFindPanelExample-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -3097,7 +3088,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -3130,7 +3120,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -3162,7 +3151,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist";
-				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (

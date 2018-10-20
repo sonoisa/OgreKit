@@ -58,7 +58,7 @@
                                         <binding destination="476" name="enabled" keyPath="selection.replaceWithStylesOption" id="671"/>
                                     </connections>
                                 </button>
-                                <button toolTip="スタイル付き文字列に置換する" id="676" customClass="OgreAFPCOptionButton">
+                                <button id="676" customClass="OgreAFPCOptionButton">
                                     <rect key="frame" x="6" y="57" width="80" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" title="With Styles" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="724">
@@ -386,21 +386,6 @@
                                 <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="448">
                                     <rect key="frame" x="91" y="2" width="305" height="70"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <string key="toolTip">検索文字列では次のエスケープ・シーケンスが使用できる。
-
-\0, \&amp;: マッチした文字列
-\1, \2, ... \9: n番目に捕獲されたグループにマッチした部分文字列
-\`: マッチした文字列より前の文字列
-\': マッチした文字列より後の文字列
-\-: 前回にマッチした文字列との間の文字列
-\+: 最も番号が大きいマッチしたグループの部分文字列
-\g&lt;name&gt;: 名前が name の名前付きグループにマッチした部分文字列
-\g&lt;number&gt;: n番目に捕獲されたグループにマッチした部分文字列
-\\: エスケープ文字 "\"
-\t: 水平タブ (0x09)
-\n: 改行文字 (0x0A)
-\r: 復帰文字 (0x0D)
-\x{HHHH}: 16-bit Unicode文字 U+HHHH</string>
                                     <clipView key="contentView" drawsBackground="NO" id="Yh5-FG-ob3">
                                         <rect key="frame" x="1" y="1" width="303" height="68"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

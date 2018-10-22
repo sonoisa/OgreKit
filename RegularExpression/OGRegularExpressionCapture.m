@@ -105,14 +105,14 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 {
 	NSDictionary	*dictionary = [NSDictionary 
 		dictionaryWithObjects: [NSArray arrayWithObjects: 
-			[NSNumber numberWithUnsignedInt: _captureNode->group], 
-			[NSNumber numberWithUnsignedLong: _index],
-			[NSNumber numberWithUnsignedLong: _level],
+			[NSNumber numberWithInt: _captureNode->group],
+			[NSNumber numberWithUnsignedInteger: _index],
+			[NSNumber numberWithUnsignedInteger: _level],
 			[NSArray arrayWithObjects:
-                [NSNumber numberWithUnsignedLong: _captureNode->beg],
-                [NSNumber numberWithUnsignedLong: _captureNode->end - _captureNode->beg],
+                [NSNumber numberWithUnsignedInteger: _captureNode->beg],
+                [NSNumber numberWithUnsignedInteger: _captureNode->end - _captureNode->beg],
                 nil], 
-			[NSNumber numberWithUnsignedInt: _captureNode->num_childs], 
+			[NSNumber numberWithInt: _captureNode->num_childs], 
 			nil]
 		forKeys:[NSArray arrayWithObjects: 
 			@"Group Index", 
@@ -199,13 +199,13 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 	//[super encodeWithCoder:encoder]; NSObject does ont respond to method encodeWithCoder:
 	
    if ([encoder allowsKeyedCoding]) {
-		[encoder encodeObject: [NSNumber numberWithUnsignedLong:_index] forKey: OgreIndexKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedLong:_level] forKey: OgreLevelKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index] forKey: OgreIndexKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_level] forKey: OgreLevelKey];
 		[encoder encodeObject: _match forKey: OgreMatchKey];
 		[encoder encodeObject: _parent forKey: OgreParentKey];
 	} else {
-		[encoder encodeObject: [NSNumber numberWithUnsignedLong:_index]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedLong:_level]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_index]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger:_level]];
 		[encoder encodeObject: _match];
 		[encoder encodeObject: _parent];
 	}
@@ -233,7 +233,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_index = [anObject unsignedIntValue];	
+	_index = [anObject unsignedIntegerValue];
 	
     // unsigned                   _level;             // 深さ
     if (allowsKeyedCoding) {
@@ -246,7 +246,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_level = [anObject unsignedIntValue];	
+	_level = [anObject unsignedIntegerValue];
 	
 	
 	// OGRegularExpressionMatch	*_match;            // 生成主のOGRegularExpressionMatchオブジェクト

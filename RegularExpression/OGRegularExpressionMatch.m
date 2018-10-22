@@ -440,14 +440,14 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
    if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: Ogre_arrayWithOnigRegion(_region) forKey: OgreRegionKey];
 		[encoder encodeObject: _enumerator forKey: OgreEnumeratorKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedLong: _terminalOfLastMatch] forKey: OgreTerminalOfLastMatchKey];
-		[encoder encodeObject: [NSNumber numberWithUnsignedLong: _index] forKey: OgreIndexOfMatchKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger: _terminalOfLastMatch] forKey: OgreTerminalOfLastMatchKey];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger: _index] forKey: OgreIndexOfMatchKey];
 		[encoder encodeObject: Ogre_arrayWithOnigCaptureTreeNode(_region->history_root) forKey: OgreCaptureHistoryKey];
 	} else {
 		[encoder encodeObject: Ogre_arrayWithOnigRegion(_region)];
 		[encoder encodeObject: _enumerator];
-		[encoder encodeObject: [NSNumber numberWithUnsignedLong: _terminalOfLastMatch]];
-		[encoder encodeObject: [NSNumber numberWithUnsignedLong: _index]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger: _terminalOfLastMatch]];
+		[encoder encodeObject: [NSNumber numberWithUnsignedInteger: _index]];
 		[encoder encodeObject: Ogre_arrayWithOnigCaptureTreeNode(_region->history_root)];
 	}
 }
@@ -502,7 +502,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_terminalOfLastMatch = [anObject unsignedIntValue];
+	_terminalOfLastMatch = [anObject unsignedIntegerValue];
 
 	
 	// 	unsigned		_index;		// ƒ}ƒbƒ`‚µ‚½‡”Ô
@@ -516,7 +516,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_index = [anObject unsignedIntValue];
+	_index = [anObject unsignedIntegerValue];
 
 	
 	// _region->history_root    // capture history
@@ -570,8 +570,8 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 			Ogre_arrayWithOnigRegion(_region), 
 			Ogre_arrayWithOnigCaptureTreeNode(_region->history_root), 
 			_enumerator, 
-			[NSNumber numberWithUnsignedLong: _terminalOfLastMatch],
-			[NSNumber numberWithUnsignedLong: _index],
+			[NSNumber numberWithUnsignedInteger: _terminalOfLastMatch],
+			[NSNumber numberWithUnsignedInteger: _index],
 			nil]
 		forKeys:[NSArray arrayWithObjects: 
 			@"Range of Substrings", 

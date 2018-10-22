@@ -32,7 +32,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button id="787">
-                                    <rect key="frame" x="13" y="17" width="90" height="18"/>
+                                    <rect key="frame" x="13" y="17" width="98" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" title="Merge Styles" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="788">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -48,7 +48,7 @@
                                     </connections>
                                 </button>
                                 <button id="789">
-                                    <rect key="frame" x="13" y="37" width="96" height="18"/>
+                                    <rect key="frame" x="13" y="37" width="104" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" title="Replace Fonts" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="790">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -60,7 +60,7 @@
                                     </connections>
                                 </button>
                                 <button id="791">
-                                    <rect key="frame" x="6" y="57" width="80" height="18"/>
+                                    <rect key="frame" x="6" y="57" width="92" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" title="With Styles" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="792">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -114,11 +114,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="760">
-                                    <rect key="frame" x="7" y="3" width="75" height="37"/>
+                                    <rect key="frame" x="7" y="2" width="88" height="38"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="cellSize" width="75" height="17"/>
-                                    <size key="intercellSpacing" width="4" height="2"/>
+                                    <size key="cellSize" width="88" height="17"/>
+                                    <size key="intercellSpacing" width="0.0" height="2"/>
                                     <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="761">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -218,11 +218,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="769">
-                                    <rect key="frame" x="7" y="4" width="58" height="36"/>
+                                    <rect key="frame" x="8" y="3" width="73" height="38"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="cellSize" width="58" height="17"/>
-                                    <size key="intercellSpacing" width="4" height="2"/>
+                                    <size key="cellSize" width="73" height="18"/>
+                                    <size key="intercellSpacing" width="0.0" height="2"/>
                                     <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="770">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -262,10 +262,10 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <matrix verticalHuggingPriority="750" mode="highlight" allowsEmptySelection="NO" autosizesCells="NO" id="747">
-                                    <rect key="frame" x="159" y="4" width="88" height="38"/>
+                                    <rect key="frame" x="159" y="4" width="99" height="38"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="cellSize" width="88" height="18"/>
+                                    <size key="cellSize" width="99" height="18"/>
                                     <size key="intercellSpacing" width="0.0" height="2"/>
                                     <buttonCell key="prototype" type="check" title="Switch" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="-1" inset="2" id="748">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -408,7 +408,7 @@
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 <size key="minSize" width="284" height="68"/>
-                                                <size key="maxSize" width="344" height="10000000"/>
+                                                <size key="maxSize" width="362" height="10000000"/>
                                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="911" id="940"/>
@@ -510,7 +510,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button hidden="YES" id="887">
-                    <rect key="frame" x="188" y="80" width="116" height="16"/>
+                    <rect key="frame" x="188" y="71" width="116" height="26"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <buttonCell key="cell" type="check" title="Open Sheet" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="888">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -590,23 +590,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" id="856">
-                                <rect key="frame" x="17" y="33" width="49" height="14"/>
+                                <rect key="frame" x="10" y="31" width="56" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" id="857">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Find:" id="857">
                                     <font key="font" metaFont="smallSystem"/>
-                                    <string key="title">Find:
-</string>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" id="858">
-                                <rect key="frame" x="17" y="8" width="49" height="14"/>
+                                <rect key="frame" x="5" y="0.0" width="61" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" id="859">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Replace:" id="859">
                                     <font key="font" metaFont="smallSystem"/>
-                                    <string key="title">Replace:
-</string>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -656,7 +652,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button id="853">
-                                <rect key="frame" x="17" y="5" width="116" height="16"/>
+                                <rect key="frame" x="17" y="0.0" width="125" height="24"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <buttonCell key="cell" type="check" title="Close When Done" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="854">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -845,7 +841,7 @@
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
             </subviews>
-            <point key="canvasLocation" x="-30" y="257"/>
+            <point key="canvasLocation" x="-30" y="256.5"/>
         </customView>
         <menu title="Menu" id="889">
             <items>

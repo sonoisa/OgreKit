@@ -82,7 +82,7 @@
         targetLevel = [self levelForRow:row];
         if (targetLevel + 1 == level) {
             // parent level
-            [_ogrePathComponents insertObject:[NSNumber numberWithLong:index] atIndex:0];
+            [_ogrePathComponents insertObject:[NSNumber numberWithInteger:index] atIndex:0];
             level = targetLevel;
             index = 0;
         } else if (targetLevel == level) {
@@ -91,8 +91,8 @@
         }
     } 
     // finish
-    [_ogrePathComponents insertObject:[NSNumber numberWithLong:index] atIndex:0];
-    [_ogrePathComponents addObject:[NSNumber numberWithLong:-1] /* cell */];
+    [_ogrePathComponents insertObject:[NSNumber numberWithInteger:index] atIndex:0];
+    [_ogrePathComponents addObject:[NSNumber numberWithInteger:-1] /* cell */];
     
     return _ogrePathComponents;
 }

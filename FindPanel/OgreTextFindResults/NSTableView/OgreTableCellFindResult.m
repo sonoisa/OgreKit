@@ -93,7 +93,7 @@
 // index番目にマッチした文字列のある行番号
 - (NSNumber*)lineOfMatchedStringAtIndex:(NSUInteger)index
 {
-    return [NSNumber numberWithLong:_rowIndex + 1];
+    return [NSNumber numberWithInteger:_rowIndex + 1];
 }
 
 // index番目にマッチした文字列

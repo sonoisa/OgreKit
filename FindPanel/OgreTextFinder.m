@@ -123,7 +123,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 			if(anObject == nil) {
 				[self setSyntax:[OGRegularExpression defaultSyntax]];
 			} else {
-				_syntax = [OGRegularExpression syntaxForIntValue:[anObject intValue]];
+				_syntax = [OGRegularExpression syntaxForIntValue:[anObject integerValue]];
 			}
 				
 			_escapeCharacter = [[fullHistory objectForKey: OgreTextFinderEscapeCharacterKey] retain];
@@ -309,7 +309,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	// 検索履歴等の保存
 	NSDictionary	*fullHistory = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: 
 			[findPanelController history],
-			[NSNumber numberWithLong:[OGRegularExpression intValueForSyntax:_syntax]],
+			[NSNumber numberWithInteger:[OGRegularExpression intValueForSyntax:_syntax]],
 			_escapeCharacter, 
 			nil]
 		forKeys:[NSArray arrayWithObjects: 

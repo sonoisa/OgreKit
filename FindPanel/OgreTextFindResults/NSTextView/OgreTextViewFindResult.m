@@ -128,7 +128,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	}
 	
 	// マッチした文字列の先頭が_line行目にある場合
-	[_lineOfMatchedStrings addObject:[NSNumber numberWithUnsignedLong:_line]];
+	[_lineOfMatchedStrings addObject:[NSNumber numberWithUnsignedInteger:_line]];
 	[_matchRangeArray addObject:rangeArray];
 }
 
@@ -244,8 +244,8 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	return [[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:
 			_lineOfMatchedStrings, 
 			_matchRangeArray, 
-			[NSNumber numberWithUnsignedLong:_line],
-			[NSNumber numberWithUnsignedLong:_count],
+			[NSNumber numberWithUnsignedInteger:_line],
+			[NSNumber numberWithUnsignedInteger:_count],
 		nil] forKeys:[NSArray arrayWithObjects:
 			@"Match Line", 
 			@"Match Range", 

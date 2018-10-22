@@ -421,7 +421,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	anObject = [history objectForKey:OgreAFPCSyntaxKey];
 	if (anObject != nil) {
-		OgreSyntax	syntax = [OGRegularExpression syntaxForIntValue:[anObject intValue]];
+		OgreSyntax	syntax = [OGRegularExpression syntaxForIntValue:[anObject integerValue]];
 		
 		[syntaxPopUpButton selectItemAtIndex:[self indexForSyntax:syntax]];
 		
@@ -438,7 +438,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	anObject = [history objectForKey:OgreAFPCEscapeCharacterKey];
 	if (anObject != nil) {
-		[escapeCharacterPopUpButton selectItemAtIndex:[anObject intValue]];
+		[escapeCharacterPopUpButton selectItemAtIndex:[anObject integerValue]];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCHighlightColorKey];
@@ -480,7 +480,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	anObject = [history objectForKey:OgreAFPCEnableStyleOptionsKey];
 	if (anObject != nil) {
-		[toggleStyleOptionsButton setState:[anObject intValue]];
+		[toggleStyleOptionsButton setState:[anObject integerValue]];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCOpenProgressSheetKey];
@@ -515,8 +515,8 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			encodedFindHistory, 
 			encodedReplaceHistory, 
 			[NSNumber numberWithUnsignedInt:[self _options]], 
-			[NSNumber numberWithLong:[[syntaxPopUpButton selectedItem] tag]],
-			[NSNumber numberWithLong:[[escapeCharacterPopUpButton selectedItem] tag]],
+			[NSNumber numberWithInteger:[[syntaxPopUpButton selectedItem] tag]],
+			[NSNumber numberWithInteger:[[escapeCharacterPopUpButton selectedItem] tag]],
 			[NSArchiver archivedDataWithRootObject:[highlightColorWell color]], 
 			[NSNumber numberWithInt:([self atTopOriginOption]? 0 : 1)], 
 			[NSNumber numberWithInt:([self inSelectionScopeOption]? 1 : 0)], 
@@ -524,7 +524,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			[NSNumber numberWithInt:([self closeWhenDoneOption]? NSOnState : NSOffState)], 
 			[NSNumber numberWithInt:[maxNumOfFindHistoryTextField intValue]], 
 			[NSNumber numberWithInt:[maxNumOfReplaceHistoryTextField intValue]], 
-			[NSNumber numberWithLong:[toggleStyleOptionsButton state]],
+			[NSNumber numberWithInteger:[toggleStyleOptionsButton state]],
 			[NSNumber numberWithBool:[self openSheetOption]], 
 			nil]
 		forKeys:[NSArray arrayWithObjects:

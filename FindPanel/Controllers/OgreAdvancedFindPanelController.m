@@ -158,7 +158,6 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		object: maxNumOfReplaceHistoryTextField];
 }
 
-
 // disable Automatic Substitution Features
 - (void)disableAutomaticSubstitutions:(NSTextView*)textView
 {
@@ -887,11 +886,11 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	[findPanel makeFirstResponder:findTextView];
 	
-	// Next three lines by Koch, May 17 2005
-	NSRange    myRange;
-	myRange.location = 0; myRange.length = [[findTextView string] length];
-	[findTextView setSelectedRange: myRange];
-	
+	// Next line by Koch, May 17 2005
+	[findTextView setSelectedRange: NSMakeRange(0, [[findTextView string] length])];
+    
+    [replaceTextView setSelectedRange: NSMakeRange(0, [[replaceTextView string] length])];
+
 	[super showFindPanel:self];
 }
 
@@ -1693,11 +1692,17 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		//[self findNextAndOrderOut:self];
 		return YES;
 	}
-	
-	if (aSelector == @selector(insertTab:)) {
-		[findPanel makeFirstResponder:[textView nextKeyView]];
-		return YES;
-	}
+
+    if (aSelector == @selector(insertTab:) || aSelector == @selector(insertBacktab:)) {
+        if (textView == findTextView) {
+            [replaceTextView setSelectedRange:NSMakeRange(0, [[replaceTextView textStorage] length])];
+            [findPanel makeFirstResponder:replaceTextView];
+        } else {
+            [findTextView setSelectedRange:NSMakeRange(0, [[findTextView textStorage] length])];
+            [findPanel makeFirstResponder:findTextView];
+        }
+        return YES;
+    }
 	
 	return NO;
 }

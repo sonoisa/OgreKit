@@ -707,7 +707,8 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	}
 	
 	// replace
-	[textStorage replaceCharactersInRange:oldRange withAttributedString:findString];
+    // スタイル情報は捨てる。
+	[textStorage replaceCharactersInRange:oldRange withString:[findString string]];
 }
 
 - (void)setReplaceString:(NSAttributedString*)attrString
@@ -731,7 +732,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	}
 	
 	// replace
-	[textStorage replaceCharactersInRange:oldRange withAttributedString:replaceString];
+    if ([self replaceWithStylesOption]) {
+        [textStorage replaceCharactersInRange:oldRange withAttributedString:replaceString];
+    } else {
+        // スタイル情報は捨てる。
+        [textStorage replaceCharactersInRange:oldRange withString:[replaceString string]];
+    }
 }
 
 - (void)undoableReplaceCharactersInRange:(NSRange)oldRange 
@@ -1311,7 +1317,8 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	NSAttributedString	*selectedAttrString = [textFinder selectedAttributedString];
 	if (selectedAttrString != nil) {
-		[[findTextView textStorage] setAttributedString:selectedAttrString];
+//        [[findTextView textStorage] setAttributedString:selectedAttrString];
+        [[findTextView textStorage] replaceCharactersInRange:NSMakeRange(0, [[findTextView textStorage] length]) withString:[selectedAttrString string]];
 		//if (sender != self) [self showFindPanel:sender];
 	} else {
 		NSBeep();
@@ -1328,7 +1335,11 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	NSAttributedString	*selectedAttrString = [textFinder selectedAttributedString];
 	if (selectedAttrString != nil) {
-		[[replaceTextView textStorage] setAttributedString:selectedAttrString];
+        if ([self replaceWithStylesOption]) {
+            [[replaceTextView textStorage] setAttributedString:selectedAttrString];
+        } else {
+            [[replaceTextView textStorage] replaceCharactersInRange:NSMakeRange(0, [[replaceTextView textStorage] length]) withString:[selectedAttrString string]];
+        }
 		//if (sender != self) [self showFindPanel:sender];
 	} else {
 		NSBeep();
@@ -1570,6 +1581,15 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (void)setReplaceWithStylesOption:(BOOL)aReplaceWithStylesOption
 {
 	replaceWithStylesOption = aReplaceWithStylesOption;
+    
+    // スタイルを利用する場合はreplaceTextViewをrichにする。
+    [replaceTextView setRichText:replaceWithStylesOption];
+    [replaceTextView setUsesFontPanel:replaceWithStylesOption];
+    
+    if (!replaceWithStylesOption) {
+        // スタイルを利用しない場合はスタイルを削除する。
+        [self clearReplaceStringStyles:self];
+    }
 }
 
 - (BOOL)replaceFontsOption

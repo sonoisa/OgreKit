@@ -371,7 +371,7 @@
                                         <rect key="frame" x="1" y="1" width="284" height="68"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" allowsUndo="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="797">
+                                            <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsUndo="YES" spellingCorrection="YES" smartInsertDelete="YES" id="797">
                                                 <rect key="frame" x="0.0" y="0.0" width="284" height="68"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -404,7 +404,7 @@
                                         <rect key="frame" x="1" y="1" width="284" height="68"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" allowsUndo="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="801">
+                                            <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsUndo="YES" spellingCorrection="YES" smartInsertDelete="YES" id="801">
                                                 <rect key="frame" x="0.0" y="0.0" width="284" height="68"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -926,11 +926,6 @@
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="908">
                     <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                </menuItem>
-                <menuItem title="Clear Find String Styles" id="909">
-                    <connections>
-                        <action selector="clearFindStringStyles:" target="911" id="968"/>
-                    </connections>
                 </menuItem>
                 <menuItem title="Clear Replace String Styles" id="910">
                     <connections>

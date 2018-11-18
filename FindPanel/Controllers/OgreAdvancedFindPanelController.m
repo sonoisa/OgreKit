@@ -1676,6 +1676,11 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	inSelectionScopeOption = anInSelectionScopeOption;
 }
 
+- (NSString*)version
+{
+    return [OGRegularExpression version];
+}
+
 /* delegate methods of findTextView/replaceTextView */
 - (BOOL)textView:(NSTextView*)aTextView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString*)replacementString
 {

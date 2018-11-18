@@ -511,7 +511,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button hidden="YES" id="686">
-                    <rect key="frame" x="188" y="70" width="116" height="26"/>
+                    <rect key="frame" x="188" y="94" width="116" height="26"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <buttonCell key="cell" type="check" title="Open Sheet" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="732">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -584,7 +584,7 @@
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
                 <box title="Max Number of History" id="361">
-                    <rect key="frame" x="167" y="1" width="155" height="72"/>
+                    <rect key="frame" x="167" y="25" width="155" height="72"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <view key="contentView" id="vKr-Fy-ppo">
                         <rect key="frame" x="3" y="3" width="149" height="52"/>
@@ -646,7 +646,7 @@
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
                 <box title="Progress Sheet" id="359">
-                    <rect key="frame" x="167" y="93" width="155" height="43"/>
+                    <rect key="frame" x="167" y="117" width="155" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <view key="contentView" id="buT-64-DBM">
                         <rect key="frame" x="3" y="3" width="149" height="23"/>
@@ -669,12 +669,12 @@
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
                 <colorWell id="66">
-                    <rect key="frame" x="278" y="160" width="20" height="20"/>
+                    <rect key="frame" x="281" y="165" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="color" red="0.49593499000000002" green="1" blue="0.74895601999999994" alpha="1" colorSpace="calibratedRGB"/>
                 </colorWell>
                 <textField verticalHuggingPriority="750" id="57">
-                    <rect key="frame" x="176" y="161" width="97" height="17"/>
+                    <rect key="frame" x="179" y="166" width="97" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Highlight Color:" id="724">
                         <font key="font" metaFont="cellTitle"/>
@@ -841,6 +841,31 @@
                     </view>
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
+                <textField verticalHuggingPriority="750" id="yRn-kr-HYP">
+                    <rect key="frame" x="179" y="6" width="53" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="version:" id="e1e-jY-j42">
+                        <font key="font" metaFont="system" size="11"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="SZR-b3-b6i">
+                    <rect key="frame" x="223" y="6" width="81" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="HZs-PJ-nFZ">
+                        <font key="font" metaFont="system" size="11"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="242" name="value" keyPath="version" id="WbM-Kf-8Wf">
+                            <dictionary key="options">
+                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
             </subviews>
             <point key="canvasLocation" x="249" y="842.5"/>
         </customView>

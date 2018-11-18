@@ -327,7 +327,9 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			if (start == contentsEnd) {
 				[item setTitle:@""];
 			} else {
-				[item setAttributedTitle:[attrString attributedSubstringFromRange:NSMakeRange(start, contentsEnd - start)]];
+//                [item setAttributedTitle:[attrString attributedSubstringFromRange:NSMakeRange(start, contentsEnd - start)]];
+                // スタイルを削除する
+                [item setTitle:[[attrString string] substringWithRange:NSMakeRange(start, contentsEnd - start)]];
 			}
 			[item setTarget:self];
 			[item setAction:@selector(selectReplaceHistory:)];
@@ -375,7 +377,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 			if (start == contentsEnd) {
 				[item setTitle:@""];
 			} else {
-				[item setAttributedTitle:[attrString attributedSubstringFromRange:NSMakeRange(start, contentsEnd - start)]];
+                if ([self replaceWithStylesOption]) {
+                    [item setAttributedTitle:[attrString attributedSubstringFromRange:NSMakeRange(start, contentsEnd - start)]];
+                } else {
+                    // スタイルを削除する
+                    [item setTitle:[[attrString string] substringWithRange:NSMakeRange(start, contentsEnd - start)]];
+                }
 			}
 			[item setTarget:self];
 			[item setAction:@selector(selectReplaceHistory:)];
@@ -573,7 +580,9 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	if (start == contentsEnd) {
 		[item setTitle:@""];
 	} else {
-		[item setAttributedTitle:[attrString attributedSubstringFromRange:NSMakeRange(start, contentsEnd - start)]];
+//        [item setAttributedTitle:[attrString attributedSubstringFromRange:NSMakeRange(start, contentsEnd - start)]];
+        // スタイルは削除する。
+        [item setTitle:[string substringWithRange:NSMakeRange(start, contentsEnd - start)]];
 	}
 	[item setTarget:self];
 	[item setAction:@selector(selectFindHistory:)];
@@ -612,7 +621,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	if (start == contentsEnd) {
 		[item setTitle:@""];
 	} else {
-		[item setAttributedTitle:[string attributedSubstringFromRange:NSMakeRange(start, contentsEnd - start)]];
+        if ([self replaceWithStylesOption]) {
+            [item setAttributedTitle:[string attributedSubstringFromRange:NSMakeRange(start, contentsEnd - start)]];
+        } else {
+            // スタイルを削除する
+            [item setTitle:[[string string] substringWithRange:NSMakeRange(start, contentsEnd - start)]];
+        }
 	}
 	[item setTarget:self];
 	[item setAction:@selector(selectReplaceHistory:)];

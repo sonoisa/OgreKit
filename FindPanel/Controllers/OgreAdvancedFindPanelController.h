@@ -196,4 +196,6 @@
 - (BOOL)inSelectionScopeOption;
 - (void)setInSelectionScopeOption:(BOOL)inSelectionScopeOption;
 
+- (NSString*)version;
+
 @end

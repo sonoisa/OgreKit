@@ -511,7 +511,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button hidden="YES" id="686">
-                    <rect key="frame" x="206" y="71" width="116" height="25"/>
+                    <rect key="frame" x="206" y="96" width="116" height="25"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <buttonCell key="cell" type="check" title="Afficher la feuille" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="732">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -584,7 +584,7 @@
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
                 <box title="Taille de l'historique" id="361">
-                    <rect key="frame" x="185" y="1" width="172" height="72"/>
+                    <rect key="frame" x="185" y="26" width="172" height="72"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <view key="contentView" id="agU-AF-jg6">
                         <rect key="frame" x="3" y="3" width="166" height="52"/>
@@ -646,7 +646,7 @@
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
                 <box title="Feuille de progression" id="359">
-                    <rect key="frame" x="185" y="93" width="172" height="43"/>
+                    <rect key="frame" x="185" y="118" width="172" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <view key="contentView" id="Pl6-hT-h7g">
                         <rect key="frame" x="3" y="3" width="166" height="23"/>
@@ -669,12 +669,12 @@
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
                 <colorWell id="66">
-                    <rect key="frame" x="334" y="160" width="20" height="20"/>
+                    <rect key="frame" x="342" y="164" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="color" red="0.49593499000000002" green="1" blue="0.74895601999999994" alpha="1" colorSpace="calibratedRGB"/>
                 </colorWell>
                 <textField verticalHuggingPriority="750" id="57">
-                    <rect key="frame" x="188" y="163" width="143" height="17"/>
+                    <rect key="frame" x="196" y="167" width="143" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Couleur de surlignage :" id="724">
                         <font key="font" metaFont="cellTitle"/>
@@ -842,8 +842,33 @@
                     </view>
                     <font key="titleFont" metaFont="titleBar" size="12"/>
                 </box>
+                <textField verticalHuggingPriority="750" id="GEu-zL-pVm">
+                    <rect key="frame" x="196" y="6" width="53" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="version:" id="hJp-rs-nlx">
+                        <font key="font" metaFont="system" size="11"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="vh1-v8-2tv">
+                    <rect key="frame" x="240" y="6" width="81" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="8Hj-ae-4Co">
+                        <font key="font" metaFont="system" size="11"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="242" name="value" keyPath="version" id="QIc-Q6-hlL">
+                            <dictionary key="options">
+                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
             </subviews>
-            <point key="canvasLocation" x="139" y="388.5"/>
+            <point key="canvasLocation" x="438" y="625"/>
         </customView>
         <menu title="Menu" id="79">
             <items>
@@ -941,6 +966,7 @@
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="854" y="666"/>
         </menu>
         <customObject id="242" userLabel="OgreAdvancedFindPanelController" customClass="OgreAdvancedFindPanelController">
             <connections>

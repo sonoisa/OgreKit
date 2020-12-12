@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 20 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -123,7 +123,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 			if(anObject == nil) {
 				[self setSyntax:[OGRegularExpression defaultSyntax]];
 			} else {
-				_syntax = [OGRegularExpression syntaxForIntValue:[anObject integerValue]];
+				_syntax = [OGRegularExpression syntaxForIntValue:[anObject intValue]];
 			}
 				
 			_escapeCharacter = [[fullHistory objectForKey: OgreTextFinderEscapeCharacterKey] retain];
@@ -241,7 +241,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		
 		// Findメニューの初期化
 		[findMenu setTitle:titleOfFindMenu];
-        NSMenuItem  *newFindMenuItem = [[[NSMenuItem alloc] init] autorelease];
+        NSMenuItem  *newFindMenuItem = [[[NSMenuItem allocWithZone:[NSMenu menuZone]] init] autorelease];
 		[newFindMenuItem setTitle:titleOfFindMenu];
 		[newFindMenuItem setSubmenu:findMenu];
 		
@@ -283,7 +283,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 		}
 		
 		// 見つからなかった場合
-        n = [aMenu numberOfItems];
+		n = [aMenu numberOfItems];
 		for (i=0; i<n; i++) {
 			aMenuItem = [aMenu itemAtIndex:i];
 			//NSLog(@"%@", [aMenuItem title]);
@@ -309,7 +309,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	// 検索履歴等の保存
 	NSDictionary	*fullHistory = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: 
 			[findPanelController history],
-			[NSNumber numberWithInteger:[OGRegularExpression intValueForSyntax:_syntax]],
+			[NSNumber numberWithInt:[OGRegularExpression intValueForSyntax:_syntax]], 
 			_escapeCharacter, 
 			nil]
 		forKeys:[NSArray arrayWithObjects: 
@@ -1015,7 +1015,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	if (anAdapterClass == Nil) {
 		/* Searching in the adapter-target array */
-		NSInteger   index, count = [_adapterClassArray count];
+		NSUInteger	index, count = [_adapterClassArray count];
 		for (index = count - 1; index >= 0; index--) {
 			if ([aTargetToFindIn isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
 				anAdapterClass = [_adapterClassArray objectAtIndex:index];
@@ -1049,7 +1049,7 @@ static NSString	*OgreTextFinderEscapeCharacterKey = @"Escape Character";
 	
 	if ([anObject respondsToSelector:@selector(ogreAdapter)]) return YES;
 	
-	NSInteger	index, count = [_targetClassArray count];
+	NSInteger index, count = [_targetClassArray count];
 	for (index = count - 1; index >= 0; index--) {
 		if ([anObject isKindOfClass:[_targetClassArray objectAtIndex:index]]) {
 			return YES;

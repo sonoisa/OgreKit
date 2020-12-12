@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 29 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -30,13 +30,12 @@
     return @"MyOutlineDocument";
 }
 
-- (NSData *)dataOfType:(NSString *)typeName
-                 error:(NSError * _Nullable *)outError
+- (NSData*)dataRepresentationOfType:(NSString*)type 
 {
     return nil;
 }
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError * _Nullable *)outError
+- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
 {
     return YES;
 }
@@ -48,14 +47,14 @@
 	} else {
 		//_newlineCharacter = OgreUnixNewlineCharacter;	// デフォルトの改行コード
         
-        NSModalResponse result;
-        NSOpenPanel     *openPanel;
+        NSInteger   result;
+        NSOpenPanel *openPanel;
         
         openPanel = [NSOpenPanel openPanel];
         [openPanel setCanChooseDirectories:YES];
         [openPanel setDirectoryURL:[NSURL fileURLWithPath:NSHomeDirectory() isDirectory:YES]];
         result = [openPanel runModal];
-        if(result == NSModalResponseOK) {
+        if (result == NSOKButton) {
             NSURL    *url = [openPanel URL];
             //NSLog(@"%@", path);
             _fileWrapper = [[MyFileWrapper alloc] initWithName:[url lastPathComponent] path:[url absoluteString] parent:self];
@@ -101,7 +100,7 @@
     return [item isDirectory];
 }
 
-- (size_t)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
 	if (_fileWrapper == nil) return 0;
     //NSLog(@"numberOfChildrenOfItem:%@", [item name]);
@@ -136,7 +135,7 @@
 - (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
 	id	identifier = [tableColumn identifier];
-    [item setValue:object forKey:identifier];
+    [item takeValue:object forKey:identifier];
 }
 
 /* displaying cell */

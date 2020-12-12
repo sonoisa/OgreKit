@@ -4,7 +4,7 @@
  *
  * Creation Date: May 20 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -38,7 +38,7 @@
 - (void)replaceCharactersInRange:(NSRange)aRange withOGString:(NSObject<OGStringProtocol>*)aString
 {
 	NSTextStorage	*textStorage = [self textStorage];
-	NSUInteger	appendantLength = [aString length];
+    NSUInteger	appendantLength = [aString length];
 	
     // Undo操作の登録
     if (_allowsUndo) {

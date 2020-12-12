@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 29 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -57,9 +57,7 @@
     _string = [string retain];
 }
 
-- (NSData *)dataOfType:(NSString *)typeName
-                 error:(NSError * _Nullable *)outError
-{
+- (NSData*)dataRepresentationOfType:(NSString*)type {
 	// 改行コードを(置換すべきなら)置換し、保存する。
     if ([myController isEditing]) [myController commitEditing];
     
@@ -72,8 +70,7 @@
     return [aString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError * _Nullable *)outError
-{
+- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type {
 	// ファイルから読み込む。(UTF8決めうち。)
 	NSMutableString *aString = [[NSMutableString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	

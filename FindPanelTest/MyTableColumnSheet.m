@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 01 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -25,9 +25,7 @@
         _okSelector = OKSelector;
         _cancelSelector = CancelSelector;
         _target = aTarget;
-        
-        NSArray*    topLevelObjects = [NSArray new];
-        [[NSBundle mainBundle] loadNibNamed:@"MyTableColumnSheet" owner:self topLevelObjects:&topLevelObjects];
+        [NSBundle loadNibNamed:@"MyTableColumnSheet" owner:self];
     }
     
     return self;
@@ -39,12 +37,14 @@
     NSString    *oldTitle = [[_column headerCell] stringValue];
     [oldTitleField setStringValue:oldTitle];
     [newTitleField setStringValue:oldTitle];
-    [_parentWindow beginSheet:columnSheet completionHandler:^(NSModalResponse returnCode) {
-        [self sheetDidEnd:columnSheet returnCode:returnCode contextInfo:nil];
-    }];
+	[NSApp beginSheet:columnSheet 
+		modalForWindow:_parentWindow 
+		modalDelegate:self
+		didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) 
+		contextInfo:nil];
 }
 
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
 {
 	[self release];
 }

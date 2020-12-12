@@ -4,7 +4,7 @@
  *
  * Creation Date: May 20 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2004-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -147,7 +147,7 @@
     cancelledMessagePlural      = OgreTextFinderLocalizedString(@"%d strings found. (canceled, %.3fsec)");
     
     NSString    *message;
-    unsigned    count = [self numberOfMatches];
+    NSUInteger  count = [self numberOfMatches];
 	if ([self isTerminated]) {
 		if (count == 0) {
 			NSBeep();

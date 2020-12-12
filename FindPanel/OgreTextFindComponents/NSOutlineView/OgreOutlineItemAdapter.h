@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 06 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -20,14 +20,14 @@
 @interface OgreOutlineItemAdapter : OgreTextFindBranch 
 {
     OgreOutlineColumn   *_outlineColumn;
-    id                  _item;
-    NSInteger           _level;
+    id              _item;
+    int             _level;
 }
 
 - (id)initWithOutlineColumn:(OgreOutlineColumn*)anOutlineColumn item:(id)item;
 - (OgreOutlineColumn*)outlineColumn;
-- (void)setLevel:(NSInteger)level;
-- (NSInteger)level;
+- (void)setLevel:(int)level;
+- (int)level;
 - (void)expandItemEnclosingItem:(id)item;
 
 @end

@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 18 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -24,9 +24,9 @@ extern NSString	*OgreTextViewFindResultException;
 	NSTextView			*_textView;		// 検索対象
 	
 	NSString			*_text;					// 検索対象の文字列
-	NSUInteger			_textLength;			// その長さ
-	NSUInteger			_searchLineRangeLocation;	// 行の範囲を調べる起点
-	NSUInteger			_line;					// 調べている行
+    NSUInteger			_textLength;			// その長さ
+    NSUInteger			_searchLineRangeLocation;	// 行の範囲を調べる起点
+    NSUInteger			_line;					// 調べている行
 	NSRange				_lineRange;				// _line行目の範囲
 	
 	NSMutableArray		*_lineOfMatchedStrings, // マッチした文字列のある行番号 (0番目はダミー。常に0。)
@@ -37,13 +37,13 @@ extern NSString	*OgreTextViewFindResultException;
 												//  1番目以降の部分文字列は0番目の部分文字列との相対位置
                         *_childArray;           // マッチした文字列のresult leaf array
 
-	NSUInteger			_count;					// マッチした文字列の数
+    NSUInteger			_count;					// マッチした文字列の数
 	
 	NSInteger			_cacheIndex;			// 表示用キャッシュ
-	NSUInteger			_cacheAbsoluteLocation;	// _cacheIndex番目のマッチの絶対位置
+    NSUInteger			_cacheAbsoluteLocation;	// _cacheIndex番目のマッチの絶対位置
 	
 	NSInteger			_updateCacheIndex;				// 更新用キャッシュ
-	NSUInteger			_updateCacheAbsoluteLocation;	// _updateCacheIndex番目のマッチの絶対位置
+    NSUInteger			_updateCacheAbsoluteLocation;	// _updateCacheIndex番目のマッチの絶対位置
 }
 
 // 初期化

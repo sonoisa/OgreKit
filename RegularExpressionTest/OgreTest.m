@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 7 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -45,15 +45,15 @@
 			rx = [OGRegularExpression regularExpressionWithString: pattern options: OgreFindNotEmptyOption | OgreCaptureGroupOption | OgreIgnoreCaseOption];
 		NS_HANDLER
 			// 例外処理
-			[resultTextView insertText: [NSString stringWithFormat: @"%@ caught in 'regularExpressionWithString:'\n", [localException name]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
-			[resultTextView insertText: [NSString stringWithFormat: @"reason = \"%@\"\n", [localException reason]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+			[resultTextView insertText: [NSString stringWithFormat: @"%@ caught in 'regularExpressionWithString:'\n", [localException name]]];
+			[resultTextView insertText: [NSString stringWithFormat: @"reason = \"%@\"\n", [localException reason]]];
 			return;
 		NS_ENDHANDLER
 		
 		match = [rx matchInString:str];
 		if (match == nil) {
 			// マッチしなかった場合
-            [resultTextView insertText:@"search fail\n" replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+			[resultTextView insertText:@"search fail\n"];
 			return;
 		}
 
@@ -77,38 +77,38 @@
     enumerator = enumerator2;*/
 	
 	//[resultTextView setString:@""];
-	[resultTextView insertText: [NSString stringWithFormat:@"OgreKit version: %@, OniGuruma version: %@\n", [OGRegularExpression version], [OGRegularExpression onigurumaVersion]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
-	[resultTextView insertText: [NSString stringWithFormat:@"target string: \"%@\", escape character: \"%@\"\n", str, [OGRegularExpression defaultEscapeCharacter]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+	[resultTextView insertText: [NSString stringWithFormat:@"OgreKit version: %@, OniGuruma/Onigmo version: %@\n", [OGRegularExpression version], [OGRegularExpression onigurumaVersion]]];
+	[resultTextView insertText: [NSString stringWithFormat:@"target string: \"%@\", escape character: \"%@\"\n", str, [OGRegularExpression defaultEscapeCharacter]]];
 	
 	int	matches = 0;
 	while((match = [enumerator nextObject]) != nil) {
 		if(matches == 0) {
 			NSRange	range = [match rangeOfPrematchString];
-			[resultTextView insertText: [NSString stringWithFormat:@"prematch string: (%lu-%lu) \"%@\"\n", (unsigned long)range.location, (unsigned long)range.location + range.length, [match prematchString]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+			[resultTextView insertText: [NSString stringWithFormat:@"prematch string: (%lu-%lu) \"%@\"\n", (unsigned long)range.location, (unsigned long)range.location + range.length, [match prematchString]]];
 		} else {
 			NSRange	range = [match rangeOfStringBetweenMatchAndLastMatch];
-			[resultTextView insertText: [NSString stringWithFormat:@"string between match #%d and match #%d: (%lu-%lu) \"%@\"\n", matches - 1, matches, (unsigned long)range.location, (unsigned long)range.location + range.length, [match stringBetweenMatchAndLastMatch]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+			[resultTextView insertText: [NSString stringWithFormat:@"string between match #%d and match #%d: (%lu-%lu) \"%@\"\n", matches - 1, matches, (unsigned long)range.location, (unsigned long)range.location + range.length, [match stringBetweenMatchAndLastMatch]]];
 		}
 
 		for (i = 0; i < [match count]; i++) {
 			NSRange	subexpRange = [match rangeOfSubstringAtIndex:i];
-			[resultTextView insertText: [NSString stringWithFormat:@"#%ld.%d", [match index], i] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+			[resultTextView insertText: [NSString stringWithFormat:@"#%d.%d", [match index], i]];
 			if([match nameOfSubstringAtIndex:i] != nil) {
-				[resultTextView insertText:[NSString stringWithFormat:@"(\"%@\")", [match nameOfSubstringAtIndex:i]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+				[resultTextView insertText:[NSString stringWithFormat:@"(\"%@\")", [match nameOfSubstringAtIndex:i]]];
 			}
-			[resultTextView insertText:[NSString stringWithFormat:@": (%lu-%lu)", (unsigned long)subexpRange.location, (unsigned long)subexpRange.location + subexpRange.length] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+			[resultTextView insertText:[NSString stringWithFormat:@": (%lu-%lu)", (unsigned long)subexpRange.location, (unsigned long)subexpRange.location + subexpRange.length]];
 			if([match substringAtIndex:i] == nil) {
-				[resultTextView insertText:@" no match!\n" replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+				[resultTextView insertText:@" no match!\n"];
 			} else {
-				[resultTextView insertText:@" \"" replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
-				[resultTextView insertText:[match substringAtIndex:i] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
-				[resultTextView insertText:@"\"\n" replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+				[resultTextView insertText:@" \""];
+				[resultTextView insertText:[match substringAtIndex:i]];
+				[resultTextView insertText:@"\"\n"];
 			}
 		}
         
         OGRegularExpressionCapture  *captureHistory = [match captureHistory];
         if (captureHistory != nil) {
-            [resultTextView insertText:@"Capture History:\n" replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+            [resultTextView insertText:@"Capture History:\n"];
             [captureHistory acceptVisitor:self];
         }
         
@@ -123,11 +123,11 @@
 	}
 	if(lastMatch != nil) {
 		NSRange	range = [lastMatch rangeOfPostmatchString];
-		[resultTextView insertText: [NSString stringWithFormat:@"postmatch string: (%lu-%lu) \"%@\"\n", (unsigned long)range.location, (unsigned long)range.location + range.length, [lastMatch postmatchString]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+		[resultTextView insertText: [NSString stringWithFormat:@"postmatch string: (%lu-%lu) \"%@\"\n", (unsigned long)range.location, (unsigned long)range.location + range.length, [lastMatch postmatchString]]];
 	} else {
-		[resultTextView insertText:@"search fail\n" replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+		[resultTextView insertText:@"search fail\n"];
 	}
-	[resultTextView insertText:@"\n" replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+	[resultTextView insertText:@"\n"];
 	[resultTextView setFont:[NSFont fontWithName:@"Monaco" size:10.0]];
 	[resultTextView display];
 }
@@ -165,7 +165,7 @@
 	NSLog(@"process time: %fsec/inst", sum/100);*/
 	
 	// 置換
-	[resultTextView insertText: [NSString stringWithFormat:@"replaced string: \"%@\"\n", [rx replaceAllMatchesInString:str withString:newStr options:OgreNoneOption]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+	[resultTextView insertText: [NSString stringWithFormat:@"replaced string: \"%@\"\n", [rx replaceAllMatchesInString:str withString:newStr options:OgreNoneOption]]];
 	[resultTextView setFont:[NSFont fontWithName:@"Monaco" size:10.0]];
 	[resultTextView display];
 }
@@ -226,9 +226,9 @@
 	NSString	*string = @"36.5C, 3.8C, -195.8C";
 	NSLog(@"%@", [[string componentsSeparatedByRegularExpressionString:@"\\s*,\\s*"] description]);
 	NSMutableString *mstr = [NSMutableString stringWithString:string];
-	NSUInteger	numberOfReplacement = [mstr replaceOccurrencesOfRegularExpressionString:@"C"
+	unsigned	numberOfReplacement = [mstr replaceOccurrencesOfRegularExpressionString:@"C"
 		withString:@"F" options:OgreNoneOption range:NSMakeRange(0, [string length])];
-	NSLog(@"%ld %@", numberOfReplacement, mstr);
+	NSLog(@"%d %@", numberOfReplacement, mstr);
 	NSRange matchRange = [string rangeOfRegularExpressionString:@"\\s*,\\s*"];
 	NSLog(@"(%lu, %lu)", (unsigned long)matchRange.location, (unsigned long)matchRange.length);
 }
@@ -254,7 +254,7 @@
 - (void)visitAtFirstCapture:(OGRegularExpressionCapture*)aCapture
 {
     NSMutableString *indent = [NSMutableString string];
-    NSInteger i;
+    int i;
     for (i = 0; i < [aCapture level]; i++) [indent appendString:@"  "];
     NSRange matchRange = [aCapture range];
     
@@ -264,13 +264,13 @@
     NSLog(@"capture2: %@", [capture2 description]);
     aCapture = capture2;*/
     
-    [resultTextView insertText:[NSString stringWithFormat:@" %@#%ld", indent, [aCapture groupIndex]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+    [resultTextView insertText:[NSString stringWithFormat:@" %@#%d", indent, [aCapture groupIndex]]];
     if([aCapture groupName] != nil) {
-        [resultTextView insertText:[NSString stringWithFormat:@"(\"%@\")", [aCapture groupName]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+        [resultTextView insertText:[NSString stringWithFormat:@"(\"%@\")", [aCapture groupName]]];
     }
     [resultTextView insertText:[NSString stringWithFormat:@": (%lu-%lu) \"%@\"\n",
-        matchRange.location, matchRange.length,
-        [aCapture string]] replacementRange:NSMakeRange([[resultTextView textStorage] length], 0)];
+        (unsigned long)matchRange.location, (unsigned long)matchRange.length,
+        [aCapture string]]];
 }
 
 - (void)visitAtLastCapture:(OGRegularExpressionCapture*)aCapture

@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 03 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -51,7 +51,7 @@ static inline unsigned Ogre_UTF16prevcharlen(unichar *const aUTF16String)
  * 初期化 *
  *********/
 - (id)initWithOGString:(NSObject<OGStringProtocol>*)targetString 
-	options:(OnigOptionType)searchOptions 
+	options:(unsigned)searchOptions 
 	range:(NSRange)searchRange 
 	regularExpression:(OGRegularExpression*)regex;
 
@@ -61,7 +61,7 @@ static inline unsigned Ogre_UTF16prevcharlen(unichar *const aUTF16String)
 - (void)_setTerminalOfLastMatch:(NSInteger)location;
 - (void)_setIsLastMatchEmpty:(BOOL)yesOrNo;
 - (void)_setStartLocation:(NSUInteger)location;
-- (void)_setNumberOfMatches:(NSUInteger)aNumber;
+- (void)_setNumberOfMatches:(unsigned)aNumber;
 
 - (NSObject<OGStringProtocol>*)targetString;
 - (unichar*)UTF16TargetString;

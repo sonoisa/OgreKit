@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 24 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -105,14 +105,14 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 {
 	NSDictionary	*dictionary = [NSDictionary 
 		dictionaryWithObjects: [NSArray arrayWithObjects: 
-			[NSNumber numberWithInt: _captureNode->group],
+			[NSNumber numberWithUnsignedInt: _captureNode->group], 
 			[NSNumber numberWithUnsignedInteger: _index],
 			[NSNumber numberWithUnsignedInteger: _level],
 			[NSArray arrayWithObjects:
                 [NSNumber numberWithUnsignedInteger: _captureNode->beg],
-                [NSNumber numberWithUnsignedInteger: _captureNode->end - _captureNode->beg],
+                [NSNumber numberWithUnsignedInteger: _captureNode->end - _captureNode->beg], 
                 nil], 
-			[NSNumber numberWithInt: _captureNode->num_childs], 
+			[NSNumber numberWithUnsignedInt: _captureNode->num_childs], 
 			nil]
 		forKeys:[NSArray arrayWithObjects: 
 			@"Group Index", 
@@ -233,7 +233,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_index = [anObject unsignedIntegerValue];
+	_index = [anObject unsignedIntValue];	
 	
     // unsigned                   _level;             // 深さ
     if (allowsKeyedCoding) {
@@ -246,7 +246,7 @@ static NSString	* const OgreParentKey = @"OgreCaptureParent";
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_level = [anObject unsignedIntegerValue];
+	_level = [anObject unsignedIntValue];	
 	
 	
 	// OGRegularExpressionMatch	*_match;            // 生成主のOGRegularExpressionMatchオブジェクト

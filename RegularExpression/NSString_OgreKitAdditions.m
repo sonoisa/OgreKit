@@ -4,7 +4,7 @@
  *
  * Creation Date: Feb 29 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2004-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -76,14 +76,14 @@
 /***********
  * Replace *
  ***********/
-- (NSUInteger)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString
+- (unsigned)replaceOccurrencesOfRegularExpressionString:(NSString*)expressionString 
 	withString:(NSString*)replaceString 
 	options:(unsigned)options 
 	range:(NSRange)searchRange
 {
 	OGRegularExpression *regex = [OGRegularExpression regularExpressionWithString:expressionString
 		options:options];
-	NSUInteger	numberOfReplacement = 0;
+	unsigned	numberOfReplacement = 0;
 	NSString	*replacedString = [regex replaceString:self 
 		withString:replaceString 
 		options:options 

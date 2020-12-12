@@ -4,7 +4,7 @@
  *
  * Creation Date: Aug 30 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -17,7 +17,7 @@
 #ifndef HAVE_CONFIG_H
 #	define HAVE_CONFIG_H
 #endif
-#import <OgreKit/oniguruma.h>
+#import <OgreKit/onigmo.h>
 
 #import <OgreKit/OGRegularExpression.h>
 #import <OgreKit/OGRegularExpressionPrivate.h>
@@ -40,7 +40,7 @@ static NSString	* const OgreIndexOfMatchKey        = @"OgreMatchIndexOfMatch";
 static NSString	* const OgreCaptureHistoryKey      = @"OgreMatchCaptureHistory";
 
 
-inline long Ogre_UTF16strlen(unichar *const aUTF16string, unichar *const end)
+inline NSInteger Ogre_UTF16strlen(unichar *const aUTF16string, unichar *const end)
 {
 	return end - aUTF16string;
 }
@@ -54,8 +54,8 @@ static NSArray *Ogre_arrayWithOnigRegion(OnigRegion *region)
 	
 	for( i = 0; i < n; i++ ) {
 		[regionArray addObject:[NSArray arrayWithObjects:
-			[NSNumber numberWithLong:region->beg[i]],
-			[NSNumber numberWithLong:region->end[i]],
+			[NSNumber numberWithInteger:region->beg[i]],
+			[NSNumber numberWithInteger:region->end[i]],
 			nil]];
 	}
 	
@@ -71,11 +71,11 @@ static OnigRegion *Ogre_onigRegionWithArray(NSArray *regionArray)
 		// メモリを確保できなかった場合、例外を発生させる。
 		[NSException raise:NSMallocException format:@"fail to memory allocation"];
 	}
-	int     i = 0, n = (int)[regionArray count];
-	NSArray	*anObject;
-	int		r;
+	NSUInteger		i = 0, n = [regionArray count];
+	NSArray			*anObject;
+	int				r;
 	
-	r = onig_region_resize(region, n);
+	r = onig_region_resize(region, (int)[regionArray count]);
 	if (r != ONIG_NORMAL) {
 		// メモリを確保できなかった場合、例外を発生させる。
 		onig_region_free(region, 1);
@@ -106,9 +106,9 @@ static NSArray *Ogre_arrayWithOnigCaptureTreeNode(OnigCaptureTreeNode *cap)
     }
     
     return [NSArray arrayWithObjects:
-        [NSNumber numberWithInt:cap->group], 
-        [NSNumber numberWithLong:cap->beg],
-        [NSNumber numberWithLong:cap->end],
+        [NSNumber numberWithInteger:cap->group],
+        [NSNumber numberWithInteger:cap->beg],
+        [NSNumber numberWithInteger:cap->end],
         children, 
         nil];
 }
@@ -502,7 +502,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_terminalOfLastMatch = [anObject unsignedIntegerValue];
+	_terminalOfLastMatch = [anObject unsignedIntValue];
 
 	
 	// 	unsigned		_index;		// マッチした順番
@@ -516,7 +516,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_index = [anObject unsignedIntegerValue];
+	_index = [anObject unsignedIntValue];
 
 	
 	// _region->history_root    // capture history
@@ -629,7 +629,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
 - (NSUInteger)indexOfSubstringNamed:(NSString*)name
 {
-	int	index = [[_enumerator regularExpression] groupIndexForName:name];
+	NSInteger	index = [[_enumerator regularExpression] groupIndexForName:name];
 	if (index == -2) {
 		// 同一の名前を持つ部分文字列が複数ある場合は例外を発生させる。
 		[NSException raise:OgreMatchException format:@"multiplex definition name <%@> call", name];
@@ -669,7 +669,7 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 // マッチした部分文字列のうちグループ番号が最大のもの
 - (NSUInteger)indexOfLastMatchedSubstringInRange:(NSRange)aRange
 {
-	NSUInteger	index, count = [self count];
+    NSUInteger	index, count = [self count];
 	if (count > NSMaxRange(aRange)) count = NSMaxRange(aRange);
 
 	for (index = count - 1; index >= aRange.location; index--) {
@@ -689,8 +689,8 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 - (NSUInteger)indexOfLongestSubstringInRange:(NSRange)aRange
 {
 	BOOL		matched = NO;
-	NSUInteger	maxLength = 0;
-	NSUInteger	maxIndex = 0, i, count = [self count];
+    NSUInteger	maxLength = 0;
+    NSUInteger	maxIndex = 0, i, count = [self count];
 	NSRange		range;
 	if (count > NSMaxRange(aRange)) count = NSMaxRange(aRange);
 
@@ -716,8 +716,8 @@ static OnigCaptureTreeNode *Ogre_onigCaptureTreeNodeWithArray(NSArray *captureAr
 - (NSUInteger)indexOfShortestSubstringInRange:(NSRange)aRange
 {
 	BOOL		matched = NO;
-	NSUInteger	minLength = 0;
-	NSUInteger	minIndex = 0, i, count = [self count];
+    NSUInteger	minLength = 0;
+    NSUInteger	minIndex = 0, i, count = [self count];
 	NSRange		range;
 	if (count > NSMaxRange(aRange)) count = NSMaxRange(aRange);
 	

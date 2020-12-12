@@ -4,7 +4,7 @@
  *
  * Creation Date: Oct 16 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -35,37 +35,27 @@
 /* 新規ドキュメント */
 - (IBAction)newTextDocument:(id)sender
 {
-    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyTextDocumentType" error:nil];
-    [document makeWindowControllers];
-    [document showWindows];
+    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTextDocumentType" display:YES];
 }
 
 - (IBAction)newRTFDocument:(id)sender
 {
-    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyRTFDocumentType" error:nil];
-    [document makeWindowControllers];
-    [document showWindows];
+    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyRTFDocumentType" display:YES];
 }
 
 - (IBAction)newTableDocument:(id)sender
 {
-    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyTableDocumentType" error:nil];
-    [document makeWindowControllers];
-    [document showWindows];
+    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTableDocumentType" display:YES];
 }
 
 - (IBAction)newOutlineDocument:(id)sender
 {
-    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyOutlineDocumentType" error:nil];
-    [document makeWindowControllers];
-    [document showWindows];
+    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyOutlineDocumentType" display:YES];
 }
 
 - (IBAction)newTableDocumentWithCocoaBinding:(id)sender
 {
-    NSDocument* document = [[NSDocumentController sharedDocumentController] makeUntitledDocumentOfType:@"MyTableDocumentWithCocoaBindingType" error:nil];
-    [document makeWindowControllers];
-    [document showWindows];
+    [[NSDocumentController sharedDocumentController] openUntitledDocumentOfType:@"MyTableDocumentWithCocoaBindingType" display:YES];
 }
 
 

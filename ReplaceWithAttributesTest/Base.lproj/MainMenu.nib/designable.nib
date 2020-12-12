@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,12 +17,12 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="143" y="258" width="640" height="429"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1175"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="640" height="429"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" id="228">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="81" translatesAutoresizingMaskIntoConstraints="NO" id="228">
                         <rect key="frame" x="16" y="230" width="85" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Escape Char:" id="353">
@@ -31,7 +31,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="229">
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="229">
                         <rect key="frame" x="106" y="228" width="15" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" title="\" drawsBackground="YES" id="354">
@@ -43,7 +43,7 @@
                             <outlet property="nextKeyView" destination="257" id="342"/>
                         </connections>
                     </textField>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="250">
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="250">
                         <rect key="frame" x="79" y="337" width="394" height="72"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="rKT-e7-bzW">
@@ -82,7 +82,7 @@
                             <outlet property="nextKeyView" destination="254" id="340"/>
                         </connections>
                     </scrollView>
-                    <textField verticalHuggingPriority="750" id="252">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="53" translatesAutoresizingMaskIntoConstraints="NO" id="252">
                         <rect key="frame" x="17" y="365" width="57" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Find:" id="355">
@@ -91,7 +91,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="253">
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="253">
                         <rect key="frame" x="79" y="257" width="394" height="72"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="156-Sp-ork">
@@ -145,7 +145,7 @@
                             <outlet property="nextKeyView" destination="229" id="341"/>
                         </connections>
                     </scrollView>
-                    <textField verticalHuggingPriority="750" id="255">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="53" translatesAutoresizingMaskIntoConstraints="NO" id="255">
                         <rect key="frame" x="17" y="285" width="57" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Replace:" id="356">
@@ -154,7 +154,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="256">
+                    <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="256">
                         <rect key="frame" x="0.0" y="20" width="640" height="201"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="3WV-80-60L">
@@ -193,7 +193,7 @@
                             <outlet property="nextKeyView" destination="251" id="339"/>
                         </connections>
                     </scrollView>
-                    <button verticalHuggingPriority="750" id="258">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="258">
                         <rect key="frame" x="516" y="223" width="110" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Replace All" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="357">
@@ -206,7 +206,7 @@
                             <action selector="replace:" target="343" id="348"/>
                         </connections>
                     </button>
-                    <button id="319">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="319">
                         <rect key="frame" x="479" y="307" width="87" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Attributed" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="358">
@@ -217,7 +217,7 @@
                             <binding destination="324" name="value" keyPath="selection.attributedReplace" id="329"/>
                         </connections>
                     </button>
-                    <button id="320">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="320">
                         <rect key="frame" x="494" y="285" width="103" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Replace Font" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="359">
@@ -229,7 +229,7 @@
                             <binding destination="324" name="value" keyPath="selection.replaceFont" id="331"/>
                         </connections>
                     </button>
-                    <button id="321">
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="321">
                         <rect key="frame" x="494" y="263" width="128" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Merge Attributes" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="360">
@@ -246,6 +246,7 @@
             <connections>
                 <outlet property="initialFirstResponder" destination="257" id="338"/>
             </connections>
+            <point key="canvasLocation" x="-100" y="111"/>
         </window>
         <menu title="MainMenu" systemMenu="main" id="29" userLabel="MainMenu">
             <items>
@@ -593,6 +594,7 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="-101" y="416"/>
         </menu>
         <customObject id="303" userLabel="Font Manager" customClass="NSFontManager"/>
         <objectController id="324">

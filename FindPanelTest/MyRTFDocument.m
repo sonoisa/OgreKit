@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 29 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -57,17 +57,14 @@
     _RTFData = [newRTFData retain];
 }
 
-- (NSData *)dataOfType:(NSString *)typeName
-                 error:(NSError * _Nullable *)outError
-{
+- (NSData*)dataRepresentationOfType:(NSString*)type {
 	// 改行コードを(置換すべきなら)置換し、保存する。
     if ([myController isEditing]) [myController commitEditing];
     
     return [self rtfData];
 }
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError * _Nullable *)outError
-{
+- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type {
     [self setRtfData:data];
     
     return YES;

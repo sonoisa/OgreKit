@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 24 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -18,7 +18,7 @@
 #ifndef HAVE_CONFIG_H
 #	define HAVE_CONFIG_H
 #endif
-#import <OgreKit/oniguruma.h>
+#import <OgreKit/onigmo.h>
 
 
 // constants
@@ -53,7 +53,7 @@ static NSString *const calcRegex = @"\\g<e>(?<e>\\g<t>(?:(?@<e1>\\+\\g<t>)|(?@<e
 @interface OGRegularExpressionCapture : NSObject <NSCopying, NSCoding>
 {
 	OnigCaptureTreeNode         *_captureNode;      // Oniguruma capture tree node
-	NSUInteger                  _index,             // マッチした順番
+    NSUInteger                  _index,             // マッチした順番
                                 _level;             // 深さ
 	OGRegularExpressionMatch	*_match;            // 生成主のOGRegularExpressionMatchオブジェクト
 	OGRegularExpressionCapture	*_parent;           // 親

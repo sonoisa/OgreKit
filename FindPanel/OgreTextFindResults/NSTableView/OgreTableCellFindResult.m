@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 05 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -45,7 +45,7 @@
 
 - (void)addMatch:(OGRegularExpressionMatch*)aMatch 
 {
-    int     i, n = (int)[aMatch count];
+    NSInteger     i, n = [aMatch count];
     
     NSMutableArray  *rangeArray = [NSMutableArray arrayWithCapacity:n];
     for (i = 0; i < n; i++) [rangeArray addObject:[NSValue valueWithRange:[aMatch rangeOfSubstringAtIndex:i]]];

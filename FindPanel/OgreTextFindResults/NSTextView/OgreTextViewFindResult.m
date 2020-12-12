@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 18 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -99,14 +99,14 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 - (void)addMatch:(OGRegularExpressionMatch*)match
 {
 	NSRange			range = [match rangeOfMatchedString];
-	NSUInteger		newAbsoluteLocation = range.location;
+    NSUInteger		newAbsoluteLocation = range.location;
 	
 	_count++;
 	
 	// マッチの相対位置
 	// 0番目の部分文字列は前のマッチとの相対位置
 	// 1番目以降の部分文字列は0番目の部分文字列との相対位置
-	int				i, n = (int)[match count];
+	NSInteger		i, n = [match count];
 	NSMutableArray	*rangeArray = [NSMutableArray arrayWithCapacity:n];
 	range = [match rangeOfSubstringAtIndex:0];
 	[rangeArray addObject:[NSValue valueWithRange:NSMakeRange(range.location - _cacheAbsoluteLocation, range.length)]];
@@ -145,10 +145,10 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	
 	NSArray         *matchArray = [_matchRangeArray objectAtIndex:(index + 1)];   // 0番目はダミー
     NSMutableArray  *rangeArray;
-	NSUInteger      i, n = [matchArray count];
+	NSInteger       i, n = [matchArray count];
 	NSString        *text = [_textView string];
     NSRange         range, matchRange;
-    NSUInteger      matchLocation = 0;
+    NSInteger       matchLocation = 0;
     
 	// キャッシュを更新
 	if (index > _cacheIndex) {
@@ -254,16 +254,20 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 		nil]] description];
 }
 
-- (void)textStorage:(NSTextStorage *)textStorage willProcessEditing:(NSTextStorageEditActions)editedMask range:(NSRange)editedRange changeInLength:(NSInteger)delta {
-    
-    if ([textStorage editedMask] & NSTextStorageEditedCharacters) {
-        // 文字の変更の場合
-        /*NSLog(@"w: (%d, %d) -> (%d, %d)",
-         editedRange.location, editedRange.length - changeInLength,
-         editedRange.location, editedRange.length);*/
-        // 表示の更新
-        [self updateOldRange:NSMakeRange(editedRange.location, editedRange.length - delta) newRange:NSMakeRange(editedRange.location, editedRange.length)];
-    }
+- (void)textStorageWillProcessEditing:(NSNotification*)aNotification
+{
+	NSTextStorage   *textStorage = [aNotification object];
+	NSRange			editedRange = [textStorage editedRange];
+	NSInteger		changeInLength = [textStorage changeInLength];
+	
+	if ([textStorage editedMask] & NSTextStorageEditedCharacters) {
+		// 文字の変更の場合
+		/*NSLog(@"w: (%d, %d) -> (%d, %d)", 
+			editedRange.location, editedRange.length - changeInLength, 
+			editedRange.location, editedRange.length);*/
+		// 表示の更新
+		[self updateOldRange:NSMakeRange(editedRange.location, editedRange.length - changeInLength) newRange:NSMakeRange(editedRange.location, editedRange.length)];
+	}
 }
 
 // 表示を更新
@@ -285,8 +289,8 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 	
 	NSMutableArray *target;
 	NSRange		range, updatedRange;
-	NSUInteger	a, b, c, d, b2;
-	NSUInteger	i, j,
+    NSUInteger	a, b, c, d, b2;
+    NSUInteger	i, j,
 				count = [self count], 
 				numberOfSubranges = [[_matchRangeArray objectAtIndex:1] count];
 	
@@ -425,7 +429,7 @@ static const unsigned   OgreTextViewFindResultInitialCapacity = 30;
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-updateSubranges: of %@", [self className]);
 #endif
-	NSUInteger	i, a, b, b2, c, d;
+    NSUInteger	i, a, b, b2, c, d;
 	NSRange		range, updatedRange;
 	a = oldRange.location;
 	b = NSMaxRange(oldRange);

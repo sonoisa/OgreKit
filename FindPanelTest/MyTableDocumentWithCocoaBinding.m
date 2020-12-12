@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 29 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -42,13 +42,12 @@
     return @"MyTableDocumentWithCocoaBinding";
 }
 
-- (NSData *)dataOfType:(NSString *)typeName
-                 error:(NSError * _Nullable *)outError
+- (NSData*)dataRepresentationOfType:(NSString*)type 
 {
     return [NSKeyedArchiver archivedDataWithRootObject:_modelArray];
 }
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError * _Nullable *)outError
+- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
 {
     _modelArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     

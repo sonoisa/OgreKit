@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 13 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -37,7 +37,7 @@
         
         _ogreModelKeyPathOfValueBinding = [[NSMutableString alloc] init];
         
-        NSUInteger i, count = [keyPathComponents count];
+        NSInteger   i, count = [keyPathComponents count];
         for (i = 1; i < count; i++) {
             if (i > 1) [_ogreModelKeyPathOfValueBinding appendString:@"."];
             [_ogreModelKeyPathOfValueBinding appendString:[keyPathComponents objectAtIndex:i]];

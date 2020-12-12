@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,12 +18,12 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" rightStrut="YES" topStrut="YES"/>
             <rect key="contentRect" x="487" y="557" width="537" height="167"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1175"/>
             <view key="contentView" id="8">
                 <rect key="frame" x="0.0" y="0.0" width="537" height="167"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" id="21">
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21">
                         <rect key="frame" x="116" y="132" width="401" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="154">
@@ -32,7 +32,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="6">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="32" translatesAutoresizingMaskIntoConstraints="NO" id="6">
                         <rect key="frame" x="72" y="134" width="36" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Find:" id="145">
@@ -41,7 +41,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="10">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="84" translatesAutoresizingMaskIntoConstraints="NO" id="10">
                         <rect key="frame" x="20" y="104" width="88" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Replace with:" id="147">
@@ -50,7 +50,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="9">
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9">
                         <rect key="frame" x="116" y="102" width="401" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="146">
@@ -59,14 +59,14 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <box title="Search Scope" id="12">
+                    <box fixedFrame="YES" title="Search Scope" translatesAutoresizingMaskIntoConstraints="NO" id="12">
                         <rect key="frame" x="20" y="51" width="210" height="45"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <view key="contentView" id="MWm-9N-wAh">
-                            <rect key="frame" x="3" y="3" width="204" height="24"/>
+                        <view key="contentView" id="H0A-30-wsw">
+                            <rect key="frame" x="3" y="3" width="204" height="25"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="17">
+                                <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17">
                                     <rect key="frame" x="10" y="4" width="198" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -95,14 +95,14 @@
                         </view>
                         <font key="titleFont" metaFont="message"/>
                     </box>
-                    <box title="Find Options" id="16">
+                    <box fixedFrame="YES" title="Find Options" translatesAutoresizingMaskIntoConstraints="NO" id="16">
                         <rect key="frame" x="241" y="51" width="276" height="45"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <view key="contentView" id="Pjp-6n-SIg">
-                            <rect key="frame" x="3" y="3" width="270" height="24"/>
+                        <view key="contentView" id="M2T-gu-oDK">
+                            <rect key="frame" x="3" y="3" width="270" height="25"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button id="7">
+                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7">
                                     <rect key="frame" x="10" y="5" width="97" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <buttonCell key="cell" type="check" title="Ignore Case" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="150">
@@ -110,7 +110,7 @@
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                 </button>
-                                <button id="13">
+                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13">
                                     <rect key="frame" x="119" y="5" width="150" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <buttonCell key="cell" type="check" title="Regular Expressions" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="151">
@@ -122,7 +122,7 @@
                         </view>
                         <font key="titleFont" metaFont="message"/>
                     </box>
-                    <button verticalHuggingPriority="750" id="15">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15">
                         <rect key="frame" x="439" y="7" width="84" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="149">
@@ -136,7 +136,7 @@ DQ
                             <action selector="findNext:" target="122" id="134"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="19">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="19">
                         <rect key="frame" x="346" y="7" width="93" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="153">
@@ -149,7 +149,7 @@ DQ
                             <action selector="findPrevious:" target="122" id="133"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="22">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22">
                         <rect key="frame" x="213" y="7" width="133" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Replace &amp; Find" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="155">
@@ -160,7 +160,7 @@ DQ
                             <action selector="replaceAndFind:" target="122" id="132"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="18">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="18">
                         <rect key="frame" x="124" y="7" width="89" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Replace" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="152">
@@ -171,7 +171,7 @@ DQ
                             <action selector="replace:" target="122" id="131"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" id="11">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11">
                         <rect key="frame" x="14" y="7" width="110" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Replace All" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="148">
@@ -188,6 +188,7 @@ DQ
                 <outlet property="delegate" destination="-2" id="37"/>
                 <outlet property="initialFirstResponder" destination="21" id="38"/>
             </connections>
+            <point key="canvasLocation" x="-101" y="111"/>
         </window>
         <menu title="Menu" id="48" userLabel="FindMenu">
             <items>
@@ -238,6 +239,7 @@ DQ
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="-282" y="377"/>
         </menu>
         <customObject id="122" userLabel="MyFindPanelController" customClass="MyFindPanelController">
             <connections>

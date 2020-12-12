@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 01 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -17,12 +17,13 @@
 #ifndef HAVE_CONFIG_H
 # define HAVE_CONFIG_H
 #endif
-#import <OgreKit/oniguruma.h>
+#import <OgreKit/onigmo.h>
 
 #import <OgreKit/OGRegularExpression.h>
 #import <OgreKit/OGRegularExpressionPrivate.h>
 #import <OgreKit/OGString.h>
 #import <OgreKit/OGMutableString.h>
+
 
 OnigSyntaxType  OgrePrivatePOSIXBasicSyntax;
 OnigSyntaxType  OgrePrivatePOSIXExtendedSyntax;
@@ -32,6 +33,7 @@ OnigSyntaxType  OgrePrivateGNURegexSyntax;
 OnigSyntaxType  OgrePrivateJavaSyntax;
 OnigSyntaxType  OgrePrivatePerlSyntax;
 OnigSyntaxType  OgrePrivateRubySyntax;
+
 
 @implementation OGRegularExpression (Private)
 
@@ -109,7 +111,7 @@ OnigSyntaxType  OgrePrivateRubySyntax;
 	unsigned			counterOfAutorelease = 0;
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
-    while ( (void)(matchRange = [plainString rangeOfCharacterFromSet:swapCharSet options:0 range:scanRange]),
+	while ( matchRange = [plainString rangeOfCharacterFromSet:swapCharSet options:0 range:scanRange], 
 			matchRange.length > 0 ) {
 		NSUInteger  lastMatchLocation = scanRange.location;
 		[resultString appendOGString:[string substringWithRange:NSMakeRange(lastMatchLocation, matchRange.location - lastMatchLocation)]];
@@ -221,7 +223,7 @@ OnigSyntaxType  OgrePrivateRubySyntax;
 // 名前がnameのgroup number
 // 存在しない名前の場合は-1を返す。
 // 同一の名前を持つ部分文字列が複数ある場合は-2を返す。
-- (int)groupIndexForName:(NSString*)name
+- (NSInteger)groupIndexForName:(NSString*)name
 {
 	if (name == nil) {
 		[NSException raise:NSInvalidArgumentException format:@"nil string (or other) argument"];

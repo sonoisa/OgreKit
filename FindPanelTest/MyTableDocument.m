@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 29 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -50,16 +50,15 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return @"MyTableDocument";
 }
 
-- (NSData *)dataOfType:(NSString *)type
-                 error:(NSError * _Nullable *)outError
+- (NSData*)dataRepresentationOfType:(NSString*)type 
 {
     OGRegularExpression *escRegex = [OGRegularExpression regularExpressionWithString:@"\""];
     
 	NSMutableString *aString = [NSMutableString string];
     NSArray         *columnArray = [tableView tableColumns];
-    OgreTableColumn *column;
-    NSUInteger      columnIndex, numberOfColumns = [columnArray count];
-    NSUInteger      rowIndex, numberOfRows = [self numberOfRows];
+    OgreTableColumn   *column;
+    NSInteger       columnIndex, numberOfColumns = [columnArray count];
+    NSInteger       rowIndex, numberOfRows = [self numberOfRows];
     NSArray         *array;
     NSMutableArray  *identifierArray = [NSMutableArray arrayWithCapacity:numberOfColumns];
     
@@ -89,9 +88,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     return [aString dataUsingEncoding:NSShiftJISStringEncoding];
 }
 
-- (BOOL)readFromData:(NSData *)data
-              ofType:(NSString *)type
-               error:(NSError * _Nullable *)outError
+- (BOOL)loadDataRepresentation:(NSData*)data ofType:(NSString*)type 
 {
 	// ファイルから読み込む。(UTF8決めうち。)
 	NSMutableString *aString = [[[NSMutableString alloc] initWithData:data encoding:NSShiftJISStringEncoding] autorelease];
@@ -286,19 +283,17 @@ static NSString *gMyTableRowPropertyType = @"rows";
 
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation
 {
-    [tableView setDropRow:row dropOperation:NSTableViewDropAbove];
+    NSPasteboard *pboard=[info draggingPasteboard];
+    if (operation == NSTableViewDropAbove && [pboard availableTypeFromArray:[NSArray arrayWithObject:gMyTableRowPboardType]] != nil) return NSTableViewDropAbove;
     
-    if ([info draggingSource] == tableView) {
-        return NSDragOperationMove;
-    }
-    return NSDragOperationEvery;
+    return NSDragOperationNone;
 }
 
-- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard
+- (BOOL)tableView:(NSTableView *)tableView writeRows:(NSArray *)rows toPasteboard:(NSPasteboard *)pboard
 {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
     [pboard declareTypes:[NSArray arrayWithObject:gMyTableRowPboardType] owner:self];
-    [pboard setData:data forType:gMyTableRowPboardType];
+    [pboard setPropertyList:rows forType:gMyTableRowPropertyType];
+    
     return YES;
 }
 
@@ -328,11 +323,26 @@ static NSString *gMyTableRowPropertyType = @"rows";
 - (IBAction)removeRow:(id)sender
 {
     NSIndexSet  *selectedIndexes = [tableView selectedRowIndexes];
+#ifdef MAC_OS_X_VERSION_10_6
     NSUInteger  numberOfIndexes = [selectedIndexes count];
     if (numberOfIndexes == 0) return;
     NSMutableArray  *columnArray;
     NSEnumerator    *columnEnumerator = [_dict objectEnumerator];
     while ((columnArray = [columnEnumerator nextObject]) != nil) [columnArray removeObjectsAtIndexes:selectedIndexes];
+#else
+    unsigned    numberOfIndexes = [selectedIndexes count];
+    if (numberOfIndexes == 0) return;
+    unsigned    *indexes = (unsigned*)NSZoneMalloc([self zone], numberOfIndexes * sizeof(unsigned));
+    if (indexes == NULL) {
+        return;
+    }
+    [selectedIndexes getIndexes:indexes maxCount:numberOfIndexes inIndexRange:NULL];
+    
+    NSMutableArray  *columnArray;
+    NSEnumerator    *columnEnumerator = [_dict objectEnumerator];
+    while ((columnArray = [columnEnumerator nextObject]) != nil) [columnArray removeObjectsFromIndices:indexes numIndices:numberOfIndexes];
+    NSZoneFree([self zone], indexes);
+#endif
     [tableView deselectAll:nil];
     [tableView reloadData];
     [self updateChangeCount:NSChangeDone];
@@ -340,7 +350,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
 
 - (IBAction)addColumn:(id)sender
 {
-    NSString    *identifier = [NSString stringWithFormat:@"%ld", ++_numberOfColumns];
+    NSString    *identifier = [NSString stringWithFormat:@"%lu", ++_numberOfColumns];
     
     // create the data source corresponding to new column
     NSUInteger    i, numberOfRows = [self numberOfRows];
@@ -410,7 +420,7 @@ static NSString *gMyTableRowPropertyType = @"rows";
     NSInteger   selectedColumn = [tableView selectedColumn];
 	if ((clickedRowIndex != -1) || (selectedColumn == -1)) return;
     
-    NSArray         *columnArray = [tableView tableColumns];
+    NSArray     *columnArray = [tableView tableColumns];
     OgreTableColumn   *aColumn = [columnArray objectAtIndex:selectedColumn];
     
     _sheetPosition = [[[tableView window] contentView] convertRect:[tableView frameOfCellAtColumn:selectedColumn row:0] fromView:tableView];

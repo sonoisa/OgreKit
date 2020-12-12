@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 05 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -102,7 +102,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	// unsigned			_options;
 	// OnigSyntaxType	*_syntax;
 
-	NSInteger	syntaxType = [OGRegularExpression intValueForSyntax:[self syntax]];
+	int	syntaxType = [OGRegularExpression intValueForSyntax:[self syntax]];
 	if (syntaxType == -1) {
 		// エラー。独自のsyntaxはencodeできない。
 		// 例外を発生させる。要改善
@@ -113,11 +113,11 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
     if ([encoder allowsKeyedCoding]) {
 		[encoder encodeObject: [self escapeCharacter] forKey: OgreEscapeCharacterKey];
 		[encoder encodeObject: [NSNumber numberWithUnsignedInt: [self options]] forKey: OgreOptionsKey];
-		[encoder encodeObject: [NSNumber numberWithInteger: syntaxType] forKey: OgreSyntaxKey];
+		[encoder encodeObject: [NSNumber numberWithInt: syntaxType] forKey: OgreSyntaxKey];
 	} else {
 		[encoder encodeObject: [self escapeCharacter]];
 		[encoder encodeObject: [NSNumber numberWithUnsignedInt: [self options]]];
-		[encoder encodeObject: [NSNumber numberWithInteger: syntaxType]];
+		[encoder encodeObject: [NSNumber numberWithInt: syntaxType]];
 	}
 }
 
@@ -129,7 +129,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 	self = [super initWithCoder:decoder];
 	if (self == nil) return nil;
 	
-	NSInteger		syntaxType;
+	int				syntaxType;
 	id				anObject;
 	
 	BOOL			allowsKeyedCoding = [decoder allowsKeyedCoding];
@@ -158,7 +158,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	_options = [anObject intValue];
+	_options = [anObject unsignedIntValue];
 
 	// OnigSyntaxType		*_syntax;
 	// 要改善点。独自のsyntaxを用意した場合はencodeできない。
@@ -172,7 +172,7 @@ NSString	* const OgreFormatterException = @"OGRegularExpressionFormatterExceptio
 		[self release];
 		[NSException raise:NSInvalidUnarchiveOperationException format:@"fail to decode"];
 	}
-	syntaxType = [anObject integerValue];
+	syntaxType = [anObject intValue];
 	if (syntaxType == -1) {
 		// エラー。例外を発生させる。
 		[self release];

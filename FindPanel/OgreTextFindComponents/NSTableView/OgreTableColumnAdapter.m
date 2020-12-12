@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 05 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -110,7 +110,7 @@
 	NSLog(@"  -childAtIndex: of %@", [self className]);
 #endif
     OgreTableCellAdapter *tableCellAdapter;
-    NSUInteger           rowIndex;
+    NSUInteger            rowIndex;
     
     if (!inSelection) {
         rowIndex = index;
@@ -120,6 +120,7 @@
             rowIndex = index;
         } else {
             if (index >= [selectedRowIndexes count]) return nil;
+            
             NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * [selectedRowIndexes count]);
             if (indexes == NULL) {
                 // エラー

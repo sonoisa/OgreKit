@@ -4,7 +4,7 @@
  *
  * Creation Date: Oct 01 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -43,16 +43,16 @@
 	[[self retain] retain]; // close:とsheetDidEnd:のときに一度ずつreleaseされる
 	[titleTextField setStringValue:_title];
 	[button setTitle:OgreTextFinderLocalizedString(@"Cancel")];
-    
-    [_parentWindow beginSheet:progressWindow completionHandler:^(NSModalResponse returnCode) {
-        [self sheetDidEnd:progressWindow returnCode:returnCode contextInfo:nil];
-    }];
-    
+	[NSApp beginSheet: progressWindow 
+		modalForWindow: _parentWindow 
+		modalDelegate: self
+		didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) 
+		contextInfo: nil];
 	[progressBar setUsesThreadedAnimation:YES];
 	[progressBar startAnimation:self];
 }
 
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void*)contextInfo
+- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
 {
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"-sheetDidEnd: of %@", [self className]);

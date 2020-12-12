@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 14 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -109,7 +109,7 @@
 - (IBAction)toggleStyleOptions:(id)sender;
 
 /* delegate methods of OgreAdvancedFindPanel */
-- (void)findPanelFlagsChanged:(unsigned)modifierFlags;
+- (void)findPanelFlagsChanged:(NSUInteger)modifierFlags;
 - (void)findPanelDidAddChildWindow:(NSWindow*)childWindow;
 - (void)findPanelDidRemoveChildWindow:(NSWindow*)childWindow;
 
@@ -195,7 +195,5 @@
 - (void)setAtTopOriginOption:(BOOL)atTopOriginOption;
 - (BOOL)inSelectionScopeOption;
 - (void)setInSelectionScopeOption:(BOOL)inSelectionScopeOption;
-
-- (NSString*)version;
 
 @end

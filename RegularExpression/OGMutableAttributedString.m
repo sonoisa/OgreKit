@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 22 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2004-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -77,7 +77,7 @@
 
 - (void)appendOGStringLeaveImprint:(NSObject<OGStringProtocol>*)string
 {
-	NSUInteger	length = [string length];
+    NSUInteger	length = [string length];
 	if (length == 0) {
 		return;
 	}
@@ -121,7 +121,7 @@
 	NSMutableAttributedString	*attrString = (NSMutableAttributedString*)[self _attributedString];
 	
 	NSMutableAttributedString	*aString = [[[NSMutableAttributedString alloc] initWithAttributedString:appendant] autorelease];
-	NSUInteger		length = [appendant length];
+    NSUInteger		length = [appendant length];
 	NSRange			effectiveRange = NSMakeRange(0, 0);
 	NSFont			*srcFont, *font;
 	NSString		*appendantFontFamilyName = nil, *srcFontFamilyName;
@@ -253,7 +253,7 @@
 	
 	NSMutableAttributedString	*aString = [[[NSMutableAttributedString alloc] initWithAttributedString:appendant] autorelease];
 	NSRange			effectiveRange;
-	NSUInteger		length = [appendant length];
+    NSUInteger		length = [appendant length];
 	NSFont			*font;
 	NSString		*appendantFontFamilyName = nil;
 	NSFontTraitMask	appendantFontTraits, newFontTraits = 0;
@@ -357,7 +357,7 @@
 
 - (void)setAttributesOfOGString:(NSObject<OGStringProtocol>*)string atIndex:(NSUInteger)index
 {
-	NSUInteger	attrIndex;
+    NSUInteger	attrIndex;
 	if (index > 0) {
 		attrIndex = index -1;
 	} else {

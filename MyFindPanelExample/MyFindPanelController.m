@@ -4,7 +4,7 @@
  *
  * Creation Date: Nov 21 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -199,7 +199,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 			_findHistory, 
 			_replaceHistory, 
 			[NSNumber numberWithUnsignedInt:[self options]], 
-			[NSNumber numberWithInteger:[OGRegularExpression intValueForSyntax:[self syntax]]],
+			[NSNumber numberWithInt:[OGRegularExpression intValueForSyntax:[self syntax]]], 
 			[NSNumber numberWithBool:[self isEntire]], 
 			nil]
 		forKeys: [NSArray arrayWithObjects:
@@ -238,7 +238,7 @@ static NSString	*MyEntireScopeKey    = @"Entire Scope";
 	
 	anObject = [history objectForKey:MySyntaxKey];
 	if (anObject != nil) {
-		NSInteger	syntax = [anObject integerValue];
+		int	syntax = [anObject intValue];
 		[optionRegex setState:((syntax != [OGRegularExpression intValueForSyntax:OgreSimpleMatchingSyntax])? NSOnState : NSOffState)];
 	}
 	

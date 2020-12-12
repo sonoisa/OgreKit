@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 13 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -92,7 +92,7 @@
     } 
     // finish
     [_ogrePathComponents insertObject:[NSNumber numberWithInteger:index] atIndex:0];
-    [_ogrePathComponents addObject:[NSNumber numberWithInteger:-1] /* cell */];
+    [_ogrePathComponents addObject:[NSNumber numberWithInt:-1] /* cell */];
     
     return _ogrePathComponents;
 }

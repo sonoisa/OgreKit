@@ -4,7 +4,7 @@
  *
  * Creation Date: Aug 30 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -18,7 +18,7 @@
 #ifndef HAVE_CONFIG_H
 #	define HAVE_CONFIG_H
 #endif
-#import <OgreKit/oniguruma.h>
+#import <OgreKit/onigmo.h>
 
 
 // constant
@@ -32,11 +32,11 @@ extern NSString	* const OgreMatchException;
 {
 	OnigRegion		*_region;						// match result region
 	OGRegularExpressionEnumerator	*_enumerator;	// matcher
-	NSUInteger		_terminalOfLastMatch;           // 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
+    NSUInteger		_terminalOfLastMatch;           // 前回にマッチした文字列の終端位置 (_region->end[0] / sizeof(unichar))
 	
 	NSObject<OGStringProtocol>	*_targetString;		// 検索対象文字列
 	NSRange			_searchRange;					// 検索範囲
-	NSUInteger		_index;							// マッチした順番
+    NSUInteger		_index;							// マッチした順番
 }
 
 /*********
@@ -239,4 +239,4 @@ number of capture history: 2
 @end
 
 // UTF16文字列の長さを得る
-inline long Ogre_UTF16strlen(unichar *const aUTF16string, unichar *const end);
+inline NSInteger Ogre_UTF16strlen(unichar *const aUTF16string, unichar *const end);

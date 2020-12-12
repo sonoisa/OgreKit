@@ -12,6 +12,7 @@ build/*
 RegularExpression/oniguruma/intel
 RegularExpression/oniguruma/universal
 RegularExpression/oniguruma/x86_64
+RegularExpression/oniguruma/arm64
 *.xcworkspace*
 *.xcuserdata*
 .DS_Store?

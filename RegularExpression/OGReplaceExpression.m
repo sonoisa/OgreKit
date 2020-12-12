@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 22 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -87,9 +87,9 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	NSUInteger	matchIndex = 0;
 	NSString	*controlCharacter = nil;
 	NSObject<OGStringProtocol>	*compileTimeString;
-	NSUInteger	numberOfMatches = 0;
+    NSUInteger	numberOfMatches = 0;
 	unichar		unic[ONIG_MAX_CAPTURE_HISTORY_GROUP + 1];
-	NSUInteger	numberOfHistory, indexOfHistory;
+    NSUInteger	numberOfHistory, indexOfHistory;
 	
 	NSEnumerator				*matchEnumerator;
 	OGRegularExpressionMatch	*match;
@@ -401,8 +401,8 @@ static OGRegularExpression  *gReplaceRegex = nil;
 	NSNumber		*type;
 	
 	NSString	*name;
-	NSUInteger	numOfNames = 0;
-	NSInteger	specialKey;
+	unsigned	numOfNames = 0;
+	int			specialKey;
 	
 	BOOL		attributedReplace = ((_options & OgreReplaceWithAttributesOption) != 0);
 	BOOL		replaceFonts = ((_options & OgreReplaceFontsOption) != 0);

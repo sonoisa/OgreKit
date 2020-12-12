@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 06 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -104,7 +104,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -numberOfChildrenInSelection: of %@", [self className]);
 #endif
-    NSUInteger  count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
+    NSUInteger    count = [_outlineColumn ogreNumberOfChildrenOfItem:_item];
     
     return 1 /* self cell */ + count;
 }
@@ -204,12 +204,12 @@
     return _outlineColumn;
 }
 
-- (void)setLevel:(NSInteger)level
+- (void)setLevel:(int)level
 {
     _level = level;
 }
 
-- (NSInteger)level
+- (int)level
 {
     return _level;
 }

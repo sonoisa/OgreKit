@@ -31,8 +31,8 @@
 		4D4FC2601142BCCD0097043F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FC25E1142BCCD0097043F /* main.m */; };
 		4D4FC2691142BD170097043F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D4FC2651142BD170097043F /* InfoPlist.strings */; };
 		4D4FC26A1142BD170097043F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4FC2671142BD170097043F /* MainMenu.xib */; };
-		4D82DCE309BA0CAF007F03B0 /* oniguruma.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D82DCE209BA0CAF007F03B0 /* oniguruma.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D82DCE409BA0CAF007F03B0 /* oniguruma.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D82DCE209BA0CAF007F03B0 /* oniguruma.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D82DCE309BA0CAF007F03B0 /* onigmo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D82DCE209BA0CAF007F03B0 /* onigmo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D82DCE409BA0CAF007F03B0 /* onigmo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D82DCE209BA0CAF007F03B0 /* onigmo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D82DCE609BA0CBF007F03B0 /* COPYING in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D82DCE509BA0CBF007F03B0 /* COPYING */; };
 		4D82DCE709BA0CBF007F03B0 /* COPYING in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D82DCE509BA0CBF007F03B0 /* COPYING */; };
 		4D82DCEF09BA0CCF007F03B0 /* API in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D82DCE909BA0CCE007F03B0 /* API */; };
@@ -45,8 +45,8 @@
 		4D82DCFD09BA0CEF007F03B0 /* HISTORY in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D82DCFB09BA0CEF007F03B0 /* HISTORY */; };
 		4D82DCFF09BA0CFC007F03B0 /* README in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D82DCFE09BA0CFC007F03B0 /* README */; };
 		4D82DD0009BA0CFC007F03B0 /* README in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D82DCFE09BA0CFC007F03B0 /* README */; };
-		4D9DBE2C09BAB999003DD4A8 /* libonig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9DBE2B09BAB999003DD4A8 /* libonig.a */; };
-		4D9DBE2D09BAB999003DD4A8 /* libonig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9DBE2B09BAB999003DD4A8 /* libonig.a */; };
+		4D9DBE2C09BAB999003DD4A8 /* libonigmo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9DBE2B09BAB999003DD4A8 /* libonigmo.a */; };
+		4D9DBE2D09BAB999003DD4A8 /* libonigmo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9DBE2B09BAB999003DD4A8 /* libonigmo.a */; };
 		4DA73FBA1142894300E28DA7 /* OgreTextFindProgressDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA73FB91142894300E28DA7 /* OgreTextFindProgressDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DA741431142B32700E28DA7 /* OgreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC40BFC09150BDB0029A2A6 /* OgreKit.framework */; };
 		4DC40E5E09150CF50029A2A6 /* OGRegularExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC40D5009150CEB0029A2A6 /* OGRegularExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -488,35 +488,67 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		4D00A990257C94C8000F6F83 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
+		4D00A991257C94C8000F6F83 /* fr */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = fr; path = fr.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4D00A992257C94C9000F6F83 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
+		4D00A993257C94CC000F6F83 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
+		4D00A994257C94CC000F6F83 /* it */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = it; path = it.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4D00A995257C94CC000F6F83 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
+		4D00A996257C94D0000F6F83 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
+		4D00A997257C94D0000F6F83 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ja.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4D00A998257C94D0000F6F83 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
+		4D00A999257C94D3000F6F83 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
+		4D00A99A257C94D4000F6F83 /* ro */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ro; path = ro.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4D00A99B257C94D4000F6F83 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
+		4D00A99C257C94E0000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/OgreTextFindProgressSheet.nib; sourceTree = "<group>"; };
+		4D00A99D257C94E0000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/OgreFindResultWindow.nib; sourceTree = "<group>"; };
+		4D00A99E257C94E0000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4D00A99F257C94E1000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = RegularExpressionTest/Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		4D00A9A0257C94E1000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ReplaceWithAttributesTest/Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		4D00A9A1257C94E1000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		4D00A9A2257C94E1000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyTableDocumentWithCocoaBinding.nib; sourceTree = "<group>"; };
+		4D00A9A3257C94E2000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyOutlineDocument.nib; sourceTree = "<group>"; };
+		4D00A9A4257C94E2000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyTableDocument.nib; sourceTree = "<group>"; };
+		4D00A9A5257C94E2000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyTableColumnSheet.nib; sourceTree = "<group>"; };
+		4D00A9A6257C94E2000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyRTFDocument.nib; sourceTree = "<group>"; };
+		4D00A9A7257C94E2000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyTextDocument.nib; sourceTree = "<group>"; };
+		4D00A9A8257C94E3000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = MyFindPanelExample/Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		4D00A9A9257C94E3000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = MyFindPanelExample/Base.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		4D00A9AA257C94E3000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = MyFindPanelExample/Base.lproj/MyFindPanel.nib; sourceTree = "<group>"; };
+		4D00A9AB257C94E3000F6F83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = GCTest/Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4D00A9AC257C94E5000F6F83 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9AD257C94E5000F6F83 /* pt */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt; path = pt.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4D00A9AE257C94E5000F6F83 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9AF257C94E8000F6F83 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9B0257C94E8000F6F83 /* nl */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = nl; path = nl.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4D00A9B1257C94E8000F6F83 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9B2257C94EB000F6F83 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9B3257C94EB000F6F83 /* de */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = de; path = de.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4D00A9B4257C94EB000F6F83 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9B5257C94EE000F6F83 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9B6257C94EE000F6F83 /* es */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = es; path = es.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
+		4D00A9B7257C94EF000F6F83 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9B8257C94F2000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = FindPanelTest/en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4D00A9B9257C94F2000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = FindPanelTest/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4D00A9BA257C94F2000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = GCTest/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4D00A9BB257C94F2000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = MyFindPanelExample/en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4D00A9BC257C94F2000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9BD257C94F3000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
+		4D00A9BE257C94F3000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = RegularExpression/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4D00A9BF257C94F3000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = RegularExpressionTest/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4D00A9C0257C94F3000F6F83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ReplaceWithAttributesTest/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D4FC25B1142BCCD0097043F /* GC_Test_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GC_Test_Prefix.pch; path = GCTest/GC_Test_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		4D4FC25C1142BCCD0097043F /* GC_TestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GC_TestAppDelegate.h; path = GCTest/GC_TestAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		4D4FC25D1142BCCD0097043F /* GC_TestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GC_TestAppDelegate.m; path = GCTest/GC_TestAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		4D4FC25E1142BCCD0097043F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = GCTest/main.m; sourceTree = SOURCE_ROOT; };
-		4D4FC2661142BD170097043F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = GCTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4D82DCE209BA0CAF007F03B0 /* oniguruma.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = oniguruma.h; path = x86_64/oniguruma.h; sourceTree = "<group>"; };
-		4D82DCE509BA0CBF007F03B0 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; name = COPYING; path = x86_64/COPYING; sourceTree = "<group>"; };
+		4D82DCE209BA0CAF007F03B0 /* onigmo.h */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = sourcecode.c.h; name = onigmo.h; path = arm64/onigmo.h; sourceTree = "<group>"; };
+		4D82DCE509BA0CBF007F03B0 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; name = COPYING; path = arm64/COPYING; sourceTree = "<group>"; };
 		4D82DCE909BA0CCE007F03B0 /* API */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; path = API; sourceTree = "<group>"; };
 		4D82DCEB09BA0CCE007F03B0 /* FAQ */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; path = FAQ; sourceTree = "<group>"; };
 		4D82DCED09BA0CCE007F03B0 /* RE */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; path = RE; sourceTree = "<group>"; };
-		4D82DCFB09BA0CEF007F03B0 /* HISTORY */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; name = HISTORY; path = x86_64/HISTORY; sourceTree = "<group>"; };
-		4D82DCFE09BA0CFC007F03B0 /* README */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; name = README; path = x86_64/README; sourceTree = "<group>"; };
-		4D971B5321762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/OgreTextFindProgressSheet.nib; sourceTree = "<group>"; };
-		4D971B5421762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/OgreFindResultWindow.nib; sourceTree = "<group>"; };
-		4D971B5521762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
-		4D971B5621762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = RegularExpressionTest/Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		4D971B5721762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ReplaceWithAttributesTest/Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		4D971B5821762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		4D971B5921762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyTableDocumentWithCocoaBinding.nib; sourceTree = "<group>"; };
-		4D971B5A21762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyOutlineDocument.nib; sourceTree = "<group>"; };
-		4D971B5B21762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyTableDocument.nib; sourceTree = "<group>"; };
-		4D971B5C21762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyTableColumnSheet.nib; sourceTree = "<group>"; };
-		4D971B5D21762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyRTFDocument.nib; sourceTree = "<group>"; };
-		4D971B5E21762D4100D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = FindPanelTest/Base.lproj/MyTextDocument.nib; sourceTree = "<group>"; };
-		4D971B5F21762D4200D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = MyFindPanelExample/Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		4D971B6021762D4200D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = MyFindPanelExample/Base.lproj/MyDocument.nib; sourceTree = "<group>"; };
-		4D971B6121762D4200D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = MyFindPanelExample/Base.lproj/MyFindPanel.nib; sourceTree = "<group>"; };
-		4D971B6221762D4200D0ADD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = GCTest/Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		4D9DBE2B09BAB999003DD4A8 /* libonig.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libonig.a; path = RegularExpression/oniguruma/x86_64/libonig.a; sourceTree = "<group>"; };
+		4D82DCFB09BA0CEF007F03B0 /* HISTORY */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; name = HISTORY; path = arm64/HISTORY; sourceTree = "<group>"; };
+		4D82DCFE09BA0CFC007F03B0 /* README */ = {isa = PBXFileReference; fileEncoding = 0; lastKnownFileType = text; name = README; path = arm64/README; sourceTree = "<group>"; };
+		4D9DBE2B09BAB999003DD4A8 /* libonigmo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libonigmo.a; path = RegularExpression/oniguruma/universal/libonigmo.a; sourceTree = "<group>"; };
 		4DA73FB91142894300E28DA7 /* OgreTextFindProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreTextFindProgressDelegate.h; path = FindPanel/OgreTextFindThreads/OgreTextFindProgressDelegate.h; sourceTree = SOURCE_ROOT; };
 		4DA7410F1142B26900E28DA7 /* GCTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA741111142B26A00E28DA7 /* GC Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GC Test-Info.plist"; path = "GCTest/GC Test-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -716,43 +748,11 @@
 		4DC4108B09150D650029A2A6 /* MyMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMenuController.m; path = MyFindPanelExample/MyMenuController.m; sourceTree = SOURCE_ROOT; };
 		4DC4108C09150D650029A2A6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyFindPanelExample/main.m; sourceTree = SOURCE_ROOT; };
 		4DC4108D09150D650029A2A6 /* MyFindPanelExample_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFindPanelExample_Prefix.h; path = MyFindPanelExample/MyFindPanelExample_Prefix.h; sourceTree = SOURCE_ROOT; };
-		4DC41166091514030029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC4116C091514030029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC41175091514240029A2A6 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
-		4DC411770915142C0029A2A6 /* Dutch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC411780915142C0029A2A6 /* Dutch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC4117A0915143A0029A2A6 /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
-		4DC4117B0915143A0029A2A6 /* French */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC4117C0915143A0029A2A6 /* French */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC4117E091514450029A2A6 /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
-		4DC4117F091514450029A2A6 /* German */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC41180091514450029A2A6 /* German */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC41182091514510029A2A6 /* Italian */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Italian; path = Italian.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
-		4DC41183091514510029A2A6 /* Italian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC41184091514510029A2A6 /* Italian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC411860915145D0029A2A6 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
-		4DC411870915145D0029A2A6 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC411880915145D0029A2A6 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC4118A091514680029A2A6 /* Portuguese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Portuguese; path = Portuguese.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
-		4DC4118B091514680029A2A6 /* Portuguese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Portuguese; path = Portuguese.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC4118C091514680029A2A6 /* Portuguese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Portuguese; path = Portuguese.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC4118E091514710029A2A6 /* Romanian */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Romanian; path = Romanian.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
-		4DC4118F091514710029A2A6 /* Romanian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Romanian; path = Romanian.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC41190091514710029A2A6 /* Romanian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Romanian; path = Romanian.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC411920915147B0029A2A6 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Spanish; path = Spanish.lproj/OgreAdvancedFindPanel.nib; sourceTree = "<group>"; };
-		4DC411930915147B0029A2A6 /* Spanish */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/OgreAPFCLocalizable.strings; sourceTree = "<group>"; };
-		4DC411940915147B0029A2A6 /* Spanish */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/OgreTextFinderLocalizable.strings; sourceTree = "<group>"; };
-		4DC411C8091514D70029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = RegularExpression/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4DC4134209151C2E0029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = RegularExpressionTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4DC4135309151CA60029A2A6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = FindPanelTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4DC4135509151CA60029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = FindPanelTest/English.lproj/Credits.rtf; sourceTree = "<group>"; };
-		4DC4136F09151D320029A2A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = MyFindPanelExample/English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		4DF530BA0915221700475575 /* ReplaceWithAttributesTest_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplaceWithAttributesTest_Prefix.h; path = ReplaceWithAttributesTest/ReplaceWithAttributesTest_Prefix.h; sourceTree = "<group>"; };
 		4DF530BB0915221700475575 /* ReplaceWithAttributesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReplaceWithAttributesTest.m; path = ReplaceWithAttributesTest/ReplaceWithAttributesTest.m; sourceTree = "<group>"; };
 		4DF530BC0915221700475575 /* ReplaceWithAttributesTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplaceWithAttributesTest.h; path = ReplaceWithAttributesTest/ReplaceWithAttributesTest.h; sourceTree = "<group>"; };
 		4DF530BD0915221700475575 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReplaceWithAttributesTest/main.m; sourceTree = "<group>"; };
 		4DF530BE0915221700475575 /* ReplaceWithAttributesTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ReplaceWithAttributesTest-Info.plist"; path = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist"; sourceTree = "<group>"; };
-		4DF530CF0915226200475575 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = ReplaceWithAttributesTest/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* OgreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OgreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -772,7 +772,7 @@
 			files = (
 				4DC410A7091511C80029A2A6 /* Foundation.framework in Frameworks */,
 				4DC410A8091511CA0029A2A6 /* AppKit.framework in Frameworks */,
-				4D9DBE2D09BAB999003DD4A8 /* libonig.a in Frameworks */,
+				4D9DBE2D09BAB999003DD4A8 /* libonigmo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,7 +813,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
-				4D9DBE2C09BAB999003DD4A8 /* libonig.a in Frameworks */,
+				4D9DBE2C09BAB999003DD4A8 /* libonigmo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,7 +880,7 @@
 		4D82DCC109B9EC15007F03B0 /* Linked Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				4D9DBE2B09BAB999003DD4A8 /* libonig.a */,
+				4D9DBE2B09BAB999003DD4A8 /* libonigmo.a */,
 			);
 			name = "Linked Libraries";
 			sourceTree = "<group>";
@@ -893,7 +893,7 @@
 				4D82DCED09BA0CCE007F03B0 /* RE */,
 			);
 			name = doc;
-			path = x86_64/doc;
+			path = arm64/doc;
 			sourceTree = "<group>";
 		};
 		4DA741461142B36700E28DA7 /* GC Test */ = {
@@ -1290,7 +1290,7 @@
 		4DC40DFA09150CF00029A2A6 /* oniguruma */ = {
 			isa = PBXGroup;
 			children = (
-				4D82DCE209BA0CAF007F03B0 /* oniguruma.h */,
+				4D82DCE209BA0CAF007F03B0 /* onigmo.h */,
 				4D82DCE509BA0CBF007F03B0 /* COPYING */,
 				4D82DCFB09BA0CEF007F03B0 /* HISTORY */,
 				4D82DCFE09BA0CFC007F03B0 /* README */,
@@ -1511,7 +1511,7 @@
 				4DC410EE091512C70029A2A6 /* OGPlainString.h in Headers */,
 				4DC410F0091512C90029A2A6 /* OGMutableAttributedString.h in Headers */,
 				4DC410F2091512CA0029A2A6 /* OGAttributedString.h in Headers */,
-				4D82DCE409BA0CAF007F03B0 /* oniguruma.h in Headers */,
+				4D82DCE409BA0CAF007F03B0 /* onigmo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1597,7 +1597,7 @@
 				4DC40EEF09150CF50029A2A6 /* OgreAttachableWindowAcceptor.h in Headers */,
 				4DC40F4609150CF50029A2A6 /* OgreKit.h in Headers */,
 				4DC40F4809150CF50029A2A6 /* OgreKit_Prefix.pch in Headers */,
-				4D82DCE309BA0CAF007F03B0 /* oniguruma.h in Headers */,
+				4D82DCE309BA0CAF007F03B0 /* onigmo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1765,23 +1765,22 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1220;
 			};
 			buildConfigurationList = 4DC40BA3091509DC0029A2A6 /* Build configuration list for PBXProject "OgreKit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
-				Spanish,
-				Romanian,
-				Italian,
-				Portuguese,
-				Dutch,
+				fr,
+				it,
+				ja,
+				ro,
 				Base,
+				pt,
+				nl,
+				de,
+				es,
 				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* OgreKit */;
@@ -2115,7 +2114,7 @@
 		4D4FC2651142BD170097043F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D4FC2661142BD170097043F /* English */,
+				4D00A9BA257C94F2000F6F83 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = SOURCE_ROOT;
@@ -2123,7 +2122,7 @@
 		4D4FC2671142BD170097043F /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B6221762D4200D0ADD4 /* Base */,
+				4D00A9AB257C94E3000F6F83 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = SOURCE_ROOT;
@@ -2131,7 +2130,7 @@
 		4DC41163091514030029A2A6 /* OgreTextFindProgressSheet.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5321762D4100D0ADD4 /* Base */,
+				4D00A99C257C94E0000F6F83 /* Base */,
 			);
 			name = OgreTextFindProgressSheet.nib;
 			path = FindPanel/Resources;
@@ -2140,15 +2139,15 @@
 		4DC41165091514030029A2A6 /* OgreAPFCLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DC41166091514030029A2A6 /* English */,
-				4DC411770915142C0029A2A6 /* Dutch */,
-				4DC4117B0915143A0029A2A6 /* French */,
-				4DC4117F091514450029A2A6 /* German */,
-				4DC41183091514510029A2A6 /* Italian */,
-				4DC411870915145D0029A2A6 /* Japanese */,
-				4DC4118B091514680029A2A6 /* Portuguese */,
-				4DC4118F091514710029A2A6 /* Romanian */,
-				4DC411930915147B0029A2A6 /* Spanish */,
+				4D00A990257C94C8000F6F83 /* fr */,
+				4D00A993257C94CC000F6F83 /* it */,
+				4D00A996257C94D0000F6F83 /* ja */,
+				4D00A999257C94D3000F6F83 /* ro */,
+				4D00A9AC257C94E5000F6F83 /* pt */,
+				4D00A9AF257C94E8000F6F83 /* nl */,
+				4D00A9B2257C94EB000F6F83 /* de */,
+				4D00A9B5257C94EE000F6F83 /* es */,
+				4D00A9BC257C94F2000F6F83 /* en */,
 			);
 			name = OgreAPFCLocalizable.strings;
 			path = FindPanel/Resources;
@@ -2157,7 +2156,7 @@
 		4DC41167091514030029A2A6 /* OgreFindResultWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5421762D4100D0ADD4 /* Base */,
+				4D00A99D257C94E0000F6F83 /* Base */,
 			);
 			name = OgreFindResultWindow.nib;
 			path = FindPanel/Resources;
@@ -2166,15 +2165,15 @@
 		4DC41169091514030029A2A6 /* OgreAdvancedFindPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DC41175091514240029A2A6 /* Dutch */,
-				4DC4117A0915143A0029A2A6 /* French */,
-				4DC4117E091514450029A2A6 /* German */,
-				4DC41182091514510029A2A6 /* Italian */,
-				4DC411860915145D0029A2A6 /* Japanese */,
-				4DC4118A091514680029A2A6 /* Portuguese */,
-				4DC4118E091514710029A2A6 /* Romanian */,
-				4DC411920915147B0029A2A6 /* Spanish */,
-				4D971B5521762D4100D0ADD4 /* Base */,
+				4D00A991257C94C8000F6F83 /* fr */,
+				4D00A994257C94CC000F6F83 /* it */,
+				4D00A997257C94D0000F6F83 /* ja */,
+				4D00A99A257C94D4000F6F83 /* ro */,
+				4D00A99E257C94E0000F6F83 /* Base */,
+				4D00A9AD257C94E5000F6F83 /* pt */,
+				4D00A9B0257C94E8000F6F83 /* nl */,
+				4D00A9B3257C94EB000F6F83 /* de */,
+				4D00A9B6257C94EE000F6F83 /* es */,
 			);
 			name = OgreAdvancedFindPanel.nib;
 			path = FindPanel/Resources;
@@ -2183,15 +2182,15 @@
 		4DC4116B091514030029A2A6 /* OgreTextFinderLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DC4116C091514030029A2A6 /* English */,
-				4DC411780915142C0029A2A6 /* Dutch */,
-				4DC4117C0915143A0029A2A6 /* French */,
-				4DC41180091514450029A2A6 /* German */,
-				4DC41184091514510029A2A6 /* Italian */,
-				4DC411880915145D0029A2A6 /* Japanese */,
-				4DC4118C091514680029A2A6 /* Portuguese */,
-				4DC41190091514710029A2A6 /* Romanian */,
-				4DC411940915147B0029A2A6 /* Spanish */,
+				4D00A992257C94C9000F6F83 /* fr */,
+				4D00A995257C94CC000F6F83 /* it */,
+				4D00A998257C94D0000F6F83 /* ja */,
+				4D00A99B257C94D4000F6F83 /* ro */,
+				4D00A9AE257C94E5000F6F83 /* pt */,
+				4D00A9B1257C94E8000F6F83 /* nl */,
+				4D00A9B4257C94EB000F6F83 /* de */,
+				4D00A9B7257C94EF000F6F83 /* es */,
+				4D00A9BD257C94F3000F6F83 /* en */,
 			);
 			name = OgreTextFinderLocalizable.strings;
 			path = FindPanel/Resources;
@@ -2200,7 +2199,7 @@
 		4DC411C7091514D70029A2A6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DC411C8091514D70029A2A6 /* English */,
+				4D00A9BE257C94F3000F6F83 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = SOURCE_ROOT;
@@ -2208,7 +2207,7 @@
 		4DC4133F09151C2D0029A2A6 /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5621762D4100D0ADD4 /* Base */,
+				4D00A99F257C94E1000F6F83 /* Base */,
 			);
 			name = MainMenu.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2216,7 +2215,7 @@
 		4DC4134109151C2E0029A2A6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DC4134209151C2E0029A2A6 /* English */,
+				4D00A9BF257C94F3000F6F83 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = SOURCE_ROOT;
@@ -2224,7 +2223,7 @@
 		4DC4135009151CA60029A2A6 /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5821762D4100D0ADD4 /* Base */,
+				4D00A9A1257C94E1000F6F83 /* Base */,
 			);
 			name = MainMenu.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2232,7 +2231,7 @@
 		4DC4135209151CA60029A2A6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DC4135309151CA60029A2A6 /* English */,
+				4D00A9B9257C94F2000F6F83 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = SOURCE_ROOT;
@@ -2240,7 +2239,7 @@
 		4DC4135409151CA60029A2A6 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DC4135509151CA60029A2A6 /* English */,
+				4D00A9B8257C94F2000F6F83 /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = SOURCE_ROOT;
@@ -2248,7 +2247,7 @@
 		4DC4135909151CC50029A2A6 /* MyTableDocumentWithCocoaBinding.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5921762D4100D0ADD4 /* Base */,
+				4D00A9A2257C94E1000F6F83 /* Base */,
 			);
 			name = MyTableDocumentWithCocoaBinding.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2256,7 +2255,7 @@
 		4DC4135C09151CD80029A2A6 /* MyTableDocument.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5B21762D4100D0ADD4 /* Base */,
+				4D00A9A4257C94E2000F6F83 /* Base */,
 			);
 			name = MyTableDocument.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2264,7 +2263,7 @@
 		4DC4135E09151CD80029A2A6 /* MyTableColumnSheet.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5C21762D4100D0ADD4 /* Base */,
+				4D00A9A5257C94E2000F6F83 /* Base */,
 			);
 			name = MyTableColumnSheet.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2272,7 +2271,7 @@
 		4DC4136209151CE50029A2A6 /* MyOutlineDocument.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5A21762D4100D0ADD4 /* Base */,
+				4D00A9A3257C94E2000F6F83 /* Base */,
 			);
 			name = MyOutlineDocument.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2280,7 +2279,7 @@
 		4DC4136509151CF40029A2A6 /* MyRTFDocument.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5D21762D4100D0ADD4 /* Base */,
+				4D00A9A6257C94E2000F6F83 /* Base */,
 			);
 			name = MyRTFDocument.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2288,7 +2287,7 @@
 		4DC4136709151CF40029A2A6 /* MyTextDocument.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5E21762D4100D0ADD4 /* Base */,
+				4D00A9A7257C94E2000F6F83 /* Base */,
 			);
 			name = MyTextDocument.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2296,7 +2295,7 @@
 		4DC4136B09151D1A0029A2A6 /* MyFindPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B6121762D4200D0ADD4 /* Base */,
+				4D00A9AA257C94E3000F6F83 /* Base */,
 			);
 			name = MyFindPanel.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2304,7 +2303,7 @@
 		4DC4136E09151D320029A2A6 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DC4136F09151D320029A2A6 /* English */,
+				4D00A9BB257C94F2000F6F83 /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = SOURCE_ROOT;
@@ -2312,7 +2311,7 @@
 		4DC4137009151D320029A2A6 /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5F21762D4200D0ADD4 /* Base */,
+				4D00A9A8257C94E3000F6F83 /* Base */,
 			);
 			name = MainMenu.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2320,7 +2319,7 @@
 		4DC4137209151D320029A2A6 /* MyDocument.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B6021762D4200D0ADD4 /* Base */,
+				4D00A9A9257C94E3000F6F83 /* Base */,
 			);
 			name = MyDocument.nib;
 			sourceTree = SOURCE_ROOT;
@@ -2328,7 +2327,7 @@
 		4DF530CE0915226200475575 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4DF530CF0915226200475575 /* English */,
+				4D00A9C0257C94F3000F6F83 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -2336,7 +2335,7 @@
 		4DF530D00915226200475575 /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4D971B5721762D4100D0ADD4 /* Base */,
+				4D00A9A0257C94E1000F6F83 /* Base */,
 			);
 			name = MainMenu.nib;
 			sourceTree = "<group>";
@@ -2353,9 +2352,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = Oniguruma;
-				SDKROOT = macosx;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX11.0.sdk";
 			};
 			name = Debug;
 		};
@@ -2366,9 +2365,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = Oniguruma;
-				SDKROOT = macosx;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX11.0.sdk";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -2378,9 +2377,9 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = Oniguruma;
-				SDKROOT = macosx;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX11.0.sdk";
 			};
 			name = Default;
 		};
@@ -2389,6 +2388,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2397,7 +2397,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "GCTest/GC Test-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -2407,7 +2408,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
-				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -2416,6 +2416,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2423,7 +2424,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "GCTest/GC Test-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -2433,7 +2435,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
-				VALID_ARCHS = x86_64;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -2443,12 +2444,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "GCTest/GC Test-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -2458,7 +2461,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = GCTest;
 				SDKROOT = macosx;
-				VALID_ARCHS = x86_64;
 			};
 			name = Default;
 		};
@@ -2483,11 +2485,11 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(LIBRARY_SEARCH_PATHS)",
-					"$(SRCROOT)/RegularExpression/oniguruma/x86_64",
+					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
 				LIBRARY_STYLE = DYNAMIC;
 				MACH_O_TYPE = mh_dylib;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x32000000,
@@ -2496,7 +2498,6 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2526,11 +2527,11 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(LIBRARY_SEARCH_PATHS)",
-					"$(SRCROOT)/RegularExpression/oniguruma/x86_64",
+					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
 				LIBRARY_STYLE = DYNAMIC;
 				MACH_O_TYPE = mh_dylib;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x32000000,
@@ -2539,7 +2540,6 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2568,11 +2568,11 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(LIBRARY_SEARCH_PATHS)",
-					"$(SRCROOT)/RegularExpression/oniguruma/x86_64",
+					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
 				LIBRARY_STYLE = DYNAMIC;
 				MACH_O_TYPE = mh_dylib;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x32000000,
@@ -2581,7 +2581,6 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2608,12 +2607,12 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2623,7 +2622,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -2646,12 +2645,12 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2660,7 +2659,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -2682,12 +2681,12 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2696,7 +2695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				SDKROOT = macosx;
 			};
 			name = Default;
@@ -2722,11 +2721,11 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(LIBRARY_SEARCH_PATHS)",
-					"$(SRCROOT)/RegularExpression/oniguruma/x86_64",
+					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
 				LIBRARY_STYLE = DYNAMIC;
 				MACH_O_TYPE = mh_dylib;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x32000000,
@@ -2735,7 +2734,6 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2765,11 +2763,11 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(LIBRARY_SEARCH_PATHS)",
-					"$(SRCROOT)/RegularExpression/oniguruma/x86_64",
+					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
 				LIBRARY_STYLE = DYNAMIC;
 				MACH_O_TYPE = mh_dylib;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x32000000,
@@ -2778,7 +2776,6 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2807,11 +2804,11 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(LIBRARY_SEARCH_PATHS)",
-					"$(SRCROOT)/RegularExpression/oniguruma/x86_64",
+					"$(SRCROOT)/RegularExpression/oniguruma/universal",
 				);
 				LIBRARY_STYLE = DYNAMIC;
 				MACH_O_TYPE = mh_dylib;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x32000000,
@@ -2820,7 +2817,6 @@
 				PRODUCT_NAME = OgreKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2834,6 +2830,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -2842,7 +2839,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpressionTest/OgreTest_Prefix.h;
 				INFOPLIST_FILE = "RegularExpressionTest/OgreTest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2852,8 +2850,8 @@
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
+				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2866,6 +2864,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -2874,7 +2873,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpressionTest/OgreTest_Prefix.h;
 				INFOPLIST_FILE = "RegularExpressionTest/OgreTest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2884,8 +2884,8 @@
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
+				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2898,6 +2898,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -2905,7 +2906,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RegularExpressionTest/OgreTest_Prefix.h;
 				INFOPLIST_FILE = "RegularExpressionTest/OgreTest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2915,8 +2917,8 @@
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = OgreTest;
+				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2929,6 +2931,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -2937,7 +2940,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FindPanelTest/OgreFindPanelTest_Prefix.h;
 				INFOPLIST_FILE = "FindPanelTest/FindPanelTest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2949,7 +2953,6 @@
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Debug;
@@ -2958,6 +2961,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -2966,7 +2970,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FindPanelTest/OgreFindPanelTest_Prefix.h;
 				INFOPLIST_FILE = "FindPanelTest/FindPanelTest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2978,7 +2983,6 @@
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Release;
@@ -2987,6 +2991,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -2994,7 +2999,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FindPanelTest/OgreFindPanelTest_Prefix.h;
 				INFOPLIST_FILE = "FindPanelTest/FindPanelTest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -3006,7 +3012,6 @@
 				PRODUCT_NAME = OgreFindPanelTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Default;
@@ -3015,6 +3020,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -3023,7 +3029,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyFindPanelExample/MyFindPanelExample_Prefix.h;
 				INFOPLIST_FILE = "MyFindPanelExample/MyFindPanelExample-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -3035,7 +3042,6 @@
 				PRODUCT_NAME = MyFindPanelExample;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Debug;
@@ -3044,6 +3050,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -3052,7 +3059,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyFindPanelExample/MyFindPanelExample_Prefix.h;
 				INFOPLIST_FILE = "MyFindPanelExample/MyFindPanelExample-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -3064,7 +3072,6 @@
 				PRODUCT_NAME = MyFindPanelExample;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Release;
@@ -3073,6 +3080,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -3080,7 +3088,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyFindPanelExample/MyFindPanelExample_Prefix.h;
 				INFOPLIST_FILE = "MyFindPanelExample/MyFindPanelExample-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -3092,7 +3101,6 @@
 				PRODUCT_NAME = MyFindPanelExample;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = "-Wmost";
 			};
 			name = Default;
@@ -3101,6 +3109,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -3109,7 +3118,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -3121,7 +3131,6 @@
 				PRODUCT_NAME = ReplaceWithAttributesTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -3134,6 +3143,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -3142,7 +3152,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -3154,7 +3165,6 @@
 				PRODUCT_NAME = ReplaceWithAttributesTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -3167,6 +3177,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -3174,7 +3185,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "ReplaceWithAttributesTest/ReplaceWithAttributesTest-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INSTALL_PATH = "$(USER_APPS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -3186,7 +3198,6 @@
 				PRODUCT_NAME = ReplaceWithAttributesTest;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
-				VALID_ARCHS = x86_64;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -3203,7 +3214,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -3226,7 +3237,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -3247,7 +3258,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";

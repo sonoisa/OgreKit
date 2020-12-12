@@ -4,7 +4,7 @@
  *
  * Creation Date: Aug 30 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -18,13 +18,13 @@
 #ifndef HAVE_CONFIG_H
 #	define HAVE_CONFIG_H
 #endif
-#import <OgreKit/oniguruma.h>
+#import <OgreKit/onigmo.h>
 
 //#define DEBUG_OGRE
 
 /* constants */
 // version string
-#define OgreVersionString	@"3.0.2"
+#define OgreVersionString	@"2.1.9"
 
 // compile time options:
 extern const unsigned	OgreNoneOption;
@@ -183,9 +183,9 @@ extern NSString	* const OgreException;
 - (NSString*)escapeCharacter;
 
 // capture groupの数
-- (NSUInteger)numberOfGroups;
+- (unsigned)numberOfGroups;
 // named groupの数
-- (NSUInteger)numberOfNames;
+- (unsigned)numberOfNames;
 // nameの配列
 // named groupを使用していない場合はnilを返す。
 - (NSArray*)names;
@@ -205,7 +205,7 @@ extern NSString	* const OgreException;
 
 // OgreKitのバージョン文字列を返す
 + (NSString*)version;
-// onigurumaのバージョン文字列を返す
+// oniguruma/onigmoのバージョン文字列を返す
 + (NSString*)onigurumaVersion;
 
 // description
@@ -393,7 +393,7 @@ extern NSString	* const OgreException;
 	options:(unsigned)searchOptions 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement;
+	numberOfReplacement:(unsigned*)numberOfReplacement;
 
 - (NSAttributedString*)replaceAttributedString:(NSAttributedString*)targetString 
 	withAttributedString:(NSAttributedString*)replaceString 
@@ -406,14 +406,14 @@ extern NSString	* const OgreException;
 	options:(unsigned)searchOptions 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement;
+	numberOfReplacement:(unsigned*)numberOfReplacement;
 
 - (NSObject<OGStringProtocol>*)replaceOGString:(NSObject<OGStringProtocol>*)targetString 
 	withOGString:(NSObject<OGStringProtocol>*)replaceString 
 	options:(unsigned)searchOptions 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement;
+	numberOfReplacement:(unsigned*)numberOfReplacement;
 
 // デリゲートに処理を委ねた置換
 /*
@@ -589,13 +589,13 @@ extern NSString	* const OgreException;
 /*************
  * Utilities *
  *************/
-// OgreSyntaxとNSIntegerの相互変換
-+ (NSInteger)intValueForSyntax:(OgreSyntax)syntax;
-+ (OgreSyntax)syntaxForIntValue:(NSInteger)intValue;
+// OgreSyntaxとintの相互変換
++ (int)intValueForSyntax:(OgreSyntax)syntax;
++ (OgreSyntax)syntaxForIntValue:(int)intValue;
 // OgreSyntaxを表す文字列
 + (NSString*)stringForSyntax:(OgreSyntax)syntax;
 // Optionsを表す文字列配列
-+ (NSArray*)stringsForOptions:(OnigOptionType)options;
++ (NSArray*)stringsForOptions:(unsigned)options;
 
 // 文字列を正規表現で安全な文字列に変換する。(@"|().?*+{}^$[]-&#:=!<>@\\"を退避する)
 + (NSString*)regularizeString:(NSString*)string;

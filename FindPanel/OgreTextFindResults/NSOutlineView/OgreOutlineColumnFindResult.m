@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 07 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -43,7 +43,7 @@
 
 - (void)endAddition
 {
-    int i = 0;
+    NSInteger i = 0;
     while (i < [_components count]) {
         if ([[_components objectAtIndex:i] numberOfChildrenInSelection:NO] == 0) {
             [_components removeObjectAtIndex:i];
@@ -80,7 +80,7 @@
     return [_components count];
 }
 
-- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection 
+- (id)childAtIndex:(NSUInteger)index inSelection:(BOOL)inSelection
 {
     return [_components objectAtIndex:index];
 }

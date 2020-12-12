@@ -4,7 +4,7 @@
  *
  * Creation Date: Jun 05 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -165,6 +165,7 @@
             concreteIndex = index;
         } else {
             if (index >= [selectedColumnIndexes count]) return nil;
+            
             NSUInteger  *indexes = (NSUInteger*)NSZoneMalloc([self zone], sizeof(NSUInteger) * [selectedColumnIndexes count]);
             if (indexes == NULL) {
                 // エラー
@@ -176,7 +177,7 @@
         }
     }
     
-    column = (OgreTableColumn*)[[_tableView tableColumns] objectAtIndex:concreteIndex];
+    column = [[_tableView tableColumns] objectAtIndex:concreteIndex];
     tableColumnAdapter = [[[OgreTableColumnAdapter alloc] initWithTableColumn:column] autorelease];
     [tableColumnAdapter setParent:self];
     [tableColumnAdapter setIndex:index];
@@ -194,7 +195,7 @@
 #ifdef DEBUG_OGRE_FIND_PANEL
 	NSLog(@"  -componentEnumeratorInSelection: of %@", [self className]);
 #endif
-    NSInteger   count = [_tableView numberOfSelectedColumns];
+    NSInteger count = [_tableView numberOfSelectedColumns];
     OgreTextFindComponentEnumerator *enumerator;
     if ([self isReversed]) {
         enumerator = [OgreTextFindReverseComponentEnumerator alloc];

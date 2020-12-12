@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 01 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -25,7 +25,7 @@
 - (id)initWithRegion:(OnigRegion*)region 
 	index:(NSUInteger)anIndex
 	enumerator:(OGRegularExpressionEnumerator*)enumerator
-	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch 
+	terminalOfLastMatch:(NSUInteger)terminalOfLastMatch
 {
 #ifdef DEBUG_OGRE
 	NSLog(@"-initWithRegion: of %@", [self className]);

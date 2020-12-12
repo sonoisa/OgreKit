@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 26 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -39,7 +39,7 @@
 	OGRegularExpression *_regex;			// regular expression
 	OGReplaceExpression *_repex;			// replace expression
 	NSColor				*_highlightColor;	// highlight color
-	OnigOptionType		_searchOptions;		// search option
+	unsigned			_searchOptions;		// search option
 	BOOL				_inSelection;		// find scope
 	BOOL				_asynchronous;		// synchronous or asynchronous 
 	SEL					_didEndSelector;	// selector for sending a finish message
@@ -52,9 +52,9 @@
 	/* state */
 	volatile BOOL		_terminated;		// two-phase termination
 	BOOL				_exceptionRaised;
-	unsigned			_numberOfMatches;	// number of matches
+	NSUInteger			_numberOfMatches;	// number of matches
 	OgreTextFindResult	*_textFindResult;	// result
-	NSInteger			_numberOfDoneLeaves,
+	NSInteger           _numberOfDoneLeaves,
 						_numberOfTotalLeaves;
 	
 	NSDate				*_processTime;		// process time
@@ -98,7 +98,7 @@
 - (NSTimeInterval)processTime;
 
 /* Protected methods */
-- (unsigned)numberOfMatches;		 // number of matches
+- (NSUInteger)numberOfMatches;		 // number of matches
 - (void)incrementNumberOfMatches;	// _numberofMatches++
 - (void)finishingUp:(id)sender;
 - (void)exceptionRaised:(NSException*)exception;

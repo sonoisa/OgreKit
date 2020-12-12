@@ -4,7 +4,7 @@
  *
  * Creation Date: May 20 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -28,13 +28,13 @@
     [super release];
 	NSTextView	*textView = (NSTextView*)aTextView;
     if (![textView isRichText]) {
-		return (OgreTextViewAdapter*)[[OgreTextViewPlainAdapter alloc] initWithTarget:textView];
+		return [[OgreTextViewPlainAdapter alloc] initWithTarget:textView];
 	}
     if (![textView importsGraphics]) {
-		return (OgreTextViewAdapter*)[[OgreTextViewRichAdapter alloc] initWithTarget:textView];
+		return [[OgreTextViewRichAdapter alloc] initWithTarget:textView];
 	}
 	
-    return (OgreTextViewAdapter*)[[OgreTextViewGraphicAllowedAdapter alloc] initWithTarget:textView];
+    return [[OgreTextViewGraphicAllowedAdapter alloc] initWithTarget:textView];
 }
 
 - (OgreTextFindLeaf*)buildStackForSelectedLeafInThread:(OgreTextFindThread*)aThread

@@ -4,7 +4,7 @@
  *
  * Creation Date: Aug 30 2004
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2004-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2004-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -42,10 +42,7 @@
 /* notifications */
 - (void)windowWillMove:(id)notification
 {
-//    [[self childWindows] makeObjectsPerformSelector:@selector(setDragging:) withObject:NO];
-    [[self childWindows] enumerateObjectsUsingBlock:^(__kindof NSWindow * _Nonnull childWindow, NSUInteger idx, BOOL * _Nonnull stop) {
-        [childWindow setDragging:NO];
-    }];
+	[[self childWindows] makeObjectsPerformSelector:@selector(setDragging:) withObject:NO];
 }
 
 - (void)didAttachWindow:(NSWindow<OgreAttachableWindowAccepteeProtocol>*)acceptee

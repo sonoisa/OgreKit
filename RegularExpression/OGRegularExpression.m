@@ -4,7 +4,7 @@
  *
  * Creation Date: Aug 30 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2018 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -17,7 +17,7 @@
 #ifndef HAVE_CONFIG_H
 # define HAVE_CONFIG_H
 #endif
-#import <OgreKit/oniguruma.h>
+#import <OgreKit/onigmo.h>
 
 #import <OgreKit/OGRegularExpressionPrivate.h>
 #import <OgreKit/OGRegularExpressionMatchPrivate.h>
@@ -43,17 +43,17 @@ const unsigned	OgreCaptureGroupOption		= ONIG_OPTION_CAPTURE_GROUP;
 // (ONIG_OPTION_POSIX_REGIONは使用しない)
 // OgreDelimitByWhitespaceOptionはOgreSimpleMatchingSyntaxの使用時に、空白文字を単語の区切りとみなすかどうか
 // 例: @"AAA BBB CCC" -> @"(AAA)|(BBB)|(CCC)"
-const unsigned	OgreDelimitByWhitespaceOption	= ONIG_OPTION_POSIX_REGION;
+const unsigned	OgreDelimitByWhitespaceOption	= ONIG_OPTION_NOTBOS;
 
 // search time options:
 const unsigned	OgreNotBOLOption			= ONIG_OPTION_NOTBOL;
 const unsigned	OgreNotEOLOption			= ONIG_OPTION_NOTEOL;
-const unsigned	OgreFindEmptyOption			= ONIG_OPTION_POSIX_REGION << 1;
+const unsigned	OgreFindEmptyOption			= ONIG_OPTION_NOTBOS << 1;
 
 // replace time options:
-const unsigned	OgreReplaceWithAttributesOption	= ONIG_OPTION_POSIX_REGION << 2;
-const unsigned	OgreReplaceFontsOption		= ONIG_OPTION_POSIX_REGION << 3;
-const unsigned	OgreMergeAttributesOption	= ONIG_OPTION_POSIX_REGION << 4;
+const unsigned	OgreReplaceWithAttributesOption	= ONIG_OPTION_NOTBOS << 2;
+const unsigned	OgreReplaceFontsOption		= ONIG_OPTION_NOTBOS << 3;
+const unsigned	OgreMergeAttributesOption	= ONIG_OPTION_NOTBOS << 4;
 
 // exception name
 NSString * const	OgreException = @"OGRegularExpressionException";
@@ -409,7 +409,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	syntax:(OgreSyntax)syntax 
 	escapeCharacter:(NSString*)character
 {
-	int 		    r;
+	int 			r;
     NSUInteger      length;
 	unichar         *UTF16Str;
 	OnigErrorInfo	einfo;
@@ -909,7 +909,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	options:(unsigned)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement
+	numberOfReplacement:(unsigned*)numberOfReplacement 
 {
 	return [[self replaceOGString:[OGPlainString stringWithString:targetString] 
 		withOGString:[OGPlainString stringWithString:replaceString] 
@@ -924,7 +924,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	options:(unsigned)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement
+	numberOfReplacement:(unsigned*)numberOfReplacement 
 {
 	return [[self replaceOGString:[OGAttributedString stringWithAttributedString:targetString] 
 		withOGString:[OGAttributedString stringWithAttributedString:replaceString]  
@@ -939,7 +939,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	options:(unsigned)options 
 	range:(NSRange)replaceRange 
 	replaceAll:(BOOL)replaceAll
-	numberOfReplacement:(NSUInteger*)numberOfReplacement
+	numberOfReplacement:(unsigned*)numberOfReplacement 
 {
 	OGReplaceExpression	*repex = [[OGReplaceExpression alloc] initWithOGString:replaceString 
 		options:options 
@@ -1598,13 +1598,13 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // capture groupの数
-- (NSUInteger)numberOfGroups
+- (unsigned)numberOfGroups
 {
     return onig_number_of_captures(_regexBuffer);
 }
 
 // name groupの数
-- (NSUInteger)numberOfNames
+- (unsigned)numberOfNames
 {
 	return onig_number_of_names(_regexBuffer);
 }
@@ -1616,7 +1616,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 }
 
 // OgreSyntaxとintの相互変換
-+ (NSInteger)intValueForSyntax:(OgreSyntax)syntax
++ (int)intValueForSyntax:(OgreSyntax)syntax
 {
 	if(syntax == OgreSimpleMatchingSyntax) return 0;
 	if(syntax == OgrePOSIXBasicSyntax) return 1;
@@ -1632,7 +1632,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	return -1;	// dummy
 }
 
-+ (OgreSyntax)syntaxForIntValue:(NSInteger)intValue
++ (OgreSyntax)syntaxForIntValue:(int)intValue
 {
 	if(intValue == 0) return OgreSimpleMatchingSyntax;
 	if(intValue == 1) return OgrePOSIXBasicSyntax;
@@ -1698,16 +1698,16 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 
 	NSMutableString	*regularizedString = [NSMutableString stringWithString:string];
 	
-	NSUInteger	counterOfAutorelease = 0;
+	unsigned	counterOfAutorelease = 0;
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
-	NSUInteger  strlen;
+	NSUInteger	strlen;
 	NSRange 	searchRange, matchRange;
 	strlen = [regularizedString length];
 	searchRange = NSMakeRange(0, strlen);
 	
 	/* @"|().?*+{}^$[]-&#:=!<>@"を退避する */
-    while ( (void)(matchRange = [regularizedString rangeOfCharacterFromSet:OgrePrivateUnsafeCharacterSet options:0 range:searchRange]),
+	while ( matchRange = [regularizedString rangeOfCharacterFromSet:OgrePrivateUnsafeCharacterSet options:0 range:searchRange], 
 			matchRange.length > 0 ) {
 
 		[regularizedString insertString:OgreBackslashCharacter atIndex:matchRange.location];
@@ -1837,7 +1837,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	}
 	
 	/* 改行コードを置換する */
-	NSUInteger			counterOfAutorelease = 0;
+	unsigned			counterOfAutorelease = 0;
 	NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
 	
 	NSUInteger	strlen = [aString length],
@@ -1845,7 +1845,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 				copyLocation = 0;
 	NSRange 	searchRange = NSMakeRange(0, strlen), 
 				matchRange;
-    while ( (void)(matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange]),
+	while ( matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange], 
 			matchRange.length > 0 ) {
 		// マッチした部分より前をコピー
 		matchLocation = matchRange.location;
@@ -1893,7 +1893,7 @@ static int namedGroupCallback(const unsigned char *name, const unsigned char *na
 	/* search newline characters */
 	NSUInteger	strlen = [aString length], matchLocation;
 	NSRange 	searchRange = NSMakeRange(0, strlen), matchRange;
-    if ( (void)(matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange]),
+	if ( matchRange = [aString rangeOfCharacterFromSet:OgrePrivateNewlineCharacterSet options:0 range:searchRange], 
 			matchRange.length > 0 ) {
 		matchLocation = matchRange.location;
 		aCharacter = [aString substringWithRange:NSMakeRange(matchLocation, 1)];

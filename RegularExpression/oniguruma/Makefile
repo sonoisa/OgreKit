@@ -1,32 +1,59 @@
-ONIGURUMA_VERSION=Onigmo-Onigmo-5.13.5
+ONIGURUMA_VERSION=Onigmo-Onigmo-6.2.0
 OS_VERSION=$(shell uname -r)
+BUILD_ARCH=$(shell uname -m)
 
+UNIVERSAL_DIR=universal
 INTEL_64_DIR=x86_64
+ARM_64_DIR=arm64
 
-INTEL_64_CONFIGURE_FLAGS=--disable-dependency-tracking --host=x86_64-apple-darwin$(OS_VERSION) --build=x86_64-apple-darwin$(OS_VERSION)
+INTEL_64_CONFIGURE_FLAGS=--disable-dependency-tracking --host=x86_64-apple-darwin$(OS_VERSION) --build=$(BUILD_ARCH)-apple-darwin$(OS_VERSION)
+ARM_64_CONFIGURE_FLAGS=--disable-dependency-tracking --host=arm64-apple-darwin$(OS_VERSION) --build=$(BUILD_ARCH)-apple-darwin$(OS_VERSION)
 
-INTEL_64_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+INTEL_64_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk
 INTEL_64_CC=/usr/bin/gcc -arch x86_64
 
-ONIG_TARGET=libonig.la
+ARM_64_SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk
+ARM_64_CC=/usr/bin/gcc -arch arm64
+
+ONIG_TARGET=libonigmo.la
 LIBS_DIR=.libs
-ONIGURUMA=libonig.a
+ONIGURUMA=libonigmo.a
 
-all: $(INTEL_64_DIR)/$(ONIGURUMA)
+install: $(UNIVERSAL_DIR)/$(ONIGURUMA)
 
-$(INTEL_64_DIR)/$(ONIGURUMA): $(INTEL_64_DIR) $(INTEL_64_DIR)/$(ONIG_TARGET)
-	lipo -create $(INTEL_64_DIR)/$(LIBS_DIR)/$(@F) -output $(INTEL_64_DIR)/$(@F)
+all: $(UNIVERSAL_DIR)/$(ONIGURUMA)
+
+$(UNIVERSAL_DIR)/$(ONIGURUMA): $(UNIVERSAL_DIR) $(ARM_64_DIR)/$(ONIG_TARGET) $(INTEL_64_DIR)/$(ONIG_TARGET)
+	lipo -create $(ARM_64_DIR)/$(LIBS_DIR)/$(@F) $(INTEL_64_DIR)/$(LIBS_DIR)/$(@F) -output $(UNIVERSAL_DIR)/$(@F)
 
 $(INTEL_64_DIR)/$(ONIG_TARGET): $(INTEL_64_DIR)
 	cd $(@D);\
+	./autogen.sh;\
 	CC="$(INTEL_64_CC)" ./configure $(INTEL_64_CONFIGURE_FLAGS);\
-	perl -pi -e 's@CFLAGS = -isysroot /Developer/SDKs/MacOSX10.7.sdk -arch x86_64@CFLAGS = -isysroot $(INTEL_SDK) -arch x86_64@' Makefile;\
+	perl -pi -e 's@CFLAGS = -g -O2@CFLAGS = -g -O2 -isysroot $(INTEL_64_SDK)@' Makefile;\
 	perl -pi -e 's@-dynamiclib@-dynamiclib -arch x86_64@g' libtool;\
+	make $(@F)
+
+$(ARM_64_DIR)/$(ONIG_TARGET): $(ARM_64_DIR)
+	cd $(@D);\
+	./autogen.sh;\
+	CC="$(ARM_64_CC)" ./configure $(ARM_64_CONFIGURE_FLAGS);\
+	perl -pi -e 's@CFLAGS = -g -O2@CFLAGS = -g -O2 -isysroot $(ARM_64_SDK)@' Makefile;\
+	perl -pi -e 's@-dynamiclib@-dynamiclib -arch arm64@g' libtool;\
 	make $(@F)
 
 $(INTEL_64_DIR):
 	unzip $(ONIGURUMA_VERSION).zip
 	mv $(ONIGURUMA_VERSION) $@
 
+$(ARM_64_DIR):
+	unzip $(ONIGURUMA_VERSION).zip
+	mv $(ONIGURUMA_VERSION) $@
+
+$(UNIVERSAL_DIR):
+	mkdir $@
+
 clean:
 	rm -rf $(INTEL_64_DIR)
+	rm -rf $(ARM_64_DIR)
+	rm -rf $(UNIVERSAL_DIR)

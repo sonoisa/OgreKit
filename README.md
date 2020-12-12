@@ -7,6 +7,6 @@
 * **English Site:** http://sonoisa.github.com/ogrekit/About_%28English%29.html
 
 
-# Downoad
+# Download
 
 * Framework binary: http://sonoisa.github.io/ogrekit/Downloads_files/OgreKit_Release_2.1.9.zip

@@ -53,7 +53,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="outline" editable="NO" width="385.79998779296875" minWidth="80.115997314453125" maxWidth="1000" id="7">
+                                        <tableColumn identifier="outline" editable="NO" width="356.79998779296875" minWidth="80.115997314453125" maxWidth="1000" id="7">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Found String">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,7 +81,7 @@
                             <rect key="frame" x="447" y="18" width="16" height="191"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <tableHeaderView key="headerView" id="34">
+                        <tableHeaderView key="headerView" wantsLayer="YES" id="34">
                             <rect key="frame" x="0.0" y="0.0" width="462" height="17"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>

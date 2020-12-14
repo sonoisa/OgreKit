@@ -492,7 +492,7 @@
                 <outlet property="delegate" destination="242" id="445"/>
                 <outlet property="initialFirstResponder" destination="446" id="470"/>
             </connections>
-            <point key="canvasLocation" x="139" y="110"/>
+            <point key="canvasLocation" x="23" y="33"/>
         </window>
         <drawer preferredEdge="minX" leadingOffset="5" trailingOffset="5" id="39" userLabel="MoreOptionsDrawer">
             <size key="contentSize" width="322" height="271"/>

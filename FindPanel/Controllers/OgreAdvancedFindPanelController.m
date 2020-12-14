@@ -140,8 +140,10 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
     [self disableAutomaticSubstitutions:replaceTextView];
     
     // to support darkmode
-    findTextView.usesAdaptiveColorMappingForDarkAppearance = YES;
-    replaceTextView.usesAdaptiveColorMappingForDarkAppearance = YES;
+    if (@available(macOS 10.14, *)) {
+        findTextView.usesAdaptiveColorMappingForDarkAppearance = YES;
+        replaceTextView.usesAdaptiveColorMappingForDarkAppearance = YES;
+    }
 
     // setup the default font size of the Find/Replace text view
     [self setDefaultFontSize:findTextView];

@@ -67,6 +67,9 @@
 	
 	message = OgreTextFinderLocalizedString(@"Find String: %@");
 	[findStringField setStringValue:[NSString stringWithFormat:message, [_textFindResult findString]]];
+    
+    // 検索パネルらしい振る舞いをさせる
+    [window setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorTransient | NSWindowCollectionBehaviorIgnoresCycle | NSWindowCollectionBehaviorFullScreenAuxiliary];
 }
 
 - (void)show

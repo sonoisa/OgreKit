@@ -107,6 +107,7 @@
 - (void)avoidEmptySelection;
 - (void)setStartFromCursor;
 - (IBAction)toggleStyleOptions:(id)sender;
+- (IBAction)changeWithStylesOption:(id)sender;
 
 /* delegate methods of OgreAdvancedFindPanel */
 - (void)findPanelFlagsChanged:(NSUInteger)modifierFlags;

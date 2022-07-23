@@ -171,9 +171,12 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 // setup the default font size of the Find or Replace text view
 - (void)setDefaultFontSize:(NSTextView*)textView
 {
-    NSFont *font = [textView font];
-    font = [NSFont fontWithDescriptor:[font fontDescriptor] size:18];
-    [textView setFont:font];
+//    NSFont *font = [textView font];
+//    font = [NSFont fontWithDescriptor:[font fontDescriptor] size:18];
+//    [textView setFont:font];
+    
+    NSFont  *defaultFont = [self defaultFont];
+    [textView setFont:defaultFont];
 }
 
 // disable Automatic Substitution Features
@@ -210,7 +213,32 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 - (void)restoreHistory:(NSDictionary*)history
 {
 	if (history == nil) return;
-	
+
+    id    anObject = [history objectForKey:OgreAFPCOptionsKey];
+    if (anObject != nil) {
+        unsigned    options = [anObject unsignedIntValue];
+        
+        [self setSingleLineOption          : ((options & OgreSingleLineOption) != 0)];
+        [self setMultilineOption           : ((options & OgreMultilineOption) != 0)];
+        [self setIgnoreCaseOption          : ((options & OgreIgnoreCaseOption) != 0)];
+        [self setExtendOption              : ((options & OgreExtendOption) != 0)];
+        [self setFindLongestOption         : ((options & OgreFindLongestOption) != 0)];
+        [self setFindNotEmptyOption        : ((options & OgreFindNotEmptyOption) != 0)];
+        [self setFindEmptyOption           : ((options & OgreFindEmptyOption) != 0)];
+        [self setNegateSingleLineOption    : ((options & OgreNegateSingleLineOption) != 0)];
+        [self setCaptureGroupOption        : ((options & OgreCaptureGroupOption) != 0)];
+        [self setDontCaptureGroupOption    : ((options & OgreDontCaptureGroupOption) != 0)];
+        [self setDelimitByWhitespaceOption : ((options & OgreDelimitByWhitespaceOption) != 0)];
+        [self setNotBeginOfLineOption      : ((options & OgreNotBOLOption) != 0)];
+        [self setNotEndOfLineOption        : ((options & OgreNotEOLOption) != 0)];
+        [self setReplaceWithStylesOption   : ((options & OgreReplaceWithAttributesOption) != 0)];
+        [self setReplaceFontsOption        : ((options & OgreReplaceFontsOption) != 0)];
+        [self setMergeStylesOption         : ((options & OgreMergeAttributesOption) != 0)];
+        
+        // Make replaceTextView rich text only when the replaceWithStylesOption is enabled.
+        [self setRichText:[self replaceWithStylesOption] ofTextView:replaceTextView];
+    }
+
 	NSAutoreleasePool	*pool;
 	unsigned			countOfAutorelease = 0;
 	
@@ -412,28 +440,6 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		[pool release];
 	} else {
 		//[replaceTextView setString:@""];
-	}
-	
-	id	anObject = [history objectForKey:OgreAFPCOptionsKey];
-	if (anObject != nil) {
-		unsigned	options = [anObject unsignedIntValue];
-		
-		[self setSingleLineOption          : ((options & OgreSingleLineOption) != 0)];
-		[self setMultilineOption           : ((options & OgreMultilineOption) != 0)];
-		[self setIgnoreCaseOption          : ((options & OgreIgnoreCaseOption) != 0)];
-		[self setExtendOption              : ((options & OgreExtendOption) != 0)];
-		[self setFindLongestOption         : ((options & OgreFindLongestOption) != 0)];
-		[self setFindNotEmptyOption        : ((options & OgreFindNotEmptyOption) != 0)];
-		[self setFindEmptyOption           : ((options & OgreFindEmptyOption) != 0)];
-		[self setNegateSingleLineOption    : ((options & OgreNegateSingleLineOption) != 0)];
-		[self setCaptureGroupOption        : ((options & OgreCaptureGroupOption) != 0)];
-		[self setDontCaptureGroupOption    : ((options & OgreDontCaptureGroupOption) != 0)];
-		[self setDelimitByWhitespaceOption : ((options & OgreDelimitByWhitespaceOption) != 0)];
-		[self setNotBeginOfLineOption      : ((options & OgreNotBOLOption) != 0)];
-		[self setNotEndOfLineOption        : ((options & OgreNotEOLOption) != 0)];
-		[self setReplaceWithStylesOption   : ((options & OgreReplaceWithAttributesOption) != 0)];
-		[self setReplaceFontsOption        : ((options & OgreReplaceFontsOption) != 0)];
-		[self setMergeStylesOption         : ((options & OgreMergeAttributesOption) != 0)];
 	}
 	
 	anObject = [history objectForKey:OgreAFPCSyntaxKey];
@@ -723,6 +729,9 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	// replace
 	[textStorage replaceCharactersInRange:oldRange withAttributedString:findString];
+    
+    // adjust style
+    [self setDefaultFontSize:findTextView];
 }
 
 - (void)setReplaceString:(NSAttributedString*)attrString
@@ -747,6 +756,9 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	// replace
 	[textStorage replaceCharactersInRange:oldRange withAttributedString:replaceString];
+    
+    // adjust style
+    [self setRichText:[self replaceWithStylesOption] ofTextView:replaceTextView];
 }
 
 - (void)undoableReplaceCharactersInRange:(NSRange)oldRange 
@@ -883,6 +895,11 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 		[findReplaceTextBox setFrameSize:newSize];
 	}
 	[findPanel display];
+}
+
+- (IBAction)changeWithStylesOption:(id)sender
+{
+    [self setRichText:[self replaceWithStylesOption] ofTextView:replaceTextView];
 }
 
 - (IBAction)showFindPanel:(id)sender
@@ -1319,8 +1336,18 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	NSAttributedString	*selectedAttrString = [textFinder selectedAttributedString];
 	if (selectedAttrString != nil) {
-		[[findTextView textStorage] setAttributedString:selectedAttrString];
-		//if (sender != self) [self showFindPanel:sender];
+        [findTextView setString:[selectedAttrString string]];
+        [findTextView didChangeText];
+
+//        NSTextStorage   *textStorage = [findTextView textStorage];
+//        [textStorage beginEditing];
+//        [textStorage replaceCharactersInRange:NSMakeRange(0, [textStorage length])
+//                                   withString:[selectedAttrString string]];
+//        [self setDefaultFontSize:findTextView];
+//        [textStorage endEditing];
+//        [findTextView didChangeText];
+        
+        //if (sender != self) [self showFindPanel:sender];
 	} else {
 		NSBeep();
 	}
@@ -1336,7 +1363,18 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	
 	NSAttributedString	*selectedAttrString = [textFinder selectedAttributedString];
 	if (selectedAttrString != nil) {
-		[[replaceTextView textStorage] setAttributedString:selectedAttrString];
+        if ([self replaceWithStylesOption]) {
+            // rich text
+            NSTextStorage   *textStorage = [replaceTextView textStorage];
+            [textStorage beginEditing];
+            [textStorage setAttributedString:selectedAttrString];
+            [textStorage endEditing];
+        } else {
+            // plain text
+            [replaceTextView setString:[selectedAttrString string]];
+        }
+        
+        [replaceTextView didChangeText];
 		//if (sender != self) [self showFindPanel:sender];
 	} else {
 		NSBeep();
@@ -1366,6 +1404,7 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
 	} else {
 		[self setReplaceString:newString];
 	}
+    
     [self setDefaultFontSize:replaceTextView];
 }
 
@@ -1716,5 +1755,75 @@ static NSString	*OgreAFPCAttributedReplaceHistoryKey = @"AFPC Attributed Replace
     [self findPanelFlagsChanged:0]; // release key
 }
 
+- (NSFont*)defaultFont
+{
+    NSFont  *plainFont = [NSFont userFixedPitchFontOfSize:18];
+    return plainFont;
+}
+
+- (NSDictionary*)defaultTextAttributes
+{
+    NSMutableDictionary *textAttributes = [[[NSMutableDictionary alloc] initWithCapacity:2] autorelease];
+    NSFont  *defaultFont = [self defaultFont];
+    [textAttributes setObject:defaultFont forKey:NSFontAttributeName];
+    return textAttributes;
+}
+
+- (void)removeAttachmentsFrom:(NSTextView*)textView
+{
+    NSTextStorage   *attrString = [textView textStorage];
+    NSUInteger      loc = 0;
+    NSUInteger      end = [attrString length];
+    
+    [attrString beginEditing];
+    while (loc < end) {
+        NSRange attachmentRange;
+        NSTextAttachment    *attachment = [attrString attribute:NSAttachmentAttributeName
+                                                        atIndex:loc
+                                          longestEffectiveRange:&attachmentRange
+                                                        inRange:NSMakeRange(loc, end - loc)];
+        
+        if (attachment) {
+            unichar ch = [[attrString string] characterAtIndex:loc];
+            if (ch == NSAttachmentCharacter) {
+                if ([textView shouldChangeTextInRange:NSMakeRange(loc, 1) replacementString:@""]) {
+                    [attrString replaceCharactersInRange:NSMakeRange(loc, 1) withString:@""];
+                    [textView didChangeText];
+                }
+                end = [attrString length];
+            } else {
+                loc++;
+            }
+        } else {
+            loc = NSMaxRange(attachmentRange);
+        }
+    }
+    [attrString endEditing];
+}
+
+- (void)setRichText:(BOOL)isRichText ofTextView:(NSTextView*)textView
+{
+    if (!isRichText) {
+        [self removeAttachmentsFrom:textView];
+    }
+
+    [textView setRichText:isRichText];
+    [textView setImportsGraphics:isRichText];
+    [textView setDrawsBackground:YES];
+    if (!isRichText) {
+        [textView setBackgroundColor:[NSColor textBackgroundColor]];
+    }
+    [textView setUsesRuler:NO];
+    
+    if (!isRichText) {
+        NSDictionary    *textAttributes = [self defaultTextAttributes];
+        NSUInteger  textLength = [[textView textStorage] length];
+        if (textLength > 0) {
+            [[textView textStorage] setAttributes:textAttributes
+                                            range:NSMakeRange(0, textLength)];
+        }
+        [textView setTypingAttributes:textAttributes];
+    }
+}
 
 @end

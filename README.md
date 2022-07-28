@@ -9,4 +9,4 @@
 
 # Download
 
-* Framework binary: http://sonoisa.github.io/ogrekit/Downloads_files/OgreKit_Release_2.1.11.zip
+* Framework binary: http://sonoisa.github.io/ogrekit/Downloads_files/OgreKit_Release_2.1.12.zip

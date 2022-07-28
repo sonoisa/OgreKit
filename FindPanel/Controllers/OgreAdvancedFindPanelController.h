@@ -4,7 +4,7 @@
  *
  * Creation Date: Sep 14 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2022 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -38,7 +38,7 @@
 	NSMutableArray			*_replaceHistory;
 	IBOutlet NSPopUpButton	*findPopUpButton;
 	IBOutlet NSPopUpButton	*replacePopUpButton;
-	
+    
 	BOOL					singleLineOption;
 	BOOL					multilineOption;
 	BOOL					ignoreCaseOption;

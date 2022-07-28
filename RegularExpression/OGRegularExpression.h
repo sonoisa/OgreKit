@@ -4,7 +4,7 @@
  *
  * Creation Date: Aug 30 2003
  * Author: Isao Sonobe <sonoisa@gmail.com>
- * Copyright: Copyright (c) 2003-2020 Isao Sonobe, All rights reserved.
+ * Copyright: Copyright (c) 2003-2022 Isao Sonobe, All rights reserved.
  * License: OgreKit License
  *
  * Encoding: UTF8
@@ -24,7 +24,7 @@
 
 /* constants */
 // version string
-#define OgreVersionString	@"2.1.11"
+#define OgreVersionString	@"2.1.12"
 
 // compile time options:
 extern const unsigned	OgreNoneOption;
